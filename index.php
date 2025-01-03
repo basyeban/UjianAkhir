@@ -60,7 +60,7 @@
   <header class="header" data-header>
     <div class="container">
 
-      <a href="index.html" class="logo">
+      <a href="index.php" class="logo">
         <img src="./assets/images/logo.png" width="136" height="46" alt="Doclab home">
       </a>
 
@@ -68,7 +68,7 @@
 
         <div class="navbar-top">
 
-          <a href="index.html" class="logo">
+          <a href="index.php" class="logo">
             <img src="./assets/images/logo.png" width="136" height="46" alt="Doclab home">
           </a>
 
@@ -637,24 +637,23 @@
 
         <div class="footer-list" data-reveal="bottom">
 
-          <p class="headline-sm footer-list-title">About Us</p>
+          <p class="headline-sm footer-list-title">Kontak</p>
 
-          <p class="text">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-          </p>
-
-          <address class="address">
-            <ion-icon name="map-outline"></ion-icon>
-
-            <span class="text">
-              Jl. Kapten Mulyadi No.249, Ps. Kliwon, Kec. Ps. Kliwon, <br>
-              Kota Surakarta, Jawa Tengah 57118 
+            <span class="text"></span>
+              Telepon IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a>
             </span>
-          </address>
+
+            <span class="text"></span>
+              Telepon IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a>
+            </span>
+
+            <span class="text"></span>
+              WhatsApp HomeVisit : <a href="https://wa.me/081326883336" class="contact-link">0813 2688 3336</a>
+            </span>
 
         </div>
 
-        <ul class="footer-list" data-reveal="bottom">
+        <!-- <ul class="footer-list" data-reveal="bottom">
 
           <li>
             <p class="headline-sm footer-list-title">Services</p>
@@ -684,7 +683,7 @@
             <a href="#" class="text footer-link">Contact Us</a>
           </li>
 
-        </ul>
+        </ul> -->
 
         <ul class="footer-list" data-reveal="bottom">
 
@@ -720,17 +719,20 @@
 
         <div class="footer-list" data-reveal="bottom">
 
-          <p class="headline-sm footer-list-title">Subscribe</p>
+          <p class="headline-sm footer-list-title">Lokasi</p>
 
           <form action="" class="footer-form">
-            <input type="email" name="email" placeholder="Email" class="input-field title-lg">
+          <span class="text">
+              Jl. Kapten Mulyadi No.249, Ps. Kliwon, Kec. Ps. Kliwon, <br>
+              Kota Surakarta, Jawa Tengah 57118 
+            </span>
 
-            <button type="submit" class="btn has-before title-md">Subscribe</button>
+            <div class="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.363934796758!2d110.8267903!3d-7.5809593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1669e97a0db9%3A0x98a2d5e8023abf4c!2sKustati%20Islamic%20General%20Hospital!5e0!3m2!1sen!2sid!4v1698750492385!5m2!1sen!2sid"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
           </form>
-
-          <p class="text">
-            Get the latest updates via email. Any time you may unsubscribe
-          </p>
 
         </div>
 

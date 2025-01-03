@@ -30,7 +30,7 @@ if (isset($_POST['app-submit'])) {
   $appdate = $_POST['appdate'];
   $apptime = $_POST['apptime'];
   $cur_date = date("Y-m-d");
-  date_default_timezone_set('Asia/Kathmandu');
+  date_default_timezone_set('Asia/Jakarta');
   $cur_time = date("H:i:s");
   $apptime1 = strtotime($apptime);
   $appdate1 = strtotime($appdate);
@@ -220,55 +220,46 @@ function isCancelled($id)
       </div>
     </nav>
     <!-- Default contents and dashboard contents -->
-    <div class="home-content" id="list-dash">
-      <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-square fa-stack-2x text-primary"></i>
-              <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4>Book My Appointment</h4>
-
-            <p class="cl-effect-1">
-              <a href="#app-hist" onclick="clickDiv('#list-doc-list')">
-                Book Appointment
-              </a>
-            </p>
-          </div>
+    <div class="section-container">
+  <div class="home-content" id="list-dash">
+    <div class="overview-boxes">
+      <div class="box">
+        <div class="right-side">
+          <i class="fa fa-users fa-2x"></i>
+          <h4>Book My Appointment</h4>
+          <p>
+            <a href="#app-hist" onclick="clickDiv('#list-doc-list')">
+              Book Appointment
+            </a>
+          </p>
         </div>
-        <div class="box">
-          <div class="right-side">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-square fa-stack-2x text-primary"></i>
-              <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4>My Appointments</h4>
-
-            <p class="cl-effect-1">
-              <a href="#app-hist" onclick="clickDiv('#list-pat-list')">
-                View Appointment History
-              </a>
-            </p>
-          </div>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <i class="fa fa-paperclip fa-2x"></i>
+          <h4>My Appointments</h4>
+          <p>
+            <a href="#app-hist" onclick="clickDiv('#list-pat-list')">
+              View Appointment History
+            </a>
+          </p>
         </div>
-        <div class="box">
-          <div class="right-side">
-            <span class="fa-stack fa-2x">
-              <i class="fa fa-square fa-stack-2x text-primary"></i>
-              <i class="fa fa-list-ul fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4>Prescriptions</h4>
-
-            <p>
-              <a href="#list-pres" onclick="clickDiv('#list-pres-list')">
-                View Prescriptions List
-              </a>
-            </p>
-          </div>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <i class="fa fa-list-ul fa-2x"></i>
+          <h4>Prescriptions</h4>
+          <p>
+            <a href="#list-pres" onclick="clickDiv('#list-pres-list')">
+              View Prescriptions List
+            </a>
+          </p>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
     <!-- Book Appointment section -->
     <div class="home-content" id="list-doc">
       <div class="hcontent">
