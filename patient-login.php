@@ -69,7 +69,7 @@
         <div class="top">
           <header>Login sebagai Pasien</header>
         </div>
-        <form method="POST" action="error1.php">
+        <form method="POST" action="function.php">
           <div class="two-forms">
             <div class="input-box">
               <input type="text" name="email" class="form-control" placeholder="Masukkan email ID" />
