@@ -54,9 +54,9 @@ session_destroy();
 </head>
 
 <body>
-  <h3>Thank You for Visiting!</h3>
-  <p>You have successfully logged out.</p>
-  <a href="patient-login.php" class="btn">Return to Login Page</a>
+  <h3>Terima kasih Telah Mengunjungi Kami!</h3>
+  <p>Berhasil Logout, Silahkan Login Kembali</p>
+  <a href="patient-login.php" class="btn">Kembali ke halaman login</a>
 </body>
 
 </html>

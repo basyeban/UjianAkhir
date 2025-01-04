@@ -70,9 +70,9 @@
 
         <div class="register-container" id="loginDoctor">
             <div class="top">
-                <header>Login as Doctor</header>
+                <header>Login sebagai Dokter</header>
             </div>
-            <form action="function1.php" method="POST" onsubmit="return validateDoctorForm();">
+            <form action="error3.php" method="POST" onsubmit="return validateDoctorForm();">
                 <div class="two-forms">
                     <div class="input-box">
                         <input type="text" class="form-control" placeholder="User Name *" name="username3" />

@@ -20,7 +20,7 @@
   --midnight-green: hsl(186, 100%, 19%);
   --midnight-green_a25: hsla(186, 100%, 19%, 0.25);
   --independece: hsl(236, 14%, 39%);
-  --verdigris: hsl(182, 100%, 35%);
+  --verdigris: #00adb3;
   --ming: hsl(186, 72%, 24%);
   --space-cadet: hsla(226, 45%, 24%);
   --eerie-black: hsl(0, 0%, 13%);
@@ -386,11 +386,14 @@ body.nav-active {
 @keyframes headerActive {
   0% {
     transform: translateY(-100%);
+    background-color: var(--rich-black-fogra-29); /* Warna awal */
   }
   100% {
     transform: translateY(0);
+    background-color: var(--verdigris); /* Warna akhir */
   }
 }
+
 
 .header .container {
   display: flex;
@@ -414,7 +417,7 @@ body.nav-active {
 .navbar {
   right: -300px;
   max-width: 300px;
-  background-color: var(--rich-black-fogra-29);
+  background-color: var(--verdigris);
   z-index: 3;
   transition: 0.25s var(--cubic-in);
   visibility: hidden;

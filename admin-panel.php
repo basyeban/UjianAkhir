@@ -169,7 +169,7 @@ mysqli_close($con);
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bx-plus-medical'></i>
-      <span class="logo_name"><a href="#"> MediBook: Appointment Schedule</a></span>
+      <span class="logo_name"><a href="#"> RSUI Kustati : Appointment System</a></span>
     </div>
     <ul class="nav-links">
       <li>
@@ -181,31 +181,31 @@ mysqli_close($con);
       <li>
         <a href="#list-doc" id="list-doc-list">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Doctor list</span>
+          <span class="links_name">Daftar Dokter</span>
         </a>
       </li>
       <li>
         <a href="#list-pat" id="list-pat-list" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Patient list</span>
+          <span class="links_name">Daftar Pasien</span>
         </a>
       </li>
       <li>
         <a href="#list-app" id="list-app-list" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-detail'></i>
-          <span class="links_name">Appointment Details</span>
+          <span class="links_name">Detail Perjanjian</span>
         </a>
       </li>
       <li>
         <a href="#list-pres" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-table'></i>
-          <span class="links_name">Prescription list</span>
+          <span class="links_name">Daftar Resep Obat</span>
         </a>
       </li>
       <li>
         <a href="#list-settings" id="list-adoc-list" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bxs-book-add'></i>
-          <span class="links_name">Add Doctor</span>
+          <span class="links_name">Tambah Dokter</span>
         </a>
       </li>
       <li class="log_out">
@@ -234,7 +234,7 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-users fa-stack-1x fa-inverse"></i>
             </span>
-            <h4> Doctor List</h4>
+            <h4> Daftar Dokter</h4>
             <script>
               function clickDiv(id) {
                 document.querySelector(id).click();
@@ -242,7 +242,7 @@ mysqli_close($con);
             </script>
             <p class="links cl-effect-1">
               <a href="#list-doc" onclick="clickDiv('#list-doc-list')">
-                View Doctors
+                Lihat Dokter
               </a>
             </p>
           </div>
@@ -253,11 +253,11 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-users fa-stack-1x fa-inverse"></i>
             </span>
-            <h4>Patient List</h4>
+            <h4>Daftar Pasien</h4>
 
             <p class="cl-effect-1">
               <a href="#app-hist" onclick="clickDiv('#list-pat-list')">
-                View Patients
+                Lihat Pasien
               </a>
             </p>
           </div>
@@ -268,11 +268,11 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
             </span>
-            <h4>Appointment Details</h4>
+            <h4>Detail Perjanjian</h4>
 
             <p class="cl-effect-1">
               <a href="#app-hist" onclick="clickDiv('#list-app-list')">
-                View Appointments
+                Lihat Perjanjian
               </a>
             </p>
           </div>
@@ -287,11 +287,11 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-list-ul fa-stack-1x fa-inverse"></i>
             </span>
-            <h4>Prescription List</h4>
+            <h4>Daftar Resep Obat</h4>
 
             <p>
               <a href="#list-pres" onclick="clickDiv('#list-pres-list')">
-                View Prescriptions
+                Lihat Resep Obat
               </a>
             </p>
           </div>
@@ -302,11 +302,11 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
             </span>
-            <h4>Manage Doctors</h4>
+            <h4>Kelola Dokter</h4>
 
             <p>
-              <a href="#app-hist" onclick="clickDiv('#list-adoc-list')">Add Doctors</a>
-              &nbsp|<a href="#list-doc" onclick="clickDiv('#list-doc-list')">Delete & Edit Doctors</a>
+              <a href="#app-hist" onclick="clickDiv('#list-adoc-list')">Tambah Dokter</a>
+              &nbsp|<a href="#list-doc" onclick="clickDiv('#list-doc-list')">Delete & Edit Dokter</a>
             </p>
           </div>
         </div>
@@ -315,10 +315,10 @@ mysqli_close($con);
     <!-- Doctor List contents-->
     <div class="home-content" id="list-doc">
       <div>
-        <form class="form-group" action="doctorsearch.php" method="post">
+        <form class="form-group" action="doctor search.php" method="post">
           <div class="dsearch">
             <div class="email-field">
-              <input type="text" name="doctor_contact" placeholder="Enter Email ID" class="form-control">
+              <input type="text" name="doctor_contact" placeholder="Search" class="form-control">
             </div>
             <div class="submit-btn">
               <input type="submit" name="doctor_search_submit" class="btn btn-primary" value="Search">
@@ -329,12 +329,12 @@ mysqli_close($con);
       <table class="doctor-table">
         <thead>
           <tr>
-            <th scope="col">Doctor Name</th>
-            <th scope="col">Specialization</th>
+            <th scope="col">Nama Dokter</th>
+            <th scope="col">Spesialis</th>
             <th scope="col">Email</th>
             <th scope="col">Password</th>
-            <th scope="col">Fees</th>
-            <th scope="col">Manage Doctors</th>
+            <th scope="col">Biaya</th>
+            <th scope="col">Kelola Dokter</th>
           </tr>
         </thead>
         <tbody>
@@ -372,7 +372,7 @@ mysqli_close($con);
         <form class="form-group" action="patientsearch.php" method="post">
           <div class="psearch">
             <div class="email-field">
-              <input type="text" name="patient_contact" placeholder="Enter Contact" class="form-control">
+              <input type="text" name="patient_contact" placeholder="Search" class="form-control">
             </div>
             <div class="submit-btn">
               <input type="submit" name="patient_search_submit" class="btn btn-primary" value="Search">
@@ -383,12 +383,12 @@ mysqli_close($con);
       <table class="patient">
         <thead>
           <tr>
-            <th scope="col">Patient ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Gender</th>
+            <th scope="col">ID Pasien</th>
+            <th scope="col">Nama Depan</th>
+            <th scope="col">Nama Belakang</th>
+            <th scope="col">Jenis Kelamin</th>
             <th scope="col">Email</th>
-            <th scope="col">Contact</th>
+            <th scope="col">Kontak</th>
             <!-- <th scope="col">Password</th> -->
           </tr>
         </thead>
@@ -429,7 +429,7 @@ mysqli_close($con);
         <form class="form-group" action="appsearch.php" method="post">
           <div class="appsearch">
             <div class="email-field">
-              <input type="text" name="app_contact" placeholder="Enter Contact" class="form-control">
+              <input type="text" name="app_contact" placeholder="Search" class="form-control">
             </div>
             <div class="submit-btn"><input type="submit" name="app_search_submit" class="btn btn-primary" value="Search">
             </div>
@@ -439,18 +439,18 @@ mysqli_close($con);
       <table class="app-table">
         <thead>
           <tr>
-            <th scope="col">Appointment ID</th>
-            <th scope="col">Patient ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Gender</th>
+            <th scope="col">ID Perjanjian</th>
+            <th scope="col">ID Pasien</th>
+            <th scope="col">Nama Depan</th>
+            <th scope="col">Nama Belakang</th>
+            <th scope="col">Jenis Kelamin</th>
             <th scope="col">Email</th>
-            <th scope="col">Contact</th>
-            <th scope="col">Doctor Name</th>
-            <th scope="col">Consultancy Fees</th>
-            <th scope="col">Appointment Date</th>
-            <th scope="col">Appointment Time</th>
-            <th scope="col">Appointment Status</th>
+            <th scope="col">Kontak</th>
+            <th scope="col">Nama Dokter</th>
+            <th scope="col">Biaya Konsultasi</th>
+            <th scope="col">Tanggal Perjanjian</th>
+            <th scope="col">Waktu Perjajian</th>
+            <th scope="col">Status Perjanjian</th>
           </tr>
         </thead>
         <tbody>
@@ -503,16 +503,16 @@ mysqli_close($con);
         <table class="pres-table">
           <thead>
             <tr>
-              <th scope="col">Doctor</th>
-              <th scope="col">Patient ID</th>
-              <th scope="col">Appointment ID</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Appointment Date</th>
-              <th scope="col">Appointment Time</th>
-              <th scope="col">Disease</th>
-              <th scope="col">Allergy</th>
-              <th scope="col">Prescription</th>
+              <th scope="col">Dokter</th>
+              <th scope="col">ID Pasien</th>
+              <th scope="col">ID Perjanjian</th>
+              <th scope="col">Nama Depan</th>
+              <th scope="col">Nama Belakang</th>
+              <th scope="col">Tanggal Perjanjian</th>
+              <th scope="col">Waktu Perjanjian</th>
+              <th scope="col">Penyakit</th>
+              <th scope="col">Alergi</th>
+              <th scope="col">Resep Dokter</th>
             </tr>
           </thead>
           <tbody>
@@ -560,23 +560,23 @@ mysqli_close($con);
         <form class="form-group" method="post" action="admin-panel.php" onsubmit="return validateDoctorForm();">
           <div class="form-row">
             <div class="form-group1">
-              <label for="doctor">Doctor Name:</label>
+              <label for="doctor">Nama Dokter :</label>
               <input type="text" class="form-control" name="doctor" onkeydown="return alphaOnly(event);">
             </div>
             <div class="form-group1">
-              <label for="special">Specialization:</label>
+              <label for="special">Spesialis:</label>
               <select name="special" class="form-control" id="special">
-                <option value="" disabled selected>Select Specialization</option>
-                <option value="General">General</option>
-                <option value="Cardiologist">Cardiologist</option>
-                <option value="Neurologist">Neurologist</option>
-                <option value="Pediatrician">Pediatrician</option>
-                <option value="Dermatologist">Dermatologist</option>
-                <option value="Gastroenterologist">Gastroenterologist</option>
-                <option value="Ophthalmologist">Ophthalmologist</option>
-                <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
-                <option value="Otolaryngologist">Otolaryngologist</option>
-                <option value="Urologist">Urologist</option>
+                <option value="" disabled selected>Pilih Spesialis</option>
+                <option value="Spesialis Umum">Spesialis Umum</option>
+                <option value="Spesialis Anak">Spesialis Anak</option>
+                <option value="Spesialis Ahli Bedah">Spesialis Ahli Bedah</option>
+                <option value="Spesialis Mata">Spesialis Mata</option>
+                <option value="Spesialis Jantung">Spesialis Jantung</option>
+                <option value="Spesialis Paru">Spesialis Paru</option>
+                <option value="Spesialis Mulut & Gigi">Spesialis Mulut & Gigi</option>
+                <option value="Spesialis Ortopedi">Spesialis Ortopedi</option>
+                <option value="Spesialis Kandungan">Spesialis Kandungan</option>
+                <option value="Spesialis THT">Spesialis THT</option>
               </select>
             </div>
           </div>
@@ -590,16 +590,16 @@ mysqli_close($con);
               <input type="password" class="form-control" name="dpassword" id="dpassword">
             </div>
             <div class="form-group1">
-              <label for="cdpassword">Confirm Password:</label>
+              <label for="cdpassword">Konfirmasi Password:</label>
               <input type="password" class="form-control" name="cdpassword" id="cdpassword">
             </div>
           </div>
           <div class="form-group1">
-            <label for="docFees">Consultancy Fees:</label>
+            <label for="docFees">Biaya Konsultasi:</label>
             <input type="text" class="form-control" name="docFees" id="docFees">
           </div>
           <div class="form-group1">
-            <button type="submit" name="docsub" class="btn btn-primary">Add Doctor</button>
+            <button type="submit" name="docsub" class="btn btn-primary">Tambah Doctor</button>
           </div>
         </form>
       </div>

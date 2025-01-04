@@ -49,18 +49,18 @@
         <nav class="nav">
             <div class="nav-logo">
                 <a href="index-login.php"><img src="logo.png" alt="">
-                    <span>MediBook: Appointment Schedule</span>
+                    <span>Rumah Sakit Umum Islam Kustati</span>
             </div>
             <div class="nav-menu" id="navMenu">
             <ul>
-                <li><a href="index-login.php" class="mobile-only">Patient</a></li>
-                <li><a href="doctor-login.php" class="mobile-only">Doctor</a></li>
+                <li><a href="index-login.php" class="mobile-only">Pasien</a></li>
+                <li><a href="doctor-login.php" class="mobile-only">Dokter</a></li>
                 <li><a href="admin-login.php" class="mobile-only">Admin</a></li>
             </ul>
             </div>
             <div class="nav-button">
-                <button class="btn white-btn" id="registerBtn" onclick="redirectToPatientLogin()">Patient</button>
-                <button class="btn white-btn" id="registerBtn" onclick="redirectToDoctorLogin()">Doctor</button>
+                <button class="btn white-btn" id="registerBtn" onclick="redirectToPatientLogin()">Pasien</button>
+                <button class="btn white-btn" id="registerBtn" onclick="redirectToDoctorLogin()">Dokter</button>
                 <button class="btn white-btn" id="registerBtn" onclick="redirectToAdminLogin()">Admin</button>
             </div>
             <div class="nav-menu-btn">
@@ -70,7 +70,7 @@
 
         <div class="register-container" id="loginAdmin">
             <div class="top">
-                <header>Login as Admin</header>
+                <header>Login sebagai Admin</header>
             </div>
             <form action="function3.php" method="POST" onsubmit="return validateAdminForm();">
                 <div class="two-forms">

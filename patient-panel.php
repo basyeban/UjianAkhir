@@ -96,9 +96,9 @@ if (isset($_POST['submit'])) {
   $query = "UPDATE patient SET password='$pwd' WHERE email='$email'";
   $data = mysqli_query($con, $query);
   if ($data) {
-    echo " <script> alert('password changed')</script>";
+    echo " <script> alert('password diubah')</script>";
   } else {
-    echo "Failed to change password";
+    echo "Gagal merubah password";
   }
 }
 
@@ -163,7 +163,7 @@ function isCancelled($id)
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bx-plus-medical'></i>
-      <span class="logo_name"><a href="#"> MediBook: Appointment Schedule</a></span>
+      <span class="logo_name"><a href="#"> RSUI Kustati : Appointment System</a></span>
     </div>
     <ul class="nav-links">
       <li>
@@ -175,26 +175,26 @@ function isCancelled($id)
       <li>
         <a href="#list-doc" id="list-doc-list">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Book Appointment</span>
+          <span class="links_name">Daftar Perjanjian</span>
         </a>
       </li>
       <li>
         <a href="#list-app" id="list-pat-list" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Appointment History</span>
+          <span class="links_name">History Perjanjian</span>
         </a>
       </li>
       <li>
         <a href="#list-pres" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-detail'></i>
-          <span class="links_name">Prescriptions</span>
+          <span class="links_name">Resep Obat</span>
         </a>
       </li>
       <li>
         <a href="#list-change-password" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-detail'></i>
 
-          <span class="links_name">Change Password</span>
+          <span class="links_name">Ubah Password</span>
         </a>
       </li>
       <li class="log_out">
@@ -226,10 +226,10 @@ function isCancelled($id)
       <div class="box">
         <div class="right-side">
           <i class="fa fa-users fa-2x"></i>
-          <h4>Book My Appointment</h4>
+          <h4>Daftar Perjanjian Saya</h4>
           <p>
             <a href="#app-hist" onclick="clickDiv('#list-doc-list')">
-              Book Appointment
+              Daftar perjanjian
             </a>
           </p>
         </div>
@@ -240,7 +240,7 @@ function isCancelled($id)
           <h4>My Appointments</h4>
           <p>
             <a href="#app-hist" onclick="clickDiv('#list-pat-list')">
-              View Appointment History
+              lihat history perjanjian
             </a>
           </p>
         </div>
@@ -248,10 +248,10 @@ function isCancelled($id)
       <div class="box">
         <div class="right-side">
           <i class="fa fa-list-ul fa-2x"></i>
-          <h4>Prescriptions</h4>
+          <h4>Resep Obat</h4>
           <p>
             <a href="#list-pres" onclick="clickDiv('#list-pres-list')">
-              View Prescriptions List
+              Lihat list resep list
             </a>
           </p>
         </div>
@@ -263,14 +263,14 @@ function isCancelled($id)
     <!-- Book Appointment section -->
     <div class="home-content" id="list-doc">
       <div class="hcontent">
-        <h4>Create an appointment</h4>
+        <h4>Buat Perjanjian</h4>
         <form class="form-group" method="post" action="patient-panel.php" onsubmit="return validateAppointmentForm();">
           <div>
-            <label for="spec">Specialization:</label>
+            <label for="spec">Spesialis:</label>
           </div>
           <div class="selspec">
             <select name="spec" class="form-control" id="spec">
-              <option value="" disabled selected>Select Specialization</option>
+              <option value="" disabled selected>Pilih Spesialis</option>
               <?php
               display_specs();
               ?>
@@ -300,11 +300,11 @@ function isCancelled($id)
           </script>
 
           <div>
-            <label for="doctor">Doctors:</label>
+            <label for="doctor">Dokter:</label>
           </div>
           <div class="sdoc">
             <select name="doctor" class="form-control" id="doctor">
-              <option value="" disabled selected>Select Doctor</option>
+              <option value="" disabled selected>Pilih Dokter</option>
 
               <?php display_docs(); ?>
             </select>
@@ -317,24 +317,24 @@ function isCancelled($id)
           </script>
           <div>
             <label for="consultancyfees">
-              Consultancy Fees
+              Biaya Konsultasi
             </label>
           </div>
           <div class="Fees">
             <input class="form-control" type="text" name="docFees" id="docFees" readonly="readonly" />
           </div>
           <div>
-            <label>Appointment Date</label>
+            <label>Tanggal Perjanjian</label>
           </div>
           <div class="apdate">
             <input type="date" class="form-control datepicker" name="appdate">
           </div>
           <div>
-            <label>Appointment Time</label>
+            <label>Waktu Perjanjian</label>
           </div>
           <div class="Stime">
             <select name="apptime" class="form-control" id="apptime">
-              <option value="" disabled selected>Select Time</option>
+              <option value="" disabled selected>Pilih Waktu Perjanjian</option>
               <option value="08:00:00">8:00 AM</option>
               <option value="10:00:00">10:00 AM</option>
               <option value="12:00:00">12:00 PM</option>
@@ -344,7 +344,7 @@ function isCancelled($id)
           </div><br>
           <center>
             <div class="btn">
-              <input type="submit" name="app-submit" value="Create new entry" class="btn btn-primary" id="inputbtn">
+              <input type="submit" name="app-submit" value="Buat Perjanjian Baru" class="btn btn-primary" id="inputbtn">
             </div>
           </center>
         </form>
@@ -356,11 +356,11 @@ function isCancelled($id)
         <table class="app-table">
           <thead>
             <tr>
-              <th scope="col">Doctor Name</th>
-              <th scope="col">Consultancy Fees</th>
-              <th scope="col">Appointment Date</th>
-              <th scope="col">Appointment Time</th>
-              <th scope="col">Current Status</th>
+              <th scope="col">Nama Dokter </th>
+              <th scope="col">Biaya Konsultasi</th>
+              <th scope="col">Tanggal Perjanjian</th>
+              <th scope="col">Waktu Perjanjian</th>
+              <th scope="col">Status</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -435,13 +435,13 @@ function isCancelled($id)
           <thead>
             <tr>
 
-              <th scope="col">Doctor Name</th>
-              <th scope="col">Appointment ID</th>
-              <th scope="col">Appointment Date</th>
-              <th scope="col">Appointment Time</th>
-              <th scope="col">Diseases</th>
-              <th scope="col">Allergies</th>
-              <th scope="col">Prescriptions</th>
+              <th scope="col">Nama Dokter</th>
+              <th scope="col">ID Perjanjian</th>
+              <th scope="col">Tanggal Perjanjian</th>
+              <th scope="col">Waktu Perjanjian</th>
+              <th scope="col">Penyakit</th>
+              <th scope="col">Alergi</th>
+              <th scope="col">Resep Obat</th>
             </tr>
           </thead>
           <tbody>
@@ -498,7 +498,7 @@ function isCancelled($id)
       <div class="change-password-form">
 
         <center>
-          <h4>Change Password</h4>
+          <h4>Ubah Password</h4>
         </center>
         <form class="form-group" method="post" action="patient-panel.php">
           <div>

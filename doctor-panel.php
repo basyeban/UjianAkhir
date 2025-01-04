@@ -2,7 +2,7 @@
 <?php
 include('function1.php');
 $con = mysqli_connect("localhost", "root", "", "hms");
-$doctor = $_SESSION['dname'];
+$doctor = $_SESSION['dname'];   
 
 // Function to check if the appointment is prescribed
 function isPrescribed($id)
@@ -96,7 +96,7 @@ if (isset($_GET['prescribe'])) {
             <i class='bx bx-plus-medical'></i>
             <span class="logo_name">
                 <a href="#">
-                    MediBook: Appointment Schedule</a>
+                    RSUI Kustati : Appointment System</a>
             </span>
         </div>
         <ul class="nav-links">
@@ -109,13 +109,13 @@ if (isset($_GET['prescribe'])) {
             <li>
                 <a href="#list-app" id="list-pat-list" role="tab" data-toggle="list" aria-controls="home">
                     <i class='bx bx-list-ul'></i>
-                    <span class="links_name">Appointments</span>
+                    <span class="links_name">Perjanjian</span>
                 </a>
             </li>
             <li>
                 <a href="#list-pres" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">
                     <i class='bx bx-detail'></i>
-                    <span class="links_name">Prescriptions</span>
+                    <span class="links_name">Resep Obat</span>
                 </a>
             </li>
             <li class="log_out">
@@ -157,10 +157,10 @@ if (isset($_GET['prescribe'])) {
                             <i class="fa fa-square fa-stack-2x text-primary"></i>
                             <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4>My Appointments</h4>
+                        <h4>Perjanjian Pasien</h4>
                         <p class="cl-effect-1">
                             <a href="#app-list" onclick="clickDiv('#list-pat-list')">
-                                View Appointments
+                                Lihat Perjanjian
                             </a>
                         </p>
                     </div>
@@ -171,11 +171,11 @@ if (isset($_GET['prescribe'])) {
                             <i class="fa fa-square fa-stack-2x text-primary"></i>
                             <i class="fa fa-list-ul fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4>Prescriptions</h4>
+                        <h4>Resep Obat</h4>
 
                         <p>
                             <a href="#list-pres" onclick="clickDiv('#list-pres-list')">
-                                View Prescriptions List
+                                Lihat Daftar Resep Obat
                             </a>
                         </p>
                     </div>
@@ -188,16 +188,16 @@ if (isset($_GET['prescribe'])) {
             <table class="app-table">
                 <thead>
                     <tr>
-                        <th scope="col">Patient ID</th>
-                        <th scope="col">Appointment ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Gender</th>
+                        <th scope="col">ID Pasien</th>
+                        <th scope="col">ID Perjanjian</th>
+                        <th scope="col">Nama Depan</th>
+                        <th scope="col">Nama Belakang</th>
+                        <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Contact</th>
-                        <th scope="col">Appointment Date</th>
-                        <th scope="col">Appointment Time</th>
-                        <th scope="col">Current Status</th>
+                        <th scope="col">Kontak</th>
+                        <th scope="col">Tanggal Perjanjian</th>
+                        <th scope="col">Waktu Perjanjian</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -263,15 +263,15 @@ if (isset($_GET['prescribe'])) {
             <table class="pres-table">
                 <thead>
                     <tr>
-                        <th scope="col">Patient ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Appointment ID</th>
-                        <th scope="col">Appointment Date</th>
-                        <th scope="col">Appointment Time</th>
-                        <th scope="col">Disease</th>
-                        <th scope="col">Allergy</th>
-                        <th scope="col">Prescription</th>
+                        <th scope="col">ID Pasien</th>
+                        <th scope="col">Nama Depan</th>
+                        <th scope="col">Nama Belakang</th>
+                        <th scope="col">ID Perjanjian</th>
+                        <th scope="col">Tanggal Perjanjian</th>
+                        <th scope="col">Waktu Perjanjian</th>
+                        <th scope="col">Penyakit</th>
+                        <th scope="col">Alergi</th>
+                        <th scope="col">Resep Obat</th>
                     </tr>
                 </thead>
                 <tbody>

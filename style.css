@@ -13,7 +13,7 @@
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #0A2558;
+  background: #0078d7;
   transition: all 0.5s ease;
 }
 .sidebar.active{
@@ -68,10 +68,10 @@
   border-top: 1px solid rgba(255,255,255,.1);
 }
 .sidebar .nav-links li a.active{
-  background: #081D45;
+  background: #0078d7;
 }
 .sidebar .nav-links li a:hover{
-  background: #081D45;
+  background: #0056b3;
 }
 .sidebar .nav-links li i{
   min-width: 60px;
@@ -149,7 +149,7 @@ nav .sidebar-button i{
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 20px 30px;
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 /* Section heading */
@@ -309,13 +309,12 @@ nav .sidebar-button i{
 
 .right-side i {
   margin-bottom: 10px;
-  color: #0078d7;
   transition: color 0.3s ease;
 }
 
-.right-side i:hover {
+/* .right-side i:hover {
   color: #004a9f;
-}
+} */
 
 
 
@@ -449,32 +448,66 @@ nav .sidebar-button i{
 }
 
 #list-doc .submit-btn input[type="submit"]:hover {
-  background-color: green;
+  background-color: #00adb3;
   color: white;
-  border-color: green;
+  border-color: #00adb3;
 }
 
 #list-doc .doctor-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Menggunakan border-spacing untuk jarak antar sel */
+  border-spacing: 0 10px;
   margin-bottom: 20px;
 }
 
-#list-doc .doctor-table th,
-#list-doc .doctor-table td {
-  padding: 10px;
+#list-doc .doctor-table th {
+  background-color: #00adb3; /* Warna biru cerah untuk header */
+  color: white; /* Teks putih untuk kontras */
+  font-weight: bold;
+  padding: 12px 15px;
   text-align: left;
-  border: 1px solid #ccc;
+  border: none;
+  border-top-left-radius: 8px; /* Sudut melengkung pada pojok kiri atas */
+  border-top-right-radius: 8px; /* Sudut melengkung pada pojok kanan atas */
 }
 
-#list-doc .doctor-table th {
-  background-color: #f2f2f2;
+#list-doc .doctor-table td {
+  padding: 15px;
+  text-align: left;
+  background: white; /* Latar belakang putih untuk sel */
+  border: none;
+  border-bottom: 1px solid #ddd; /* Garis bawah untuk pemisah */
+  font-size: 14px;
+  color: #333; /* Warna teks abu-abu gelap */
+}
+
+#list-doc .doctor-table tbody tr {
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animasi hover */
 }
 
 #list-doc .doctor-table tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  background-color: #f9f9f9; /* Warna latar belakang hover */
+  transform: translateY(-3px); /* Sedikit naik saat hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek melayang */
 }
+
+/* Memberikan border-radius untuk tabel */
+#list-doc .doctor-table tbody tr:first-child td:first-child {
+  border-top-left-radius: 8px;
+}
+
+#list-doc .doctor-table tbody tr:first-child td:last-child {
+  border-top-right-radius: 8px;
+}
+
+#list-doc .doctor-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+#list-doc .doctor-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
 /*List Patient table */
 #list-pat .psearch {
   display: flex;
@@ -509,28 +542,74 @@ nav .sidebar-button i{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 #list-pat .submit-btn input[type="submit"]:hover {
-  background-color: green;
+  background-color: #00adb3;
   color: white;
-  border-color: green;
+  border-color: #00adb3;
 }
 #list-pat .patient {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 15px; /* Jarak antar baris */
   margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
 }
-#list-pat .patient th,
-#list-pat .patient td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-}
+
 #list-pat .patient th {
-  background-color: #f2f2f2;
+  background-color: #00adb3; /* Warna hijau */
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  border: none;
+  border-radius: 10px 10px 0 0; /* Sudut melengkung hanya pada header */
 }
-#list-pat .patient tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+
+#list-pat .patient td {
+  background: #ffffff; /* Latar belakang putih */
+  border: none;
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+  color: #333; /* Warna teks abu-abu gelap */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan lembut untuk setiap sel */
+  border-radius: 10px; /* Sudut melengkung */
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
+
+#list-pat .patient tbody tr:hover td {
+  background-color: #f4f6f8; /* Latar belakang abu-abu terang saat hover */
+  transform: translateY(-3px); /* Sedikit naik saat hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar saat hover */
+}
+
+/* Sudut melengkung untuk sel pertama dan terakhir */
+#list-pat .patient tbody tr td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#list-pat .patient tbody tr td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Tombol aksi */
+.action-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
 /*List Appointment table */
 #list-app .appsearch {
   display: flex;
@@ -565,153 +644,217 @@ nav .sidebar-button i{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 #list-app .submit-btn input[type="submit"]:hover {
-  background-color: green;
+  background-color: #00adb3;
   color: white;
-  border-color: green;
+  border-color: #00adb3;
 }
 #list-app .app-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
+
 #list-app .app-table th,
 #list-app .app-table td {
-  padding: 10px;
+  padding: 15px 20px;
   text-align: left;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
 }
+
 #list-app .app-table th {
-  background-color: #f2f2f2;
+  background-color: #00adb3; /* Primary color */
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
 }
+
+#list-app .app-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row color */
+}
+
+#list-app .app-table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
 #list-app .app-table tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #f1f5f9; /* Soft hover effect */
   transition: background-color 0.3s ease;
 }
-/* List prescription table */
-#list-pres .pres-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-#list-pres .pres-table th,
-#list-pres .pres-table td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-}
-#list-pres .pres-table th {
-  background-color: #f2f2f2;
-}
-#list-pres .pres-table tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-/* Add doctor form */
-.home-content#list-settings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
+
+#list-app .app-table td {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-.form-container {
-  margin-top: 50px;
-  width: 80%;
-  max-width: 500px;
-}
-
-.form-group1 {
-  margin-bottom: 20px;
-}
-
-.form-row {
-  margin-bottom: 20px;
-}
-
-label {
+#list-app .app-table td a {
+  color: #00adb3; /* Link color */
+  text-decoration: none;
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+#list-app .app-table td a:hover {
+  text-decoration: underline;
 }
 
-select {
-  appearance: none;
-  background-color: white;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M4.89 5.89L0 0h9.78L4.89 5.89zM9.78 0H0L4.89 5.89h4.89V0z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 10px 6px;
-  padding-right: 30px;
+/* List prescription table */
+#list-pres .pres-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #444;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#list-pres .pres-table th,
+#list-pres .pres-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#list-pres .pres-table th {
+  background-color: #00adb3; /* Primary color */
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+#list-pres .pres-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Alternating row color */
+}
+
+#list-pres .pres-table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+#list-pres .pres-table tbody tr:hover {
+  background-color: #e9f5ff; /* Soft hover effect */
+  transition: background-color 0.3s ease;
+}
+
+#list-pres .pres-table td {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#list-pres .pres-table td a {
+  color: #00adb3; /* Link color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#list-pres .pres-table td a:hover {
+  text-decoration: underline;
+}
+
+#list-pres .pres-table thead th:first-child {
+  border-top-left-radius: 10px;
+}
+
+#list-pres .pres-table thead th:last-child {
+  border-top-right-radius: 10px;
+}
+
+#list-pres .pres-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+#list-pres .pres-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+/* Add doctor form */
+/* Card container */
+.card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  overflow: hidden;
+}
+
+/* Card header */
+.card-header {
+  background-color: #00adb3; /* Primary blue color */
+  color: white; /* White text */
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Card body */
+.card-body {
+  padding: 20px;
+}
+
+/* Form fields */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333; /* Dark text color */
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px; /* Rounded input fields */
+  font-size: 16px;
+  color: #333;
+  background-color: #f9fafb; /* Light background */
+}
+
+.form-control:focus {
+  border-color: #00adb3; /* Blue border on focus */
+  outline: none;
+}
+
+/* Submit button */
+.btn-container {
+  text-align: center;
 }
 
 .btn-primary {
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 0 5px 5px 0;
-  background-color: transparent;
-  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00adb3; /* Primary blue color */
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: green;
-  color: white;
-  border-color: green;
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2); /* Shadow on hover */
 }
 
-.error-message {
-  color: red;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.success-message {
-  color: greenyellow;
-  margin-top: 5px;
-  font-size: 14px;
-}
-/* delete doctor */
-#list-settings1 .email-field {
-  width: 50%;
-}
-
-#list-settings1 .email-field input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-right: none;
-  border-radius: 5px 0 0 5px;
-}
-
-#list-settings1 .submit-btn {
-  margin-left: -1px;
-}
-#list-settings1 .submit-btn input[type="submit"] {
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 0 5px 5px 0;
-  background-color: transparent;
-  color: black;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-#list-settings1 .submit-btn input[type="submit"]:hover {
-  background-color: green;
-  color: white;
-  border-color: green;
+/* Centering the card */
+.home-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9fafb; /* Light background */
 }
 /* Queries search button and then table */
 #list-mes .qtable {

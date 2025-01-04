@@ -46,18 +46,18 @@
     <nav class="nav">
       <div class="nav-logo">
         <a href="index-login.php"><img src="logo.png" alt="">
-          <span>MediBook: Appointment Schedule</span>
+          <span>Rumah Sakit Umum Islam Kustati</span>
       </div>
       <div class="nav-menu" id="navMenu">
         <ul>
-          <li><a href="patient-login.php" class="mobile-only">Patient</a></li>
-          <li><a href="doctor-login.php" class="mobile-only">Doctor</a></li>
+          <li><a href="patient-login.php" class="mobile-only">Pasien</a></li>
+          <li><a href="doctor-login.php" class="mobile-only">Dokter</a></li>
           <li><a href="admin-login.php" class="mobile-only">Admin</a></li>
         </ul>
       </div>
       <div class="nav-button">
-        <button class="btn white-btn" id="registerBtn" onclick="redirectToPatientLogin()">Patient</button>
-        <button class="btn white-btn" id="registerBtn" onclick="redirectToDoctorLogin()">Doctor</button>
+        <button class="btn white-btn" id="registerBtn" onclick="redirectToPatientLogin()">Pasien</button>
+        <button class="btn white-btn" id="registerBtn" onclick="redirectToDoctorLogin()">Dokter</button>
         <button class="btn white-btn" id="registerBtn" onclick="redirectToAdminLogin()">Admin</button>
       </div>
       <div class="nav-menu-btn">
@@ -67,16 +67,16 @@
     <div class="form-box">
       <div class="register-container" id="loginPatient">
         <div class="top">
-          <header>Patient Login</header>
+          <header>Login sebagai Pasien</header>
         </div>
-        <form method="POST" action="function.php">
+        <form method="POST" action="error1.php">
           <div class="two-forms">
             <div class="input-box">
-              <input type="text" name="email" class="form-control" placeholder="Enter email ID" />
+              <input type="text" name="email" class="form-control" placeholder="Masukkan email ID" />
               <i class="bx bx-user"></i><br><br>
             </div><br>
             <div class="input-box">
-              <input type="password" class="form-control" name="password2" placeholder="Enter password" />
+              <input type="password" class="form-control" name="password2" placeholder="Masukkan password" />
               <i class="bx bx-lock-alt"></i><br><br>
             </div>
           </div><br><br>

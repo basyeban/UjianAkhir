@@ -16,7 +16,7 @@ $pw = $_GET['pw'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dokumen</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -26,23 +26,23 @@ $pw = $_GET['pw'];
             <form class="form-group" method="GET" action="update-doctor.php">
                 <div class="form-row">
                     <div class="form-group1">
-                        <label for="doctor">Doctor Name:</label>
+                        <label for="doctor">Nama Dokter:</label>
                         <input type="text" value="<?php echo "$un" ?>" class="form-control" name="doctor">
                     </div>
                     <div class="form-group1">
-                        <label for="special">Specialization:</label>
+                        <label for="special">Spesialis:</label>
                         <select name="special" class="form-control" id="special">
-                            <option value="" disabled>Select Specialization</option>
-                            <option value="General" <?php if ($sp === "General") echo "selected"; ?>>General</option>
-                            <option value="Cardiologist" <?php if ($sp === "Cardiologist") echo "selected"; ?>>Cardiologist</option>
-                            <option value="Neurologist" <?php if ($sp === "Neurologist") echo "selected"; ?>>Neurologist</option>
-                            <option value="Pediatrician" <?php if ($sp === "Pediatrician") echo "selected"; ?>>Pediatrician</option>
-                            <option value="Dermatologist" <?php if ($sp === "Dermatologist") echo "selected"; ?>>Dermatologist</option>
-                            <option value="Gastroenterologist" <?php if ($sp === "Gastroenterologist") echo "selected"; ?>>Gastroenterologist</option>
-                            <option value="Ophthalmologist" <?php if ($sp === "Ophthalmologist") echo "selected"; ?>>Ophthalmologist</option>
-                            <option value="Orthopedic Surgeon" <?php if ($sp === "Orthopedic Surgeon") echo "selected"; ?>>Orthopedic Surgeon</option>
-                            <option value="Otolaryngologist" <?php if ($sp === "Otolaryngologist") echo "selected"; ?>>Otolaryngologist</option>
-                            <option value="Urologist" <?php if ($sp === "Urologist") echo "selected"; ?>>Urologist</option>
+                            <option value="" disabled>Pilih Spesialis</option>
+                            <option value="Spesialis Umum" <?php if ($sp === "General") echo "selected"; ?>>Spesialis Umum</option>
+                            <option value="Spesialis Anak" <?php if ($sp === "Cardiologist") echo "selected"; ?>>Spesialis Anak</option>
+                            <option value="Spesialis Ahli Bedah" <?php if ($sp === "Neurologist") echo "selected"; ?>>Spesialis Ahli Bedah</option>
+                            <option value="Spesialis Mata" <?php if ($sp === "Pediatrician") echo "selected"; ?>>Spesialis Mata</option>
+                            <option value="Spesialis Jantung" <?php if ($sp === "Dermatologist") echo "selected"; ?>>Spesialis Jantung</option>
+                            <option value="Spesialis Paru" <?php if ($sp === "Gastroenterologist") echo "selected"; ?>>Spesialis Paru</option>
+                            <option value="Spesialis Mulut & Gigi" <?php if ($sp === "Ophthalmologist") echo "selected"; ?>>Spesialis Mulut & Gigi</option>
+                            <option value="Spesialis Ortopedi" <?php if ($sp === "Orthopedic Surgeon") echo "selected"; ?>>Spesialis Ortopedi </option>
+                            <option value="Spesialis Kandungan" <?php if ($sp === "Otolaryngologist") echo "selected"; ?>>Spesialis Kandungan</option>
+                            <option value="Spesialis THT" <?php if ($sp === "Urologist") echo "selected"; ?>>Spesialis THT</option>
                         </select>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ $pw = $_GET['pw'];
                     </div>
                 </div>
                 <div class="form-group1">
-                    <label for="docFees">Consultancy Fees:</label>
+                    <label for="docFees">Biaya Konsultasi:</label>
                     <input type="text" value="<?php echo "$df" ?>" class="form-control" name="docFees" id="docFees">
                 </div>
                 <div class="form-group1">
