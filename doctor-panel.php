@@ -95,7 +95,7 @@ if (isset($_GET['prescribe'])) {
         <div class="logo-details">
             <i class='bx bx-plus-medical'></i>
             <span class="logo_name">
-                <a href="#">
+                <a href="doctor-panel.php">
                     RSUI Kustati : Appointment System</a>
             </span>
         </div>

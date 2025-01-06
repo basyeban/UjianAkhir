@@ -169,7 +169,7 @@ mysqli_close($con);
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bx-plus-medical'></i>
-      <span class="logo_name"><a href="#"> RSUI Kustati : Appointment System</a></span>
+      <span class="logo_name"><a href="admin-panel.php"> RSUI Kustati : Appointment System</a></span>
     </div>
     <ul class="nav-links">
       <li>

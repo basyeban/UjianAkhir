@@ -367,8 +367,8 @@
 
       <section class="section listing" aria-labelledby="listing-label">
         <div class="container">
-          <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Doctors Listing</p>
-          <h2 class="headline-md" data-reveal="left">Browse by specialist</h2>
+          <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Daftar Dokter</p>
+          <h2 class="headline-md" data-reveal="left">Rumah Sakit Umum Islam Kustati</h2>
       
           <table class="specialist-table" aria-labelledby="listing-label">
             <thead>
@@ -387,36 +387,6 @@
                 <td>08:00 - 16:00</td>
                 <td>Rp 10.000</td>
                 <td>123@gmail.com</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Gynecology</td>
-                <td>09:00 - 17:00</td>
-                <td>Rp 10.000</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Pulmonology</td>
-                <td>10:00 - 18:00</td>
-                <td>Rp 10.000</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Orthopedics</td>
-                <td>08:30 - 15:30</td>
-                <td>Rp 10.000</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Pediatrics</td>
-                <td>07:00 - 14:00</td>
-                <td>Rp 10.000</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Osteology</td>
-                <td>11:00 - 19:00</td>
-                <td>Rp 10.000</td>
               </tr>
             </tbody>
           </table>
