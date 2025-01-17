@@ -217,11 +217,11 @@
                 </div>
 
                 <h3 class="headline-sm card-title">
-                  <a href="#">Urologi</a>
+                  <a href="#">Mulut & Gigi</a>
                 </h3>
 
                 <p class="card-text">
-                  Layanan Urologi RSUI Kustati Profesional
+                  Layanan Mulut & Gigi RSUI Kustati Profesional
                 </p>
 
                 <!-- <button class="btn-circle" aria-label="read more about Gynecology">
@@ -239,11 +239,11 @@
                 </div>
 
                 <h3 class="headline-sm card-title">
-                  <a href="#">Obsgyn</a>
+                  <a href="#">Kandungan</a>
                 </h3>
 
                 <p class="card-text">
-                  Layanan Obsgyn RSUI Kustati Profesional
+                  Layanan Kandungan RSUI Kustati Profesional
                 </p>
 
                 <!-- <button class="btn-circle" aria-label="read more about Pulmonology">
@@ -375,7 +375,7 @@
               <tr>
                 <th>No</th>
                 <th>Nama</th>
-                <th>Jam Praktek</th>
+                <th>Spesialis</th>
                 <th>Biaya</th>
                 <th>Email</th>
               </tr>
@@ -384,7 +384,7 @@
               <tr>
                 <td>1</td>
                 <td>Psychiatry</td>
-                <td>08:00 - 16:00</td>
+                <td>Spesialis Umum</td>
                 <td>Rp 10.000</td>
                 <td>123@gmail.com</td>
               </tr>
@@ -426,7 +426,7 @@
         - #BLOG
       -->
 
-      <section class="section blog" aria-labelledby="blog-label">
+      <!-- <section class="section blog" aria-labelledby="blog-label">
         <div class="container">
 
           <p class="section-subtitle title-lg text-center" id="blog-label" data-reveal="bottom">
@@ -539,7 +539,7 @@
           </ul>
 
         </div>
-      </section>
+      </section> -->
 
     </article>
   </main>
@@ -610,79 +610,71 @@
           <p class="headline-sm footer-list-title">Kontak</p>
 
             <span class="text"></span>
-              Telepon IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a>
+              IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a>
             </span>
 
             <span class="text"></span>
-              Telepon IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a>
+              IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a>
             </span>
 
             <span class="text"></span>
-              WhatsApp HomeVisit : <a href="https://wa.me/081326883336" class="contact-link">0813 2688 3336</a>
+              HomeVisit : <a href="https://wa.me/081326883336" class="contact-link">0813 2688 3336</a>
             </span>
 
         </div>
 
-        <!-- <ul class="footer-list" data-reveal="bottom">
+        <ul class="footer-list" data-reveal="bottom">
 
           <li>
-            <p class="headline-sm footer-list-title">Services</p>
+            <p class="headline-sm footer-list-title">Fasilitas</p>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Conditions</a>
+            <p class="text footer-link">Conditions</p>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Listing</a>
+            <p class="text footer-link">Listing</p>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">How It Works</a>
+            <p class="text footer-link">How It Works</p>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">What We Offer</a>
+            <p class="text footer-link">What We Offer</p>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Latest News</a>
+            <p class="text footer-link">Latest News</p>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Contact Us</a>
+            <p class="text footer-link">Contact Us</p>
           </li>
 
-        </ul> -->
+        </ul>
 
         <ul class="footer-list" data-reveal="bottom">
 
           <li>
-            <p class="headline-sm footer-list-title">Useful Links</p>
+            <p class="headline-sm footer-list-title">Social Media</p>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Conditions</a>
+            <a href="https://x.com/rsuikustati" class="text footer-link">twitter</a>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Terms of Use</a>
+            <a href="https://www.facebook.com/p/rsuikustati-100064256675572/?locale=id_ID" class="text footer-link">Facebook</a>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Our Services</a>
+            <a href="https://www.instagram.com/rsui.kustati/" class="text footer-link">Instagram</a>
           </li>
 
           <li>
-            <a href="#" class="text footer-link">Join as a Doctor</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">New Guests List</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">The Team List</a>
+            <a href="https://www.youtube.com/@rsui.kustati" class="text footer-link">Youtube</a>
           </li>
 
         </ul>

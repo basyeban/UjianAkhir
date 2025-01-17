@@ -47,7 +47,7 @@
   --title-sm: 1.4rem;
 
   --fw-500: 500;
-  --fw-700: 700;
+  --fw-700: 800;
 
   /**
    * spacing
@@ -379,7 +379,7 @@ body.nav-active {
 
 .header.active {
   position: fixed;
-  background-color: var(--verdigris);
+  background-color: var(--rich-black-fogra-29);
   animation: headerActive 1s ease forwards;
 }
 
@@ -390,7 +390,7 @@ body.nav-active {
   }
   100% {
     transform: translateY(0);
-    background-color: var(--verdigris); /* Warna akhir */
+    background-color: var(--rich-black-fogra-29); /* Warna akhir */
   }
 }
 
@@ -810,7 +810,7 @@ body.nav-active {
 }
 
 .footer-link:is(:hover, :focus-visible) {
-  color: var(--verdigris);
+  color: var(--white);
 }
 
 .footer-form .input-field {
