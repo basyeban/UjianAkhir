@@ -2,8 +2,9 @@
  <?php #include("func.php");?>
 <html>
 <head>
-	<title>Patient Details</title>
+	<title>Detail Pasien</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
 </head>
 <body>
 <?php

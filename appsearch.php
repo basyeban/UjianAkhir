@@ -5,6 +5,7 @@
 	<title>Patient Details</title>
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
 </head>
 <body>
 <?php

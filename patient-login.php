@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
   <link rel="stylesheet" href="style5.css">
   <link rel="stylesheet" type="text/css" href="style5.css">
   <script>

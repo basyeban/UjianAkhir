@@ -17,6 +17,7 @@ $pw = $_GET['pw'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah Dokter</title>
+    <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
 
