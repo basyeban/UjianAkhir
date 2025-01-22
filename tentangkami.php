@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Info Kontak</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami</title>
 </head>
-
 <body>
-  <?php
+<?php
   $menus = [
     'Beranda' => 'index.php',
     'Dokter' => 'semuadokter.php',
@@ -20,7 +16,7 @@
   ?>
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="index.php" class="logo">
+      <a href="#" class="logo">
         <img src="assets/images/logo.png" alt="Logo" />
       </a>
       <ul class="menu">
@@ -32,59 +28,9 @@
     </div>
   </nav>
 
-  <div class="background-section">
-    <div class="container">
-      <div class="content">
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.363934796758!2d110.8267903!3d-7.5809593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1669e97a0db9%3A0x98a2d5e8023abf4c!2sKustati%20Islamic%20General%20Hospital!5e0!3m2!1sen!2sid!4v1698750492385!5m2!1sen!2sid"
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div class="info-kontak">
-          <h1>Info Kontak</h1>
-          <div class="details">
-            <div class="alamat">
-              <h2>ALAMAT</h2>
-              <p>Jl. Kapten Mulyadi No.249, Ps. Kliwon, Kec. Ps. Kliwon, Kota Surakarta, Jawa Tengah 57118</p>
-            </div>
-            <div class="kontak">
-              <h2>KONTAK</h2>
-              <p> (0271) 2937111 (IGD)</p>
-              <p> (0271) 643013 ext 1100 (IGD)</p>
-              <p> 0813 1717 0505 (HOME VISIT)</p>
-            </div>
-            <div class="pengaduan">
-              <h2>LAYANAN PENGADUAN</h2>
-              <p> 0813 2688 3336</p>
-              <p> rsuikustati@yahoo.com</p>
-            </div>
-            <div class="sosmed">
-              <h2>IKUTI SOSIAL MEDIA KAMI</h2>
-              <div class="icons">
-                <a href="https://www.instagram.com/rsui.kustati/" target="_blank">
-                  <i class='bx bxl-instagram'></i>
-                </a>
-                <a href="https://www.facebook.com/p/rsuikustati" target="_blank">
-                  <i class='bx bxl-facebook'></i>
-                </a>
-                <a href="https://www.youtube.com/@rsui.kustati" target="_blank">
-                  <i class='bx bxl-youtube'></i>
-                </a>
-                <a href="https://x.com/rsuikustati" target="_blank">
-                  <i class='bx bxl-twitter'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="chat-button">
-      <a href="https://wa.me/+6283154764741">Tanya Kami</a>
-    </div>
-  </div>
-  </div>
 
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="card">
@@ -134,7 +80,6 @@
       <p>&copy; RSUI Kustati 2025 | All Rights Reserved by <a href="https://github.com/basyeban">AchmadDaniel</a></p>
     </div>
   </footer>
-
 
   <style>
     body {
@@ -193,108 +138,6 @@
 
     .signup:hover {
       background-color: #00bfa5;
-    }
-
-    /* .background-section {
-      background: linear-gradient(to right, #004d40, #00695c);
-      padding: 20px;
-      color: white;
-    } */
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      margin-top: 50px;
-      margin-bottom: 50px;
-      padding: 50px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px #000000;
-    }
-
-    .content {
-      display: flex;
-      gap: 20px;
-    }
-
-    .map {
-      flex: 1;
-      max-width: 400px;
-      aspect-ratio: 1 / 1;
-    }
-
-    .map iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 10px;
-    }
-
-    .info-kontak {
-      flex: 2;
-      color: black;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .details>div {
-      flex: 1 1 calc(50% - 20px);
-      min-width: 300px;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin: 5px 0;
-    }
-
-    .icons {
-      display: flex;
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .icons a {
-      text-decoration: none;
-      color: #333;
-      font-size: 24px;
-      transition: color 0.3s ease;
-    }
-
-    .icons a:hover {
-      color: #007bff;
-    }
-
-    .chat-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-    }
-
-    .chat-button a {
-      background-color: #00c853;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .chat-button a:hover {
-      background-color: #00a944;
     }
 
     .footer {
@@ -380,6 +223,6 @@
       text-decoration: none;
     }
   </style>
-</body>
 
+</body>
 </html>

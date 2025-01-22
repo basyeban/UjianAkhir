@@ -16,7 +16,7 @@
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="./assets/images/icon.png" type="image/svg+xml">
+  <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
 
   <!-- 
     - google font link
@@ -81,19 +81,19 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link title-md">Home</a>
+            <a href="#" class="navbar-link title-md">Beranda</a>
           </li>
 
           <li class="navbar-item">
-            <a href="semuadokter.php" class="navbar-link title-md">Doctors</a>
+            <a href="semuadokter.php" class="navbar-link title-md">Dokter</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link title-md">Services</a>
+            <a href="tentangkami.php" class="navbar-link title-md">Tentang Kami</a>
           </li>
 
           <li class="navbar-item">
-            <a href="kontak.php" class="navbar-link title-md">Contact</a>
+            <a href="kontak.php" class="navbar-link title-md">Kontak</a>
           </li>
 
         </ul>
@@ -155,11 +155,11 @@
 
           <div class="hero-content">
 
-            <p class="hero-subtitle has-before" data-reveal="left">Welcome To RSUI Kustati</p>
+            <p class="hero-subtitle has-before" data-reveal="left">Selamat Datang di RSUI Kustati</p>
 
             <h1 class="headline-lg hero-title" data-reveal="left">
-              Temukan Dokter Terbaik <br>
-              Anda.
+            Ikhtiar Insani<br>
+              Menuju Sehat
             </h1>
 
             <a href="index-login.php" class="hover-button">Sign-Up / Sign-In</a>
@@ -703,7 +703,7 @@
       <div class="footer-bottom">
 
         <p class="text copyright">
-          &copy; RSUI Kustati <span id="current-year"></span> | All Rights Reserved by codewithsadee
+          &copy; RSUI Kustati <span id="current-year"></span> | All Rights Reserved by AchmadDaniel
         </p>
         
         <style>

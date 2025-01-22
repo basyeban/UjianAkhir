@@ -45,7 +45,7 @@
   <div class="wrapper">
     <nav class="nav">
       <div class="nav-logo">
-        <a href="index-login.php"><img src="logo.png" alt="">
+        <a href="index.php"><img src="logo.png" alt="">
           <span>Rumah Sakit Umum Islam Kustati</span>
       </div>
       <div class="nav-menu" id="navMenu">
