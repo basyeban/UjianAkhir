@@ -430,70 +430,87 @@ function isCancelled($id)
 
     <!-- Prescription section -->
     <div class="home-content" id="list-pres">
-      <div>
-
+    <div>
         <table class="pres-table">
-          <thead>
-            <tr>
+            <thead>
+                <tr>
+                    <th scope="col">Nama Dokter</th>
+                    <th scope="col">ID Perjanjian</th>
+                    <th scope="col">Tanggal Perjanjian</th>
+                    <th scope="col">Waktu Perjanjian</th>
+                    <th scope="col">Penyakit</th>
+                    <th scope="col">Alergi</th>
+                    <th scope="col">Resep Obat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Connect to the database
+                $con = mysqli_connect("localhost", "root", "", "hms");
+                global $con;
 
-              <th scope="col">Nama Dokter</th>
-              <th scope="col">ID Perjanjian</th>
-              <th scope="col">Tanggal Perjanjian</th>
-              <th scope="col">Waktu Perjanjian</th>
-              <th scope="col">Penyakit</th>
-              <th scope="col">Alergi</th>
-              <th scope="col">Resep Obat</th>
-            </tr>
-          </thead>
-          <tbody>
+                // Define the number of records per page
+                $limit = 10;
+
+                // Get the current page number from the URL (default to 1 if not set)
+                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                $offset = ($page - 1) * $limit;
+
+                // Query to get the total number of records
+                $countQuery = "SELECT COUNT(*) AS total FROM prescriptiontable WHERE pid='$pid'";
+                $countResult = mysqli_query($con, $countQuery);
+                $totalRecords = mysqli_fetch_array($countResult)['total'];
+
+                // Query to fetch the records for the current page
+                $query = "SELECT doctor, AppID, appdate, apptime, disease, allergy, prescription 
+                          FROM prescriptiontable 
+                          WHERE pid='$pid' 
+                          LIMIT $offset, $limit";
+                $result = mysqli_query($con, $query);
+                if (!$result) {
+                    echo mysqli_error($con);
+                }
+
+                // Display records
+                while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $row['doctor']; ?></td>
+                        <td><?php echo $row['AppID']; ?></td>
+                        <td><?php echo $row['appdate']; ?></td>
+                        <td><?php echo $row['apptime']; ?></td>
+                        <td><?php echo $row['disease']; ?></td>
+                        <td><?php echo $row['allergy']; ?></td>
+                        <td><?php echo $row['prescription']; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <div class="pagination">
             <?php
+            // Calculate total pages
+            $totalPages = ceil($totalRecords / $limit);
 
-            $con = mysqli_connect("localhost", "root", "", "hms");
-            global $con;
-
-            $query = "select doctor,AppID,appdate,apptime,disease,allergy,prescription from prescriptiontable where pid='$pid';";
-
-            $result = mysqli_query($con, $query);
-            if (!$result) {
-              echo mysqli_error($con);
+            // Display previous page link
+            if ($page > 1) {
+                echo '<a href="?page=' . ($page - 1) . '">Previous</a>';
             }
 
+            // Display page number links
+            for ($i = 1; $i <= $totalPages; $i++) {
+                echo '<a href="?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+            }
 
-            while ($row = mysqli_fetch_array($result)) {
-              ?>
-              <tr>
-                <td>
-                  <?php echo $row['doctor']; ?>
-                </td>
-                <td>
-                  <?php echo $row['AppID']; ?>
-                </td>
-                <td>
-                  <?php echo $row['appdate']; ?>
-                </td>
-                <td>
-                  <?php echo $row['apptime']; ?>
-                </td>
-                <td>
-                  <?php echo $row['disease']; ?>
-                </td>
-                <td>
-                  <?php echo $row['allergy']; ?>
-                </td>
-                <td>
-                  <?php echo $row['prescription']; ?>
-                </td>
-                </form>
-
-
-              </tr>
-            <?php }
+            // Display next page link
+            if ($page < $totalPages) {
+                echo '<a href="?page=' . ($page + 1) . '">Next</a>';
+            }
             ?>
-          </tbody>
-        </table>
-        <br>
-      </div>
+        </div>
     </div>
+</div>
+
     <!-- Change Password section -->
     <div class="home-content" id="list-change-password">
       <div class="change-password-form">

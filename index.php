@@ -573,7 +573,7 @@
 
               <div>
                 <p>
-                  Main Email : <a href="mailto:contact@website.com" class="contact-link">rsuikustati@yahoo.com</a>
+                  Main Email : <a href="mailto:ahmedbang383@gmail.com" class="contact-link">rsuikustati@yahoo.com</a>
                 </p>
 
                 <p>
@@ -595,7 +595,7 @@
                 </p>
 
                 <p>
-                  WhatsApp HomeVisit : <a href="https://wa.me/081326883336" class="contact-link">0813 2688 3336</a>
+                  WhatsApp HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a>
                 </p>
               </div>
 
@@ -618,12 +618,12 @@
             </span>
 
             <span class="text"></span>
-              HomeVisit : <a href="https://wa.me/081326883336" class="contact-link">0813 2688 3336</a>
+              HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a>
             </span>
 
         </div>
 
-        <ul class="footer-list" data-reveal="bottom">
+        <!-- <ul class="footer-list" data-reveal="bottom">
 
           <li>
             <p class="headline-sm footer-list-title">Fasilitas</p>
@@ -653,7 +653,7 @@
             <p class="text footer-link">Contact Us</p>
           </li>
 
-        </ul>
+        </ul> -->
 
         <ul class="footer-list" data-reveal="bottom">
 
@@ -702,9 +702,7 @@
 
       <div class="footer-bottom">
 
-        <p class="text copyright">
-          &copy; RSUI Kustati <span id="current-year"></span> | All Rights Reserved by AchmadDaniel
-        </p>
+      <p class="text copyright">&copy; RSUI Kustati 2025 | All Rights Reserved by <a href="https://github.com/basyeban">AchmadDaniel</a></p>
         
         <style>
           .copyright {

@@ -29,6 +29,11 @@
     </div>
   </nav>
 
+  <div class="container">
+    <h1 class="title">Tentang Kami</h1>
+    <img src="assets/images/LOGO-BARU-24.png" alt="Logo" class="image" />
+  </div>
+
 
 
   <!-- Footer -->
@@ -45,9 +50,9 @@
       </div>
       <div class="footer-section kontak">
         <h3>Kontak</h3>
-        <p>IGD : (0271) 2937111</p>
-        <p>IGD : (0271) 643013 ext 1100</p>
-        <p>HomeVisit : 0813 2688 3336</p>
+        <p>IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a></p>
+        <p>IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a></p>
+        <p>HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a></p>
       </div>
       <!-- <div class="footer-section fasilitas">
         <h3>Fasilitas</h3>
@@ -141,6 +146,22 @@
       background-color: #00bfa5;
     }
 
+    .container{
+      display: flex;
+      justify-content: center;
+    }
+
+    .title{
+      font-size: 40px;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .image{
+      width: 100px;
+      align-items: center;
+    }
+
     .footer {
       background-color: #004d40;
       color: white;
@@ -167,6 +188,16 @@
       margin: 20px auto;
       max-width: 400px;
       text-align: center;
+    }
+
+    .contact-link {
+      color: #ffffff;
+      text-decoration: none; /* Menghapus garis bawah default */
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Efek transisi yang halus */
+    }
+
+    .contact-link:hover {
+      color:rgb(6, 155, 192);
     }
 
     .card .footer-section img {

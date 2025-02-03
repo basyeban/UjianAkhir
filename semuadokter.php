@@ -34,37 +34,37 @@
   </nav>
 
   <div class="container">
-        <h3>Daftar Dokter</h3>
-        <table class="specialist-table">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama Dokter</th>
-                    <th>Spesialis</th>
-                    <th>Biaya</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include "koneksi.php";
-                $no = 1;
-                $data = mysqli_query($conn, "SELECT * FROM doctor");
-                while ($tampil = mysqli_fetch_array($data)) {
-                    echo "
+    <h3 class="title">Jadwal Dokter Spesialis</h3>
+    <table class="specialist-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama Dokter</th>
+          <th>Spesialis</th>
+          <th>Biaya</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        include "koneksi.php";
+        $no = 1;
+        $data = mysqli_query($conn, "SELECT * FROM doctor");
+        while ($tampil = mysqli_fetch_array($data)) {
+          echo "
                     <tr>
                         <td>$no</td>
                         <td>$tampil[username]</td>
                         <td>$tampil[spec]</td>
-                        <td>" . number_format($tampil['docFees'], 0, ',', '.') . " IDR</td>
+                        <td>IDR " . number_format($tampil['docFees'], 0, ',', '.') . "</td>
                         <td>$tampil[email]</td>
                     </tr>";
-                    $no++;
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
+          $no++;
+        }
+        ?>
+      </tbody>
+    </table>
+  </div>
   </div>
 
   <footer class="footer">
@@ -80,9 +80,9 @@
       </div>
       <div class="footer-section kontak">
         <h3>Kontak</h3>
-        <p>IGD : (0271) 2937111</p>
-        <p>IGD : (0271) 643013 ext 1100</p>
-        <p>HomeVisit : 0813 2688 3336</p>
+        <p>IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a></p>
+        <p>IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a></p>
+        <p>HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a></p>
       </div>
       <!-- <div class="footer-section fasilitas">
         <h3>Fasilitas</h3>
@@ -169,7 +169,7 @@
     }
 
     .signup {
-      background-color: #00897b;
+      background-color: #00adb3;
       padding: 8px 15px;
     }
 
@@ -178,42 +178,72 @@
     }
 
     .container {
-        max-width: 90%; /* Maksimal lebar kontainer (90% dari lebar layar) */
-        margin: 0 auto; /* Membuat kontainer berada di tengah secara horizontal */
+      max-width: 90%;
+      /* Maksimal lebar kontainer (90% dari lebar layar) */
+      margin: 0 auto;
+      /* Membuat kontainer berada di tengah secara horizontal */
+    }
+
+    .title {
+      background-color: #ffffff;
+      font-size: 40px;
+      font-weight: bold;
+      margin-top: 50px;
+      color: #000000;
+      box-shadow: 0 4px 6px #000000;
+      padding: 10px 20px;
+      display: inline-block;
+      text-align: center;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .specialist-table {
-        width: 100%; /* Lebar tabel mengikuti container */
-        border-collapse: collapse; /* Menghilangkan spasi antar border */
-        margin: 20px 0; /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
-        border: 1px solid #ddd; /* Border tabel */
-        background-color: #f9f9f9; /* Warna latar belakang tabel */
+      width: 100%;
+      /* Lebar tabel mengikuti container */
+      border-collapse: collapse;
+      /* Menghilangkan spasi antar border */
+      margin: 20px 0;
+      /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
+      border: 1px solid #ddd;
+      /* Border tabel */
+      background-color: #f9f9f9;
+      /* Warna latar belakang tabel */
     }
 
-    .specialist-table th, 
+    .specialist-table th,
     .specialist-table td {
-        padding: 12px 15px; /* Memberikan padding untuk isi tabel */
-        text-align: left; /* Perataan teks */
-        border: 1px solid #ddd; /* Border untuk sel */
+      padding: 12px 15px;
+      /* Memberikan padding untuk isi tabel */
+      text-align: left;
+      /* Perataan teks */
+      border: 1px solid #ddd;
+      /* Border untuk sel */
     }
 
     .specialist-table thead th {
-        background-color: var(--verdigris, #00adb3); /* Warna latar belakang header (fallback ke biru) */
-        color: white; /* Warna teks header */
-        font-weight: bold; /* Membuat teks header tebal */
+      background-color: var(--verdigris, #00adb3);
+      /* Warna latar belakang header (fallback ke biru) */
+      color: white;
+      /* Warna teks header */
+      font-weight: bold;
+      /* Membuat teks header tebal */
     }
 
     .specialist-table tbody tr:nth-child(even) {
-        background-color: #f2f2f2; /* Warna latar baris genap */
+      background-color: #f2f2f2;
+      /* Warna latar baris genap */
     }
 
     .specialist-table tbody tr:hover {
-        background-color: #ddd; /* Warna latar saat baris dihover */
+      background-color: #ddd;
+      /* Warna latar saat baris dihover */
     }
 
     h3 {
-        text-align: center;
-        color: #333;
+      text-align: center;
+      color: #333;
     }
 
     .footer {
@@ -249,7 +279,17 @@
       margin-bottom: 10px;
     }
 
-    .footer-section p{
+    .contact-link {
+      color: #ffffff;
+      text-decoration: none; /* Menghapus garis bawah default */
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Efek transisi yang halus */
+    }
+
+    .contact-link:hover {
+      color:rgb(6, 155, 192);
+    }
+
+    .footer-section p {
       margin-bottom: 10px;
       font-size: 15px;
     }

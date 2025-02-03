@@ -138,7 +138,7 @@ nav .sidebar-button i{
 .section-container .home-content {
   padding: 20px;
   position: relative;
-  padding-top: 110px;
+  padding-top: 55px;
 }
 
 /* Default styles for all screen sizes */
@@ -150,7 +150,10 @@ nav .sidebar-button i{
   padding: 20px 30px;
   margin: 20px auto;
   max-width: 500px;
+  max-height: 400px; /* Membatasi tinggi maksimum */
+  overflow: auto; /* Menambahkan scrollbar jika konten melebihi ukuran */
 }
+
 
 /* Section heading */
 .home-content .hcontent h4 {

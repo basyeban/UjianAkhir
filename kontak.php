@@ -42,17 +42,17 @@
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="info-kontak">
-          <h1>Info Kontak</h1>
+          <h3 class="title">Info Kontak</h3>
           <div class="details">
             <div class="alamat">
               <h2>ALAMAT</h2>
-              <p>Jl. Kapten Mulyadi No.249, Ps. Kliwon, Kec. Ps. Kliwon, Kota Surakarta, Jawa Tengah 57118</p>
+              <p class="sub-title">Jl. Kapten Mulyadi No.249, Ps. Kliwon, Kec. Ps. Kliwon, Kota Surakarta, Jawa Tengah 57118</p>
             </div>
             <div class="kontak">
               <h2>KONTAK</h2>
-              <p> (0271) 2937111 (IGD)</p>
-              <p> (0271) 643013 ext 1100 (IGD)</p>
-              <p> 0813 1717 0505 (HOME VISIT)</p>
+              <p class="sub-title"> (0271) 2937111 (IGD)</p>
+              <p class="sub-title"> (0271) 643013 ext 1100 (IGD)</p>
+              <p class="sub-title"> 0813 1717 0505 (HOME VISIT)</p>
             </div>
             <div class="pengaduan">
               <h2>LAYANAN PENGADUAN</h2>
@@ -98,10 +98,10 @@
         </div>
       </div>
       <div class="footer-section kontak">
-        <h3>Kontak</h3>
-        <p>IGD : (0271) 2937111</p>
-        <p>IGD : (0271) 643013 ext 1100</p>
-        <p>HomeVisit : 0813 2688 3336</p>
+      <h3>Kontak</h3>
+        <p>IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a></p>
+        <p>IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a></p>
+        <p>HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a></p>
       </div>
       <!-- <div class="footer-section fasilitas">
         <h3>Fasilitas</h3>
@@ -213,6 +213,13 @@
       box-shadow: 0 4px 6px #000000;
     }
 
+    .title{
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 50px;
+    }
+
     .content {
       display: flex;
       gap: 20px;
@@ -258,7 +265,7 @@
     }
 
     p {
-      margin: 5px 0;
+      margin: 12px 0;
     }
 
     .icons {
@@ -335,6 +342,16 @@
       margin: 5px 0;
       color: #333;
       font-size: 15px;
+    }
+
+    .contact-link {
+      color: #ffffff;
+      text-decoration: none; /* Menghapus garis bawah default */
+      transition: color 0.3s ease, text-shadow 0.3s ease; /* Efek transisi yang halus */
+    }
+
+    .contact-link:hover {
+      color:rgb(6, 155, 192);
     }
 
     .footer-section h3 {
