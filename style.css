@@ -137,20 +137,22 @@ nav .sidebar-button i{
 }
 .section-container .home-content {
   padding: 20px;
+  margin-top: 40px;
   position: relative;
   padding-top: 55px;
 }
 
-/* Default styles for all screen sizes */
-/* General styles for the form container */
+
 .home-content .hcontent {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 20px 30px;
   margin: 20px auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
   max-width: 500px;
-  max-height: 400px; /* Membatasi tinggi maksimum */
+  max-height: 600px; /* Membatasi tinggi maksimum */
   overflow: auto; /* Menambahkan scrollbar jika konten melebihi ukuran */
 }
 

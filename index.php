@@ -374,20 +374,29 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama</th>
+                <th>Nama Dokter</th>
                 <th>Spesialis</th>
                 <th>Biaya</th>
                 <th>Email</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Psychiatry</td>
-                <td>Spesialis Umum</td>
-                <td>Rp 10.000</td>
-                <td>123@gmail.com</td>
-              </tr>
+              <?php
+        include "koneksi.php";
+        $no = 1;
+        $data = mysqli_query($conn, "SELECT * FROM doctor");
+        while ($tampil = mysqli_fetch_array($data)) {
+          echo "
+                    <tr>
+                        <td>$no</td>
+                        <td>$tampil[username]</td>
+                        <td>$tampil[spec]</td>
+                        <td>IDR " . number_format($tampil['docFees'], 0, ',', '.') . "</td>
+                        <td>$tampil[email]</td>
+                    </tr>";
+          $no++;
+        }
+        ?>
             </tbody>
           </table>
       
@@ -400,26 +409,62 @@
       
       <style>
         .button-container {
-          margin-top: 20px;
-          margin-left: 450px;
-          margin-right: 450px;
-          text-align: center; /* Pusatkan tombol */
-        }
-      
-        .navigate-button {
-          background-color: #008080; /* Warna tosca gelap */
-          color: #fff;
-          border: none;
-          padding: 10px 20px;
-          font-size: 16px;
-          cursor: pointer;
-          border-radius: 5px;
-          transition: background-color 0.3s ease;
-        }
-      
-        .navigate-button:hover {
-          background-color: #006666; /* Warna tosca yang lebih gelap saat hover */
-        }
+  margin-top: 20px;
+  text-align: center; /* Center the button */
+}
+
+.navigate-button {
+  background-color: #008080; /* Dark teal color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navigate-button:hover {
+  background-color: #006666; /* Darker teal on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .button-container {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .navigate-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .navigate-button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .navigate-button {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+}
+
       </style>
       
       <!-- 

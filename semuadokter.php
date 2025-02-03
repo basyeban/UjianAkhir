@@ -11,30 +11,36 @@
 </head>
 
 <body>
-  <?php
-  $menus = [
-    'Beranda' => 'index.php',
-    'Dokter' => 'semuadokter.php',
-    'Tentang Kami' => 'tentangkami.php',
-    'Kontak' => 'kontak.php'
-  ];
-  ?>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="#" class="logo">
-        <img src="assets/images/logo.png" alt="Logo" />
-      </a>
-      <ul class="menu">
-        <?php foreach ($menus as $name => $link): ?>
-          <li><a href="<?php echo $link; ?>"><?php echo $name; ?></a></li>
-        <?php endforeach; ?>
-        <li><a href="index-login.php" class="signup">Sign-Up</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav class="navbar">
+        <a href="index.php" class="logo">
+            <img src="assets/images/logo.png" alt="Logo" />
+        </a>
+        <button class="menu-toggle" onclick="myMenuFunction()">
+            ☰
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.php">Beranda</a></li>
+            <li><a href="semuadokter.php">Dokter</a></li>
+            <li><a href="tentangkami.php">Tentang Kami</a></li>
+            <li><a href="kontak.php">Kontak</a></li>
+            <li><a href="index-login.php" class="signup">Sign-Up</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function myMenuFunction() {
+            var menu = document.getElementById("navMenu");
+
+            if (menu.classList.contains("responsive")) {
+                menu.classList.remove("responsive");
+            } else {
+                menu.classList.add("responsive");
+            }
+        }
+    </script>
 
   <div class="container">
-    <h3 class="title">Jadwal Dokter Spesialis</h3>
+    <h3 class="title">Jadwal Dokter</h3>
     <table class="specialist-table">
       <thead>
         <tr>
@@ -119,226 +125,384 @@
 
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .navbar {
-      background-color: #000000;
-      padding: 25px 35px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      max-width: 1200px;
-    }
+        /* Navbar Styles */
+        .navbar {
+            background-color: #000000;
+            padding: 15px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
 
-    .logo img {
-      width: 160px;
-    }
+        .logo img {
+            width: 160px;
+        }
 
-    .menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 40px;
-    }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
-    .menu li {
-      display: inline;
-    }
+        .nav-menu li {
+            display: inline;
+            text-align: center;
+        }
 
-    .menu li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-    }
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-    .signup {
-      background-color: #00adb3;
-      padding: 8px 15px;
-    }
+        .signup {
+            background-color: #00adb3;
+            padding: 8px 15px;
+        }
 
-    .signup:hover {
-      background-color: #00bfa5;
-    }
+        .signup:hover {
+            background-color: #00bfa5;
+        }
 
-    .container {
-      max-width: 90%;
-      /* Maksimal lebar kontainer (90% dari lebar layar) */
-      margin: 0 auto;
-      /* Membuat kontainer berada di tengah secara horizontal */
-    }
+        /* Hamburger Button */
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
 
-    .title {
-      background-color: #ffffff;
-      font-size: 40px;
-      font-weight: bold;
-      margin-top: 50px;
-      color: #000000;
-      box-shadow: 0 4px 6px #000000;
-      padding: 10px 20px;
-      display: inline-block;
-      text-align: center;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
 
-    .specialist-table {
-      width: 100%;
-      /* Lebar tabel mengikuti container */
-      border-collapse: collapse;
-      /* Menghilangkan spasi antar border */
-      margin: 20px 0;
-      /* Memberikan jarak vertikal antara tabel dan elemen lainnya */
-      border: 1px solid #ddd;
-      /* Border tabel */
-      background-color: #f9f9f9;
-      /* Warna latar belakang tabel */
-    }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                width: 200px;
+                padding: 15px;
+                border-radius: 5px;
+            }
 
-    .specialist-table th,
-    .specialist-table td {
-      padding: 12px 15px;
-      /* Memberikan padding untuk isi tabel */
-      text-align: left;
-      /* Perataan teks */
-      border: 1px solid #ddd;
-      /* Border untuk sel */
-    }
+            .nav-menu.responsive {
+                display: flex;
+            }
 
-    .specialist-table thead th {
-      background-color: var(--verdigris, #00adb3);
-      /* Warna latar belakang header (fallback ke biru) */
-      color: white;
-      /* Warna teks header */
-      font-weight: bold;
-      /* Membuat teks header tebal */
-    }
+            .nav-menu li {
+                margin: 10px 0;
+                text-align: right;
+            }
 
-    .specialist-table tbody tr:nth-child(even) {
-      background-color: #f2f2f2;
-      /* Warna latar baris genap */
-    }
+            .nav-menu li a {
+                display: block;
+                color: white;
+                text-align: center;
+                font-size: 16px;
+                padding: 8px;
+            }
+        }
 
-    .specialist-table tbody tr:hover {
-      background-color: #ddd;
-      /* Warna latar saat baris dihover */
-    }
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
 
-    h3 {
-      text-align: center;
-      color: #333;
-    }
+.title {
+  background-color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 50px;
+  color: #000000;
+  box-shadow: 0 4px 6px #000000;
+  padding: 10px 20px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-    .footer {
-      background-color: #004d40;
-      color: white;
-      margin-top: 50px;
-      padding: 30px 20px;
-      font-size: 14px;
-    }
+.specialist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
 
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      max-width: 1200px;
-      margin: 0 auto;
-      justify-content: space-between;
-    }
+.specialist-table th,
+.specialist-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
 
-    .card {
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 400px;
-      text-align: center;
-    }
+.specialist-table thead th {
+  background-color: var(--verdigris, #00adb3);
+  color: white;
+  font-weight: bold;
+}
 
-    .card .footer-section img {
-      max-width: 160px;
-      margin-bottom: 10px;
-    }
+.specialist-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-    .contact-link {
-      color: #ffffff;
-      text-decoration: none; /* Menghapus garis bawah default */
-      transition: color 0.3s ease, text-shadow 0.3s ease; /* Efek transisi yang halus */
-    }
+.specialist-table tbody tr:hover {
+  background-color: #ddd;
+}
 
-    .contact-link:hover {
-      color:rgb(6, 155, 192);
-    }
+h3 {
+  text-align: center;
+  color: #333;
+}
 
-    .footer-section p {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
+.footer {
+  background-color: #004d40;
+  color: white;
+  margin-top: 50px;
+  padding: 30px 20px;
+  font-size: 14px;
+}
 
-    .card .footer-section p {
-      margin: 5px 0;
-      color: #333;
-      font-size: 15px;
-    }
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
 
-    .footer-section h3 {
-      font-size: 30px;
-      margin-bottom: 10px;
-      color: white;
-    }
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: center;
+}
 
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+.card .footer-section img {
+  max-width: 160px;
+  margin-bottom: 10px;
+}
 
-    .footer-section ul li {
-      margin: 5px 0;
-    }
+.contact-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
 
-    .footer-section ul li a {
-      color: white;
-      font-size: 20px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+.contact-link:hover {
+  color: rgb(6, 155, 192);
+}
 
-    .footer-section ul li a:hover {
-      color: #00bfa5;
-    }
+.footer-section p {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
 
-    .footer-bottom {
-      text-align: center;
-      margin-top: 20px;
-      border-top: 1px solid #00695c;
-      padding-top: 15px;
-    }
+.card .footer-section p {
+  margin: 5px 0;
+  color: #333;
+  font-size: 15px;
+}
 
-    .footer-bottom a {
-      color: #00e676;
-      text-decoration: none;
-    }
+.footer-section h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #00bfa5;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #00695c;
+  padding-top: 15px;
+}
+
+.footer-bottom a {
+  color: #00e676;
+  text-decoration: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu li a {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 140px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    display: none; /* Hide the menu by default */
+    width: 100%;
+    text-align: right;
+  }
+
+  .menu.active {
+    display: block; /* Show menu when the active class is added */
+  }
+
+  .menu li a {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .hamburger {
+    display: block; /* Show the hamburger icon */
+  }
+
+  .specialist-table th,
+  .specialist-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 30px;
+    padding: 8px 15px;
+  }
+
+  .footer-container {
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 5px;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .menu li a {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .specialist-table th,
+  .specialist-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .title {
+    font-size: 25px;
+    padding: 6px 10px;
+  }
+
+  .footer-container {
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    font-size: 10px;
+  }
+
+  .footer-section ul li a {
+    font-size: 16px;
+  }
+}
+
+
   </style>
+
 </body>
 
 </html>

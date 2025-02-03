@@ -546,33 +546,45 @@ body.nav-active {
 }
 
 .specialist-table {
-  width: 100%; /* Lebar tabel mengikuti container */
-  border-collapse: collapse; /* Menghilangkan spasi antar border */
-  margin: 20px auto; /* Memberikan jarak 20px di atas dan bawah tabel */
-  border: 1px solid #ddd; /* Border tabel */
-  background-color: #f9f9f9; /* Warna latar belakang tabel */
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
 }
 
-.specialist-table th, 
+.specialist-table th,
 .specialist-table td {
-  padding: 12px 15px; /* Memberikan padding untuk isi tabel */
-  text-align: left; /* Perataan teks */
-  border: 1px solid #ddd; /* Border untuk sel */
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
 }
 
 .specialist-table thead th {
-  background-color:var(--verdigris); /* Warna latar belakang header */
-  color: white; /* Warna teks header */
-  font-weight: bold; /* Membuat teks header tebal */
+  background-color: var(--verdigris, #00adb3);
+  color: white;
+  font-weight: bold;
 }
 
 .specialist-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2; /* Warna latar baris genap */
+  background-color: #f2f2f2;
 }
 
 .specialist-table tbody tr:hover {
-  background-color: #ddd; /* Warna latar saat baris dihover */
+  background-color: #ddd;
 }
+
+.specialist-table th,
+  .specialist-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .specialist-table th,
+  .specialist-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
 
 /*-----------------------------------*\
   #ABOUT

@@ -11,27 +11,33 @@
 </head>
 
 <body>
-  <?php
-  $menus = [
-    'Beranda' => 'index.php',
-    'Dokter' => 'semuadokter.php',
-    'Tentang Kami' => 'tentangkami.php',
-    'Kontak' => 'kontak.php'
-  ];
-  ?>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="index.php" class="logo">
-        <img src="assets/images/logo.png" alt="Logo" />
-      </a>
-      <ul class="menu">
-        <?php foreach ($menus as $name => $link): ?>
-          <li><a href="<?php echo $link; ?>"><?php echo $name; ?></a></li>
-        <?php endforeach; ?>
-        <li><a href="index-login.php" class="signup">Sign-Up</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav class="navbar">
+        <a href="index.php" class="logo">
+            <img src="assets/images/logo.png" alt="Logo" />
+        </a>
+        <button class="menu-toggle" onclick="myMenuFunction()">
+            ☰
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.php">Beranda</a></li>
+            <li><a href="semuadokter.php">Dokter</a></li>
+            <li><a href="tentangkami.php">Tentang Kami</a></li>
+            <li><a href="kontak.php">Kontak</a></li>
+            <li><a href="index-login.php" class="signup">Sign-Up</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function myMenuFunction() {
+            var menu = document.getElementById("navMenu");
+
+            if (menu.classList.contains("responsive")) {
+                menu.classList.remove("responsive");
+            } else {
+                menu.classList.add("responsive");
+            }
+        }
+    </script>
 
   <div class="background-section">
     <div class="container">
@@ -138,63 +144,108 @@
 
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .navbar {
-      background-color: #000000;
-      padding: 25px 35px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      max-width: 1200px;
-    }
+        /* Navbar Styles */
+        .navbar {
+            background-color: #000000;
+            padding: 15px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
 
-    .logo img {
-      width: 160px;
-    }
+        .logo img {
+            width: 160px;
+        }
 
-    .menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 40px;
-    }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
-    .menu li {
-      display: inline;
-    }
+        .nav-menu li {
+            display: inline;
+            text-align: center;
+        }
 
-    .menu li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-    }
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-    .signup {
-      background-color: #00897b;
-      padding: 8px 15px;
-    }
+        .signup {
+            background-color: #00adb3;
+            padding: 8px 15px;
+        }
 
-    .signup:hover {
-      background-color: #00bfa5;
-    }
+        .signup:hover {
+            background-color: #00bfa5;
+        }
+
+        /* Hamburger Button */
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #000000;
+                width: 200px;
+                padding: 15px;
+                border-radius: 5px;
+            }
+
+            .nav-menu.responsive {
+                display: flex;
+            }
+
+            .nav-menu li {
+                margin: 10px 0;
+                text-align: right;
+            }
+
+            .nav-menu li a {
+                display: block;
+                color: white;
+                text-align: center;
+                font-size: 16px;
+                padding: 8px;
+            }
+        }
 
     /* .background-section {
       background: linear-gradient(to right, #004d40, #00695c);
@@ -203,17 +254,19 @@
     } */
 
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      margin-top: 50px;
-      margin-bottom: 50px;
-      padding: 50px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px #000000;
-    }
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 50px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 
+              0 15px 30px rgba(0, 0, 0, 0.1);
+}
 
-    .title{
+
+    .title {
       text-align: center;
       margin-top: 30px;
       margin-bottom: 30px;
@@ -222,7 +275,9 @@
 
     .content {
       display: flex;
+      flex-wrap: wrap;
       gap: 20px;
+      justify-content: center;
     }
 
     .map {
@@ -254,7 +309,7 @@
       gap: 20px;
     }
 
-    .details>div {
+    .details > div {
       flex: 1 1 calc(50% - 20px);
       min-width: 300px;
     }
@@ -272,6 +327,7 @@
       display: flex;
       gap: 15px;
       margin: 20px 0;
+      justify-content: center;
     }
 
     .icons a {
@@ -299,10 +355,43 @@
       border-radius: 50px;
       cursor: pointer;
       font-size: 16px;
+      text-decoration: none;
     }
 
     .chat-button a:hover {
       background-color: #00a944;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px;
+      }
+      .title {
+        font-size: 40px;
+      }
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .map {
+        max-width: 100%;
+      }
+      .details > div {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 30px;
+      }
+      .container {
+        padding: 20px;
+      }
+      .chat-button a {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
     }
 
     .footer {
@@ -346,12 +435,12 @@
 
     .contact-link {
       color: #ffffff;
-      text-decoration: none; /* Menghapus garis bawah default */
-      transition: color 0.3s ease, text-shadow 0.3s ease; /* Efek transisi yang halus */
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
     }
 
     .contact-link:hover {
-      color:rgb(6, 155, 192);
+      color: rgb(6, 155, 192);
     }
 
     .footer-section h3 {
@@ -360,7 +449,7 @@
       color: #ffffff;
     }
 
-    .footer-section p{
+    .footer-section p {
       margin-bottom: 10px;
       font-size: 15px;
     }
@@ -397,6 +486,49 @@
       color: #00e676;
       text-decoration: none;
     }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer {
+        padding: 20px;
+      }
+
+      .footer-section h3 {
+        font-size: 24px;
+      }
+
+      .footer-section p, .footer-section ul li a {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer {
+        padding: 15px;
+      }
+
+      .footer-section h3 {
+        font-size: 20px;
+      }
+
+      .footer-section p, .footer-section ul li a {
+        font-size: 14px;
+      }
+    }
+
   </style>
 </body>
 
