@@ -5,11 +5,11 @@ include 'lib/header.php';
       <div class="background-section">
     <div class="container">
       <div class="content">
-        <div class="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.363934796758!2d110.8267903!3d-7.5809593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1669e97a0db9%3A0x98a2d5e8023abf4c!2sKustati%20Islamic%20General%20Hospital!5e0!3m2!1sen!2sid!4v1698750492385!5m2!1sen!2sid"
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+      <!-- <div class="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.363934796758!2d110.8267903!3d-7.5809593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1669e97a0db9%3A0x98a2d5e8023abf4c!2sKustati%20Islamic%20General%20Hospital!5e0!3m2!1sen!2sid!4v1698750492385!5m2!1sen!2sid"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div> -->
         <div class="info-kontak">
           <h3 class="title">Info Kontak</h3>
           <div class="details">
@@ -101,27 +101,7 @@ include 'lib/header.php';
   text-align: center;
 }
 
-.map-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  flex: 1;
-  max-width: 400px;
-  aspect-ratio: 1 / 1;
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
-.map-card iframe {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  border: 0;
-}
-
 .info-kontak {
-  flex: 2;
   margin-top: 35px;
   color: black;
 }
@@ -143,6 +123,7 @@ p {
   color: #555;
 }
 
+
 .icons {
   display: flex;
   gap: 15px;
@@ -158,7 +139,7 @@ p {
 }
 
 .icons a:hover {
-  color: #007bff;
+  color: #00adb3;
 }
 
 .chat-button {
@@ -193,9 +174,9 @@ p {
     flex-direction: column;
     align-items: center;
   }
-  .map-card {
+  /* .map-card {
     max-width: 100%;
-  }
+  } */
   .details > div {
     flex: 1 1 100%;
   }
@@ -287,37 +268,29 @@ p {
 
         </div>
 
-        <!-- <ul class="footer-list" data-reveal="bottom">
+        <ul class="footer-list" data-reveal="bottom">
 
           <li>
-            <p class="headline-sm footer-list-title">Fasilitas</p>
+            <p class="headline-sm footer-list-title">Menu</p>
           </li>
 
           <li>
-            <p class="text footer-link">Conditions</p>
+            <a href="index.php" class="text footer-link">Beranda</a>
           </li>
 
           <li>
-            <p class="text footer-link">Listing</p>
+            <a href="semuadokter.php" class="text footer-link">Dokter</a>
           </li>
 
           <li>
-            <p class="text footer-link">How It Works</p>
+            <a href="tentangkami.php" class="text footer-link">Tentang Kami</a>
           </li>
 
           <li>
-            <p class="text footer-link">What We Offer</p>
+            <a href="kontak.php" class="text footer-link">Kontak</a>
           </li>
 
-          <li>
-            <p class="text footer-link">Latest News</p>
-          </li>
-
-          <li>
-            <p class="text footer-link">Contact Us</p>
-          </li>
-
-        </ul> -->
+        </ul>
 
         <ul class="footer-list" data-reveal="bottom">
 

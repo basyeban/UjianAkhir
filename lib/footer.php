@@ -69,37 +69,29 @@
 
         </div>
 
-        <!-- <ul class="footer-list" data-reveal="bottom">
+        <ul class="footer-list" data-reveal="bottom">
 
           <li>
-            <p class="headline-sm footer-list-title">Fasilitas</p>
+            <p class="headline-sm footer-list-title">Menu</p>
           </li>
 
           <li>
-            <p class="text footer-link">Conditions</p>
+            <a href="index.php" class="text footer-link">Beranda</a>
           </li>
 
           <li>
-            <p class="text footer-link">Listing</p>
+            <a href="semuadokter.php" class="text footer-link">Dokter</a>
           </li>
 
           <li>
-            <p class="text footer-link">How It Works</p>
+            <a href="tentangkami.php" class="text footer-link">Tentang Kami</a>
           </li>
 
           <li>
-            <p class="text footer-link">What We Offer</p>
+            <a href="kontak.php" class="text footer-link">Kontak</a>
           </li>
 
-          <li>
-            <p class="text footer-link">Latest News</p>
-          </li>
-
-          <li>
-            <p class="text footer-link">Contact Us</p>
-          </li>
-
-        </ul> -->
+        </ul>
 
         <ul class="footer-list" data-reveal="bottom">
 
