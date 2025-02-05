@@ -6,6 +6,10 @@
     <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
     <title>Tentang Kami</title>
 </head>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <body>
 <nav class="navbar">
         <a href="index.php" class="logo">
@@ -43,57 +47,286 @@
 
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="card">
-        <div class="footer-section logo">
-          <img src="assets/images/logo.png" alt="Logo RSUI Kustati" />
-          <p>Main Email: rsuikustati@yahoo.com</p>
-          <p>Inquiries: info@mail.com</p>
-          <p>Telepon IGD: (0271) 2937111</p>
-          <p>WhatsApp HomeVisit: 0813 2688 3336</p>
+  <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+    <div class="container">
+
+      <div class="section footer-top">
+
+        <div class="footer-brand" data-reveal="bottom">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="136" height="46" loading="lazy" alt="Doclab home">
+          </a>
+
+          <ul class="contact-list has-after">
+
+            <li class="contact-item">
+
+              <div class="item-icon">
+                <ion-icon name="mail-open-outline"></ion-icon>
+              </div>
+
+              <div>
+                <p>
+                  Main Email : <a href="mailto:ahmedbang383@gmail.com" class="contact-link">rsuikustati@yahoo.com</a>
+                </p>
+
+                <p>
+                  Inquiries : <a href="mailto:Info@mail.com" class="contact-link">Info@mail.com</a>
+                </p>
+              </div>
+
+            </li>
+
+            <li class="contact-item">
+
+              <div class="item-icon">
+                <ion-icon name="call-outline"></ion-icon>
+              </div>
+
+              <div>
+                <p>
+                  Telepon IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a>
+                </p>
+
+                <p>
+                  WhatsApp HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a>
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
         </div>
-      </div>
-      <div class="footer-section kontak">
-        <h3>Kontak</h3>
-        <p>IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a></p>
-        <p>IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a></p>
-        <p>HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a></p>
-      </div>
-      <!-- <div class="footer-section fasilitas">
-        <h3>Fasilitas</h3>
-        <ul>
-          <li><a href="#">Conditions</a></li>
-          <li><a href="#">Listing</a></li>
-          <li><a href="#">How It Works</a></li>
-          <li><a href="#">What We Offer</a></li>
-          <li><a href="#">Latest News</a></li>
-          <li><a href="#">Contact Us</a></li>
+
+        <div class="footer-list" data-reveal="bottom">
+
+          <p class="headline-sm footer-list-title">Kontak</p>
+
+            <span class="text"></span>
+              IGD : <a href="tel:(0271) 2937111" class="contact-link">(0271) 2937111</a>
+            </span>
+
+            <span class="text"></span>
+              IGD : <a href="tel:(0271) 643013 ext 1100" class="contact-link">(0271) 643013 ext 1100</a>
+            </span>
+
+            <span class="text"></span>
+              HomeVisit : <a href="https://wa.me/+6281326883336" class="contact-link">0813 2688 3336</a>
+            </span>
+
+        </div>
+
+        <!-- <ul class="footer-list" data-reveal="bottom">
+
+          <li>
+            <p class="headline-sm footer-list-title">Fasilitas</p>
+          </li>
+
+          <li>
+            <p class="text footer-link">Conditions</p>
+          </li>
+
+          <li>
+            <p class="text footer-link">Listing</p>
+          </li>
+
+          <li>
+            <p class="text footer-link">How It Works</p>
+          </li>
+
+          <li>
+            <p class="text footer-link">What We Offer</p>
+          </li>
+
+          <li>
+            <p class="text footer-link">Latest News</p>
+          </li>
+
+          <li>
+            <p class="text footer-link">Contact Us</p>
+          </li>
+
+        </ul> -->
+
+        <ul class="footer-list" data-reveal="bottom">
+
+          <li>
+            <p class="headline-sm footer-list-title">Social Media</p>
+          </li>
+
+          <li>
+            <a href="https://x.com/rsuikustati" class="text footer-link">twitter</a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com/p/rsuikustati-100064256675572/?locale=id_ID" class="text footer-link">Facebook</a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/rsui.kustati/" class="text footer-link">Instagram</a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/@rsui.kustati" class="text footer-link">Youtube</a>
+          </li>
+
         </ul>
-      </div> -->
-      <div class="footer-section social-media">
-        <h3>Sosial Media</h3>
-        <ul>
-          <li><a href="https://x.com/rsuikustati">Twitter</a></li>
-          <li><a href="https://www.facebook.com/p/rsuikustati-100064256675572/?locale=id_ID">Facebook</a></li>
-          <li><a href="https://www.instagram.com/rsui.kustati/">Instagram</a></li>
-          <li><a href="https://www.youtube.com/@rsui.kustati">YouTube</a></li>
+
+        <div class="footer-list" data-reveal="bottom">
+
+          <p class="headline-sm footer-list-title">Lokasi</p>
+
+          <form action="" class="footer-form">
+          <span class="text">
+              Jl. Kapten Mulyadi No.249, Ps. Kliwon, Kec. Ps. Kliwon, <br>
+              Kota Surakarta, Jawa Tengah 57118 
+            </span>
+
+            <div class="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.363934796758!2d110.8267903!3d-7.5809593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1669e97a0db9%3A0x98a2d5e8023abf4c!2sKustati%20Islamic%20General%20Hospital!5e0!3m2!1sen!2sid!4v1698750492385!5m2!1sen!2sid"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+      <p class="text copyright">&copy; RSUI Kustati 2025 | All Rights Reserved by <a href="https://github.com/basyeban">AchmadDaniel</a></p>
+        
+        <style>
+          .copyright {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px; /* Jarak antar elemen */
+            white-space: nowrap; /* Mencegah teks turun ke bawah */
+          }
+
+          .copyright a{
+            color: white;
+            text-decoration: none;
+          }
+        </style>
+        
+        <script>
+          // Mengambil tahun saat ini
+          document.getElementById("current-year").textContent = new Date().getFullYear();
+        </script>
+        
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://x.com/rsuikustati" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com/p/rsuikustati-100064256675572/?locale=id_ID" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+
+          <li>
+            <a href="https://www.instagram.com/rsui.kustati/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/@rsui.kustati" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
         </ul>
+
       </div>
-      <div class="footer-section lokasi">
-        <h3>Lokasi</h3>
-        <p>Jl. Kapten Mulyadi No.249, Ps. Kliwon,<br>Kec. Ps. Kliwon, Kota Surakarta, Jawa Tengah 57118</p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.363934796758!2d110.8267903!3d-7.5809593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a1669e97a0db9%3A0x98a2d5e8023abf4c!2sKustati%20Islamic%20General%20Hospital!5e0!3m2!1sen!2sid!4v1698750492385!5m2!1sen!2sid"
-          width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; RSUI Kustati 2025 | All Rights Reserved by <a href="https://github.com/basyeban">AchmadDaniel</a></p>
+
     </div>
   </footer>
 
   <style>
+
+:root {
+  /**
+   * colors
+   */
+
+  --rich-black-fogra-29: hsl(222, 44%, 8%);
+  --middle-blue-green_40: hsla(174, 64%, 71%, 0.4);
+  --midnight-green: hsl(186, 100%, 19%);
+  --midnight-green_a25: hsla(186, 100%, 19%, 0.25);
+  --independece: hsl(236, 14%, 39%);
+  --verdigris: #00adb3;
+  --ming: hsl(186, 72%, 24%);
+  --space-cadet: hsla(226, 45%, 24%);
+  --eerie-black: hsl(0, 0%, 13%);
+  --alice-blue: hsl(187, 25%, 94%);
+  --gray-web: hsl(0, 0%, 50%);
+  --gainsboro: hsl(0, 0%, 87%);
+  --white: hsl(0, 0%, 100%);
+  --white_a20: hsla(0, 0%, 100%, 0.2);
+  --white_a10: hsla(0, 0%, 100%, 0.1);
+  --black: hsl(0, 0%, 0%);
+
+  /**
+   * typography
+   */
+
+  --ff-oswald: "Oswald", sans-serif;
+  --ff-rubik: "Rubik", sans-serif;
+
+  --headline-lg: 5rem;
+  --headline-md: 3rem;
+  --headline-sm: 2rem;
+  --title-lg: 1.8rem;
+  --title-md: 1.5rem;
+  --title-sm: 1.4rem;
+
+  --fw-500: 500;
+  --fw-700: 800;
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 120px;
+
+  /**
+   * box shadow
+   */
+
+  --shadow-1: 0px 2px 20px hsla(209, 36%, 72%, 0.2);
+  --shadow-2: 0 4px 16px hsla(0, 0%, 0%, 0.06);
+
+  /**
+   * border radius
+   */
+
+  --radius-circle: 50%;
+  --radius-12: 12px;
+  --radius-6: 6px;
+  --radius-4: 4px;
+
+  /**
+   * transition
+   */
+
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --transition-3: 1s ease;
+  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+  --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+}
+
     * {
             margin: 0;
             padding: 0;
@@ -213,140 +446,161 @@
       align-items: center;
     }
 
-    .footer {
-      background-color: #004d40;
-      color: white;
-      margin-top: 50px;
-      padding: 30px 20px;
-      font-size: 14px;
-    }
+/* footer */
+.footer {
+  background-color: var(--midnight-green);
+  color: var(--white);
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+}
 
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      max-width: 1200px;
-      margin: 0 auto;
-      justify-content: space-between;
-    }
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 60px;
+}
 
-    .card {
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 400px;
-      text-align: center;
-    }
+.footer-brand {
+  background-color: var(--ming);
+  padding: 32px;
+  border-radius: var(--radius-6);
+}
 
-    .card .footer-section img {
-      max-width: 160px;
-      margin-bottom: 10px;
-    }
+.footer .logo {
+  flex-shrink: 0;
+}
 
-    .card .footer-section p {
-      margin: 5px 0;
-      color: #333;
-      font-size: 15px;
-    }
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-    .contact-link {
-      color: #ffffff;
-      text-decoration: none;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    .contact-link:hover {
-      color: rgb(6, 155, 192);
-    }
+.contact-item .item-icon {
+  font-size: 2rem;
+  color: var(--white);
+}
 
-    .footer-section h3 {
-      font-size: 30px;
-      margin-bottom: 10px;
-      color: #ffffff;
-    }
+.contact-link {
+  transition: var(--transition-1);
+  color: var(--white);
+  text-decoration: none;
+}
 
-    .footer-section p {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
+.contact-link:hover {
+  color: var(--verdigris);
+}
 
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-    .footer-section ul li {
-      margin: 5px 0;
-    }
+.footer-list-title {
+  color: var(--white);
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+  align-items: center;
+  width: 100%;
+}
 
-    .footer-section ul li a {
-      color: white;
-      font-size: 20px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+.footer-link {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+  list-style: none;
+}
 
-    .footer-section ul li a:hover {
-      color: #00bfa5;
-    }
+.footer-link:hover {
+  color: var(--verdigris);
+  opacity: 1;
+}
 
-    .footer-bottom {
-      text-align: center;
-      margin-top: 20px;
-      border-top: 1px solid #00695c;
-      padding-top: 15px;
-    }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--white_a20);
+  padding-top: 20px;
+}
 
-    .footer-bottom a {
-      color: #00e676;
-      text-decoration: none;
-    }
+/* Social Media Icons */
+.footer-bottom .social-list {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
 
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-      .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+/* Menghapus bullet point pada daftar sosial media */
+.footer-bottom .social-list {
+  list-style: none; /* Hapus marker */
+  padding: 0; /* Hapus padding default */
+  margin: 0; /* Sesuaikan margin */
+  display: flex;
+  gap: 12px;
+}
 
-      .footer-section {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-    }
 
-    @media (max-width: 768px) {
-      .footer {
-        padding: 20px;
-      }
+/* Hover effect */
+.footer-bottom .social-link:is(:hover, :focus-visible) {
+  background-color: var(--verdigris);
+}
 
-      .footer-section h3 {
-        font-size: 24px;
-      }
 
-      .footer-section p, .footer-section ul li a {
-        font-size: 16px;
-      }
-    }
+.social-list {
+  display: flex;
+  gap: 10px;
+}
 
-    @media (max-width: 480px) {
-      .footer {
-        padding: 15px;
-      }
+.social-link {
+  font-size: 1.4rem;
+  padding: 12px;
+  background-color: var(--white_a10);
+  border-radius: var(--radius-circle);
+  transition: var(--transition-1);
+}
 
-      .footer-section h3 {
-        font-size: 20px;
-      }
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-      .footer-section p, .footer-section ul li a {
-        font-size: 14px;
-      }
-    }
+  .footer-brand {
+    grid-column: 1 / 3;
+  }
+
+  .contact-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-top {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-brand {
+    grid-column: 1 / 5;
+    padding: 28px 56px;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    align-items: center;
+  }
+}
   </style>
 
 </body>
