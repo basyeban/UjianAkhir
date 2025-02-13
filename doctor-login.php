@@ -10,6 +10,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="style5.css">
     <link rel="stylesheet" type="text/css" href="style5.css">
+    <title>Login Dokter</title>
     <script>
         function myMenuFunction() {
             var i = document.getElementById("navMenu");

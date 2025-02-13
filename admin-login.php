@@ -9,6 +9,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
     <link rel="stylesheet" href="style5.css">
+    <title>Login Admin</title>
     <link rel="stylesheet" type="text/css" href="style5.css">
     <script>
         function myMenuFunction() {

@@ -408,9 +408,9 @@ p {
     - #BACK TO TOP
   -->
 
-  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+  <!-- <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
     <ion-icon name="chevron-up"></ion-icon>
-  </a>
+  </a> -->
 </body>
 
 </html>

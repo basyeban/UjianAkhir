@@ -7,6 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
     <link rel="stylesheet" href="style5.css">
+    <title>Register Pasien</title>
     <script>
         var check = function () {
             if (document.getElementById('password').value ==

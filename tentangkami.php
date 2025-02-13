@@ -2,6 +2,7 @@
 include 'lib/header.php';
 ?>
       
+      
 
 <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
     <div class="container">

@@ -293,7 +293,7 @@
 
           <div class="about-content">
 
-            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">Tentang Kami</p>
+            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">Sakitmu Rezekiku</p>
 
             <h2 class="headline-md" data-reveal="left">Dedikasi Kesehatan Anda</h2>
 
