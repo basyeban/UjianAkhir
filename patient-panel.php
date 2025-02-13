@@ -48,21 +48,21 @@ if (isset($_POST['app-submit'])) {
           $query = mysqli_query($con, "insert into appointment(pid,fname,lname,gender,email,contact,doctor,docFees,appdate,apptime,userStatus,doctorStatus) values($pid,'$fname','$lname','$gender','$email','$contact','$doctor','$docFees','$appdate','$apptime','1','1')");
 
           if ($query) {
-            echo "<script>alert('Your appointment successfully booked');</script>";
+            echo "<script>alert('Perjanjianmu berhasil ditambahkan');</script>";
           } else {
-            echo "<script>alert('Unable to process your request. Please try again!');</script>";
+            echo "<script>alert('Tidak dapat memproses permintaan Anda. Silakan coba lagi!');</script>";
           }
         } else {
-          echo "<script>alert('We are sorry to inform that the doctor is not available at this time or date. Please choose a different time or date!');</script>";
+          echo "<script>alert('Dengan menyesal kami informasikan bahwa dokter tidak tersedia pada saat atau tanggal ini. Silakan pilih waktu atau tanggal lain!');</script>";
         }
       } else {
-        echo "<script>alert('Select a time or date in the future!');</script>";
+        echo "<script>alert('Pilihlah Jam atau Tanggal perjanjian');</script>";
       }
     } else {
-      echo "<script>alert('Select a time or date in the future!');</script>";
+      echo "<script>alert('Pilihlah Jam atau Tanggal perjanjian');</script>";
     }
   } else {
-    echo "<script>alert('Select a date within one month from now!');</script>";
+    echo "<script>alert('Pilih tanggal dalam satu bulan dari sekarang!');</script>";
   }
 }
 
@@ -70,7 +70,7 @@ if (isset($_POST['app-submit'])) {
 if (isset($_GET['cancel'])) {
   $query = mysqli_query($con, "update appointment set userStatus='0' where AppID = '" . $_GET['AppID'] . "'");
   if ($query) {
-    echo "<script>alert('Your appointment successfully cancelled');</script>";
+    echo "<script>alert('Perjanjianmu Berhasil dibatalakn');</script>";
   }
 }
 function get_specs()
@@ -129,7 +129,7 @@ function isCancelled($id)
     var apptime = document.getElementById('apptime').value;
 
     if (spec === "" || doctor === "" || docFees === "" || appdate === "" || apptime === "") {
-      alert("Please select all required fields.");
+      alert("Silakan pilih semua bidang yang wajib diisi.");
       return false;
     }
 
@@ -420,8 +420,8 @@ function isCancelled($id)
                             </td>
                             <td>
                                 <?php if (!$cancelled && !$accepted) { ?>
-                                    <a href="doctor-panel.php?AppID=<?php echo $row['AppID'] ?>&cancel=update"
-                                        onClick="return confirm('Are you sure you want to cancel this appointment?')"
+                                    <a href="patient-panel.php?AppID=<?php echo $row['AppID'] ?>&cancel=update"
+                                        onClick="return confirm('Anda yakin ingin membatalkan perjanjian?')"
                                         title="Cancel Appointment">
                                         <button class="btn btn-primary">Batalkan</button>
                                     </a>

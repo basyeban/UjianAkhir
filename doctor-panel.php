@@ -136,7 +136,7 @@ if (isset($_GET['prescribe'])) {
                 <span class="admin"><?php echo $_SESSION['dname'] ?></span>
             </div>
             <div>
-                <form class="form-group" name="searchForm" onsubmit="return validateForm()" method="post" action="search.php">
+                <!-- <form class="form-group" name="searchForm" onsubmit="return validateForm()" method="post" action="search.php">
                     <div class="psearch">
                         <div class="email-field">
                             <input class="form-control" type="text" placeholder="Enter contact number" aria-label="Search" name="contact">
@@ -145,7 +145,7 @@ if (isset($_GET['prescribe'])) {
                             <input type="submit" class="btn btn-primary" id="inputbtn" name="search_submit" value="Search">
                         </div>
                     </div>
-                </form>
+                </form> -->
             </div>
         </nav>
 

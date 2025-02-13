@@ -293,26 +293,24 @@
 
           <div class="about-content">
 
-            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">About Us</p>
+            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">Tentang Kami</p>
 
-            <h2 class="headline-md" data-reveal="left">Experienced Workers</h2>
+            <h2 class="headline-md" data-reveal="left">Dedikasi Kesehatan Anda</h2>
 
             <p class="section-text" data-reveal="left">
-              Aliquam faucibus, odio nec commodo aliquam, neque felis placerat dui, a porta ante lectus dapibus est.
-              Aliquam
+            Rumah Sakit Umum Islam Kustati berkomitmen memberikan pelayanan kesehatan berkualitas dengan tenaga medis profesional dan fasilitas modern.
             </p>
 
-            <ul class="tab-list" data-reveal="left">
+            <!-- <ul class="tab-list" data-reveal="left">
 
               <li>
                 <h3 class="tab-btn">Ikhtiar Insani Menuju Sehat</h3>
               </li>
 
-            </ul>
+            </ul> -->
 
             <p class="tab-text" data-reveal="left">
-              Aliquam faucibus, odio nec commodo aliquam, neque felis placerat dui, a porta ante lectus dapibus est.
-              Aliquam a bibendum mi, sed condimentum
+            Kami hadir untuk melayani dengan penuh kepedulian, menjadikan kesehatan dan kesejahteraan pasien sebagai prioritas utama.
             </p>
 
             <div class="wrapper">
@@ -322,25 +320,25 @@
                 <li class="about-item" data-reveal="left">
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
 
-                  <span class="span">Sonsectetur adipisicing elit</span>
+                  <span class="span">Pelayanan Profesional</span>
                 </li>
 
                 <li class="about-item" data-reveal="left">
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
 
-                  <span class="span">Exercitation ullamco laboris</span>
+                  <span class="span">Fasilitas Modern</span>
                 </li>
 
                 <li class="about-item" data-reveal="left">
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
 
-                  <span class="span">Eiusmod tempor incididunt</span>
+                  <span class="span">Layanan 24/7</span>
                 </li>
 
                 <li class="about-item" data-reveal="left">
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
 
-                  <span class="span">Aolore magna aliqua</span>
+                  <span class="span">Pendekatan Pasien Sentris</span>
                 </li>
 
               </ul>
@@ -366,46 +364,47 @@
       -->
 
       <section class="section listing" aria-labelledby="listing-label">
-        <div class="container">
-          <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Daftar Dokter</p>
-          <h2 class="headline-md" data-reveal="left">Rumah Sakit Umum Islam Kustati</h2>
-      
-          <table class="specialist-table" aria-labelledby="listing-label">
+    <div class="container">
+        <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Daftar Dokter</p>
+        <h2 class="headline-md" data-reveal="left">Rumah Sakit Umum Islam Kustati</h2>
+
+        <table class="specialist-table" aria-labelledby="listing-label">
             <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Dokter</th>
-                <th>Spesialis</th>
-                <th>Biaya</th>
-                <th>Email</th>
-              </tr>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Dokter</th>
+                    <th>Spesialis</th>
+                    <th>Biaya</th>
+                    <th>Email</th>
+                </tr>
             </thead>
             <tbody>
-              <?php
-        include "koneksi.php";
-        $no = 1;
-        $data = mysqli_query($conn, "SELECT * FROM doctor");
-        while ($tampil = mysqli_fetch_array($data)) {
-          echo "
-                    <tr>
-                        <td>$no</td>
-                        <td>$tampil[username]</td>
-                        <td>$tampil[spec]</td>
-                        <td>IDR " . number_format($tampil['docFees'], 0, ',', '.') . "</td>
-                        <td>$tampil[email]</td>
-                    </tr>";
-          $no++;
-        }
-        ?>
+                <?php
+                include "koneksi.php";
+                $no = 1;
+                $data = mysqli_query($conn, "SELECT * FROM doctor LIMIT 5");
+                while ($tampil = mysqli_fetch_array($data)) {
+                    echo "
+                        <tr>
+                            <td>$no</td>
+                            <td>$tampil[username]</td>
+                            <td>$tampil[spec]</td>
+                            <td>IDR " . number_format($tampil['docFees'], 0, ',', '.') . "</td>
+                            <td>$tampil[email]</td>
+                        </tr>";
+                    $no++;
+                }
+                ?>
             </tbody>
-          </table>
-      
-          <!-- Tombol di bawah tabel -->
-          <div class="button-container">
+        </table>
+
+        <!-- Tombol di bawah tabel -->
+        <div class="button-container">
             <a href="semuadokter.php" class="navigate-button">Lihat Semua Dokter</a>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
+
       
       <style>
         .button-container {

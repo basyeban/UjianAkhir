@@ -317,55 +317,105 @@ mysqli_close($con);
     <div class="home-content" id="list-doc">
       <div>
         <form class="form-group" action="doctor search.php" method="post">
-          <div class="dsearch">
+          <!-- <div class="dsearch">
             <div class="email-field">
               <input type="text" name="doctor_contact" placeholder="Search" class="form-control">
             </div>
             <div class="submit-btn">
               <input type="submit" name="doctor_search_submit" class="btn btn-primary" value="Search">
             </div>
-          </div>
+          </div> -->
         </form>
       </div>
       <table class="doctor-table">
-        <thead>
-          <tr>
-            <th scope="col">Nama Dokter</th>
-            <th scope="col">Spesialis</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Biaya</th>
-            <th scope="col">Kelola Dokter</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Table rows with dynamic data -->
-          <?php
-          $con = mysqli_connect("localhost", "root", "", "hms");
-          global $con;
-          $query = "select * from doctor";
-          $result = mysqli_query($con, $query);
-          while ($row = mysqli_fetch_array($result)) {
-            // $username = $row['username'];
-            // $spec = $row['spec'];
-            // $email = $row['email'];
-            // $password = $row['password'];
-            // $docFees = $row['docFees'];
-            echo "
-          <tr>
-          <td>".$row['username']."</td>
-          <td>".$row['spec']."</td>
-          <td>".$row['email']."</td>
-          <td>".$row['password']."</td>
-          <td>".$row['docFees']."</td>
-          <td><a href='update-doctor.php?un=$row[username]&sp=$row[spec]&em=$row[email]& pw=$row[password]&df=$row[docFees]'><input type='submit' value='update' class='btn btn-primary'>
-          <a href='delete-doctor.php? email=$row[email]'><input type='submit' value='DELETE' class='btn btn-primary'></td>
-        </tr>";
-          }
-          // &pw=$row[password]
-          ?>
-        </tbody>
-      </table>
+      <label for="filter-spesialis">Filter Spesialis:</label>
+        <select id="filter-spesialis" class="filter-dropdown">
+            <option value="">Semua</option>
+            <option value="Spesialis Umum">Spesialis Umum</option>
+            <option value="Spesialis Anak">Spesialis Anak</option>
+            <option value="Spesialis Ahli Bedah">Spesialis Ahli Bedah</option>
+            <option value="Spesialis Mata">Spesialis Mata</option>
+            <option value="Spesialis Jantung">Spesialis Jantung</option>
+            <option value="Spesialis Paru">Spesialis Paru</option>
+            <option value="Spesialis Mulut & Gigi">Spesialis Mulut & Gigi</option>
+            <option value="Spesialis Ortopedi">Spesialis Ortopedi</option>
+            <option value="Spesialis Kandungan">Spesialis Kandungan</option>
+            <option value="Spesialis THT">Spesialis THT</option>
+        </select>
+    
+    <thead>
+      <tr>
+        <th scope="col">Nama Dokter</th>
+        <th scope="col">Spesialis</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Biaya</th>
+        <th scope="col">Kelola Dokter</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table rows with dynamic data -->
+      <?php
+      $con = mysqli_connect("localhost", "root", "", "hms");
+      global $con;
+      $query = "select * from doctor";
+      $result = mysqli_query($con, $query);
+      while ($row = mysqli_fetch_array($result)) {
+        echo "
+      <tr>
+      <td>".$row['username']."</td>
+      <td>".$row['spec']."</td>
+      <td>".$row['email']."</td>
+      <td>".$row['password']."</td>
+      <td>".$row['docFees']."</td>
+      <td><a href='update-doctor.php?un=$row[username]&sp=$row[spec]&em=$row[email]&pw=$row[password]&df=$row[docFees]'><input type='submit' value='update' class='btn btn-primary'>
+      <a href='delete-doctor.php?email=$row[email]'><input type='submit' value='DELETE' class='btn btn-primary'></td>
+    </tr>";
+      }
+      ?>
+    </tbody>
+</table>
+
+<!-- Custom JS untuk Filter -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#filter-spesialis').on('change', function() {
+            var selectedSpec = $(this).val().toLowerCase();
+            var count = 0;
+            
+            $('table tbody tr').each(function() {
+                var rowSpec = $(this).find('td:nth-child(2)').text().toLowerCase();
+                
+                if ((selectedSpec === "" || rowSpec === selectedSpec) && count < 10) {
+                    $(this).show();
+                    count++;
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Style untuk Dropdown Filter -->
+<style>
+.filter-dropdown {
+    display: block;
+    width: 200px;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 16px;
+    color: #333;
+}
+.filter-dropdown:focus {
+    border-color: #008080;
+    outline: none;
+}
+</style>
     </div>
     <!-- List patients section  -->
     <div class="home-content" id="list-pat">
