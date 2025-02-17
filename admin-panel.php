@@ -163,6 +163,7 @@ mysqli_close($con);
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <title>Halaman Admin</title>
 </head>
 
 <body>

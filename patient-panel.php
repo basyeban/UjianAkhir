@@ -146,6 +146,7 @@ function isCancelled($id)
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style4.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <title>Halaman Pasien</title>
   <style>
     .status-prescribed {
       color: green;

@@ -78,6 +78,7 @@ if (isset($_GET['prescribe'])) {
     <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
     <link rel="stylesheet" href="style4.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <title>Halaman Dokter</title>
     <script>
         function validateForm() {
             var contactInput = document.forms["searchForm"]["contact"].value;
