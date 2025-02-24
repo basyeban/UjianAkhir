@@ -169,31 +169,31 @@ function isCancelled($id)
     </div>
     <ul class="nav-links">
       <li>
-        <a class="active" href="#list-dash">
+        <a class="active" href="patient-panel.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="#list-doc" id="list-doc-list">
+        <a href="booking.php">
           <i class='bx bx-list-ul'></i>
           <span class="links_name">Daftar Perjanjian</span>
         </a>
       </li>
       <li>
-        <a href="#list-app" id="list-pat-list" role="tab" data-toggle="list" aria-controls="home">
+        <a href="history.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
           <span class="links_name">History Perjanjian</span>
         </a>
       </li>
       <li>
-        <a href="#list-pres" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">
+        <a href="resep.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-detail'></i>
           <span class="links_name">Resep Obat</span>
         </a>
       </li>
       <li>
-        <a href="#list-change-password" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">
+        <a href="ubah.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-detail'></i>
 
           <span class="links_name">Ubah Password</span>
@@ -230,7 +230,7 @@ function isCancelled($id)
           <i class="fa fa-users fa-2x"></i>
           <h4>Daftar Perjanjian Saya</h4>
           <p>
-            <a href="#app-hist" onclick="clickDiv('#list-doc-list')">
+            <a href="booking.php">
               Daftar perjanjian
             </a>
           </p>
@@ -241,7 +241,7 @@ function isCancelled($id)
           <i class="fa fa-paperclip fa-2x"></i>
           <h4>My Appointments</h4>
           <p>
-            <a href="#app-hist" onclick="clickDiv('#list-pat-list')">
+            <a href="history.php">
               lihat history perjanjian
             </a>
           </p>
@@ -252,7 +252,7 @@ function isCancelled($id)
           <i class="fa fa-list-ul fa-2x"></i>
           <h4>Resep Obat</h4>
           <p>
-            <a href="#list-pres" onclick="clickDiv('#list-pres-list')">
+            <a href="resep.php">
               Lihat list resep list
             </a>
           </p>
@@ -262,7 +262,7 @@ function isCancelled($id)
   </div>
 </div>
 
-    <!-- Book Appointment section -->
+    <!-- Book Appointment section
     <div class="home-content" id="list-doc">
       <div class="hcontent">
         <h4>Buat Perjanjian</h4>
@@ -351,8 +351,9 @@ function isCancelled($id)
           </center>
         </form>
       </div>
-    </div>
-    <!-- Appointment history section -->
+    </div> -->
+
+    <!-- Appointment history section
     <div class="home-content" id="list-app">
         <div>
             <table class="app-table">
@@ -479,10 +480,9 @@ function isCancelled($id)
                 }
             </style>
         </div>
-    </div>
+    </div> -->
 
-
-    <!-- Prescription section -->
+    <!-- Prescription section
     <div class="home-content" id="list-pres">
         <div>
             <table class="pres-table">
@@ -626,16 +626,16 @@ function isCancelled($id)
                 }
             </style>
         </div>
-    </div>
+    </div> -->
 
-    <!-- Change Password section -->
+    <!-- Change Password section
     <div class="home-content" id="list-change-password">
       <div class="change-password-form">
 
         <center>
           <h4>Ubah Password</h4>
         </center>
-        <form class="form-group" method="post" action="patient-panel.php">
+        <form class="form-group" method="post" action="dashboard.php">
           <div>
             <label for="email">Email:</label>
           </div>
@@ -653,7 +653,8 @@ function isCancelled($id)
           </div>
         </form>
       </div>
-    </div>
+    </div> -->
+    
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {

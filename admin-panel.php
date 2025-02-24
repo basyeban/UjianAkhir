@@ -478,7 +478,7 @@ mysqli_close($con);
     <!-- List Appointments section -->
     <div class="home-content" id="list-app">
       <div>
-        <form class="form-group" action="appsearch.php" method="post">
+        <!-- <form class="form-group" action="appsearch.php" method="post">
           <div class="appsearch">
             <div class="email-field">
               <input type="text" name="app_contact" placeholder="Search" class="form-control">
@@ -486,22 +486,19 @@ mysqli_close($con);
             <div class="submit-btn"><input type="submit" name="app_search_submit" class="btn btn-primary" value="Search">
             </div>
           </div>
-        </form>
+        </form> -->
       </div>
       <table class="app-table">
         <thead>
           <tr>
-            <th scope="col">ID Perjanjian</th>
-            <th scope="col">ID Pasien</th>
+            <th scope="col">No</th>
             <th scope="col">Nama Depan</th>
             <th scope="col">Nama Belakang</th>
             <th scope="col">Jenis Kelamin</th>
-            <th scope="col">Email</th>
             <th scope="col">Kontak</th>
             <th scope="col">Nama Dokter</th>
             <th scope="col">Biaya Konsultasi</th>
             <th scope="col">Tanggal Perjanjian</th>
-            <th scope="col">Waktu Perjajian</th>
             <th scope="col">Status Perjanjian</th>
           </tr>
         </thead>
@@ -520,16 +517,13 @@ mysqli_close($con);
         ?>
             <tr>
                 <td><?php echo $row['AppID']; ?></td>
-                <td><?php echo $row['pid']; ?></td>
                       <td><?php echo $row['fname']; ?></td>
                       <td><?php echo $row['lname']; ?></td>
                       <td><?php echo $row['gender']; ?></td>
-                      <td><?php echo $row['email']; ?></td>
                       <td><?php echo $row['contact']; ?></td>
                       <td><?php echo $row['doctor']; ?></td>
                       <td><?php echo $row['docFees']; ?></td>
                       <td><?php echo $row['appdate']; ?></td>
-                      <td><?php echo $row['apptime']; ?></td>
                 <td>
                     <?php
                     if ($cancelled) {
@@ -561,7 +555,6 @@ mysqli_close($con);
               <th scope="col">Nama Depan</th>
               <th scope="col">Nama Belakang</th>
               <th scope="col">Tanggal Perjanjian</th>
-              <th scope="col">Waktu Perjanjian</th>
               <th scope="col">Penyakit</th>
               <th scope="col">Alergi</th>
               <th scope="col">Resep Dokter</th>
@@ -580,7 +573,6 @@ mysqli_close($con);
               $fname = $row['fname'];
               $lname = $row['lname'];
               $appdate = $row['appdate'];
-              $apptime = $row['apptime'];
               $disease = $row['disease'];
               $allergy = $row['allergy'];
               $pres = $row['prescription'];
@@ -593,7 +585,6 @@ mysqli_close($con);
             <td>$fname</td>
             <td>$lname</td>
             <td>$appdate</td>
-            <td>$apptime</td>
             <td>$disease</td>
             <td>$allergy</td>
             <td>$pres</td>

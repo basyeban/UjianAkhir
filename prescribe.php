@@ -171,7 +171,7 @@ if(isset($_POST['prescribe']) && isset($_POST['pid']) && isset($_POST['AppID']) 
       <form class="form-group" name="prescribeform" method="post" action="prescribe.php">
         <div class="row">
           <div class="cont">
-            <label>Disease:</label>
+            <label>Diangnosa:</label>
           </div>
           <div class="cont">
             <textarea id="disease" cols="86" rows="3" name="disease" required></textarea>
@@ -180,7 +180,7 @@ if(isset($_POST['prescribe']) && isset($_POST['pid']) && isset($_POST['AppID']) 
         <br>
         <div class="row">
           <div class="cont">
-            <label>Allergies:</label>
+            <label>Alergi:</label>
           </div>
           <div class="cont">
             <textarea id="allergy" cols="86" rows="3" name="allergy" required></textarea>
@@ -189,7 +189,7 @@ if(isset($_POST['prescribe']) && isset($_POST['pid']) && isset($_POST['AppID']) 
         <br>
         <div class="row">
           <div class="cont">
-            <label>Prescription:</label>
+            <label>Resep obat:</label>
           </div>
           <div class="cont">
             <textarea id="prescription" cols="86" rows="6" name="prescription" required></textarea>
@@ -204,7 +204,7 @@ if(isset($_POST['prescribe']) && isset($_POST['pid']) && isset($_POST['AppID']) 
         <input type="hidden" name="AppID" value="<?php echo $AppID ?>" />
         <br>
         <div class="submit-btn">
-        <input type="submit" name="prescribe" value="Prescribe" class="btn btn-primary" style="margin-left: 12pc;">
+        <input type="submit" name="prescribe" value="buat resep" class="btn btn-primary" style="margin-left: 12pc;">
         </div>
       </form>
       <div class="submit-btn">

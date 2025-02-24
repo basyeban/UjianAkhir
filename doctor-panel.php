@@ -190,8 +190,7 @@ if (isset($_GET['prescribe'])) {
             <table class="app-table">
                 <thead>
                     <tr>
-                        <th scope="col">ID Pasien</th>
-                        <th scope="col">ID Perjanjian</th>
+                        <th scope="col">No</th>
                         <th scope="col">Nama Depan</th>
                         <th scope="col">Nama Belakang</th>
                         <th scope="col">Jenis Kelamin</th>
@@ -210,6 +209,7 @@ if (isset($_GET['prescribe'])) {
                     $dname = $_SESSION['dname'];
                     $query = "SELECT pid, AppID, fname, lname, gender, email, contact, appdate, apptime, userStatus, doctorStatus FROM appointment WHERE doctor = '$dname';";
                     $result = mysqli_query($con, $query);
+                    $no = 1;
                     while ($row = mysqli_fetch_array($result)) {
                         $id = $row['AppID'];
                         $accepted = isAccepted($id);
@@ -221,8 +221,7 @@ if (isset($_GET['prescribe'])) {
                         $showPrescribeButton = $accepted && !$prescribed && !$cancelled; 
                     ?>
                         <tr>
-                            <td><?php echo $row['pid']; ?></td>
-                            <td><?php echo $row['AppID']; ?></td>
+                            <td><?php echo $no++; ?></td>
                             <td><?php echo $row['fname']; ?></td>
                             <td><?php echo $row['lname']; ?></td>
                             <td><?php echo $row['gender']; ?></td>

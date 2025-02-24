@@ -86,7 +86,7 @@
 
             <div class="register-container" id="loginPatient">
                 <div class="top">
-                    <header>Daftar akun pasien</header>
+                    <header>Daftar  pasien</header>
                 </div>
                 <form action="function2.php" method="POST" onsubmit="return validateForm()">
                     <div class="two-forms">

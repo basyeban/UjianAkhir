@@ -147,10 +147,10 @@ nav .sidebar-button i{
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px 30px;
+  padding: 20px 50px;
   margin: 20px auto;
   margin-bottom: 50px;
-  margin-top: 30px;
+  margin-top: 10px;
   max-width: 500px;
   max-height: 600px; /* Membatasi tinggi maksimum */
   overflow: auto; /* Menambahkan scrollbar jika konten melebihi ukuran */
@@ -268,11 +268,11 @@ nav .sidebar-button i{
   margin-bottom: 26px;
 }
 
-/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
 @media screen and (max-width: 768px) {
   .home-content .overview-boxes {
-    display: grid;
-    gap: 20px; /* Add spacing between grid items */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
   }
 }
 
@@ -286,6 +286,18 @@ nav .sidebar-button i{
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .overview-boxes .box {
+      width: calc(100% / 2 - 15px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .overview-boxes .box {
+      width: 100%;
+  }
 }
 
 .overview-boxes .box:hover {
@@ -653,6 +665,11 @@ nav .sidebar-button i{
   color: white;
   border-color: #00adb3;
 }
+#list-app {
+  width: 100%;
+  overflow-x: auto; /* Tambahkan scroll horizontal jika tabel terlalu lebar */
+}
+
 #list-app .app-table {
   width: 100%;
   border-collapse: collapse;
@@ -669,10 +686,11 @@ nav .sidebar-button i{
   padding: 15px 20px;
   text-align: left;
   border-bottom: 1px solid #eee;
+  white-space: nowrap; /* Mencegah teks pecah ke baris baru */
 }
 
 #list-app .app-table th {
-  background-color: #00adb3; /* Primary color */
+  background-color: #00adb3; /* Warna utama */
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
@@ -688,7 +706,7 @@ nav .sidebar-button i{
 }
 
 #list-app .app-table tbody tr:hover {
-  background-color: #f1f5f9; /* Soft hover effect */
+  background-color: #f1f5f9; /* Efek hover */
   transition: background-color 0.3s ease;
 }
 
@@ -698,7 +716,7 @@ nav .sidebar-button i{
 }
 
 #list-app .app-table td a {
-  color: #00adb3; /* Link color */
+  color: #00adb3; /* Warna link */
   text-decoration: none;
   font-weight: bold;
 }
@@ -707,7 +725,55 @@ nav .sidebar-button i{
   text-decoration: underline;
 }
 
+/* Responsiveness */
+@media (max-width: 768px) {
+  #list-app .app-table {
+    display: block;
+    overflow-x: auto; /* Tambahkan scroll horizontal */
+  }
+
+  #list-app .app-table thead {
+    display: none; /* Sembunyikan header pada layar kecil */
+  }
+
+  #list-app .app-table tbody,
+  #list-app .app-table tr,
+  #list-app .app-table td {
+    display: block;
+    width: 100%;
+  }
+
+  #list-app .app-table tbody tr {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  #list-app .app-table td {
+    text-align: left;
+    padding: 10px;
+    position: relative;
+  }
+
+  #list-app .app-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    color: #00adb3;
+  }
+}
+
+
 /* List prescription table */
+#list-pres {
+  width: 100%;
+  overflow-x: auto; /* Scroll horizontal jika tabel terlalu lebar */
+}
+
 #list-pres .pres-table {
   width: 100%;
   border-collapse: separate;
@@ -718,7 +784,6 @@ nav .sidebar-button i{
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  overflow: hidden;
 }
 
 #list-pres .pres-table th,
@@ -726,10 +791,11 @@ nav .sidebar-button i{
   padding: 15px 20px;
   text-align: left;
   border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap; /* Mencegah teks pecah */
 }
 
 #list-pres .pres-table th {
-  background-color: #00adb3; /* Primary color */
+  background-color: #00adb3; /* Warna utama */
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
@@ -737,7 +803,7 @@ nav .sidebar-button i{
 }
 
 #list-pres .pres-table tbody tr:nth-child(odd) {
-  background-color: #f9f9f9; /* Alternating row color */
+  background-color: #f9f9f9; /* Warna baris selang-seling */
 }
 
 #list-pres .pres-table tbody tr:nth-child(even) {
@@ -745,7 +811,7 @@ nav .sidebar-button i{
 }
 
 #list-pres .pres-table tbody tr:hover {
-  background-color: #e9f5ff; /* Soft hover effect */
+  background-color: #e9f5ff; /* Efek hover */
   transition: background-color 0.3s ease;
 }
 
@@ -755,7 +821,7 @@ nav .sidebar-button i{
 }
 
 #list-pres .pres-table td a {
-  color: #00adb3; /* Link color */
+  color: #00adb3; /* Warna link */
   text-decoration: none;
   font-weight: bold;
 }
@@ -764,6 +830,7 @@ nav .sidebar-button i{
   text-decoration: underline;
 }
 
+/* Border radius untuk header dan footer */
 #list-pres .pres-table thead th:first-child {
   border-top-left-radius: 10px;
 }
@@ -779,6 +846,49 @@ nav .sidebar-button i{
 #list-pres .pres-table tbody tr:last-child td:last-child {
   border-bottom-right-radius: 10px;
 }
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  #list-pres .pres-table {
+    display: block;
+    overflow-x: auto; /* Scroll jika tabel melebihi layar */
+  }
+
+  #list-pres .pres-table thead {
+    display: none; /* Sembunyikan header di layar kecil */
+  }
+
+  #list-pres .pres-table tbody,
+  #list-pres .pres-table tr,
+  #list-pres .pres-table td {
+    display: block;
+    width: 100%;
+  }
+
+  #list-pres .pres-table tbody tr {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  #list-pres .pres-table td {
+    text-align: left;
+    padding: 10px;
+    position: relative;
+  }
+
+  #list-pres .pres-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    color: #00adb3;
+  }
+}
+
 
 /* Add doctor form */
 /* Card container */
@@ -855,11 +965,10 @@ nav .sidebar-button i{
 
 /* Centering the card */
 .home-content {
-  display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
   background-color: #f9fafb; /* Light background */
+  overflow: scroll;
 }
 /* Queries search button and then table */
 #list-mes .qtable {
