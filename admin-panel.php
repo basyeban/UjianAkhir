@@ -175,37 +175,37 @@ mysqli_close($con);
     </div>
     <ul class="nav-links">
       <li>
-        <a class="active" href="#list-dash">
+        <a class="active" href="admin-panel.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="#list-doc" id="list-doc-list">
+        <a href="datadokter.php">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Daftar Dokter</span>
+          <span class="links_name">Data Dokter</span>
         </a>
       </li>
       <li>
-        <a href="#list-pat" id="list-pat-list" role="tab" data-toggle="list" aria-controls="home">
+        <a href="datapasien.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Daftar Pasien</span>
+          <span class="links_name">Data Pasien</span>
         </a>
       </li>
       <li>
-        <a href="#list-app" id="list-app-list" role="tab" data-toggle="list" aria-controls="home">
+        <a href="detailperjanjian.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-detail'></i>
           <span class="links_name">Detail Perjanjian</span>
         </a>
       </li>
       <li>
-        <a href="#list-pres" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">
+        <a href="dataresep.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-table'></i>
-          <span class="links_name">Daftar Resep Obat</span>
+          <span class="links_name">Data Resep Obat</span>
         </a>
       </li>
       <li>
-        <a href="#list-settings" id="list-adoc-list" role="tab" data-toggle="list" aria-controls="home">
+        <a href="tambahdokter.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bxs-book-add'></i>
           <span class="links_name">Tambah Dokter</span>
         </a>
@@ -227,6 +227,7 @@ mysqli_close($con);
         <span class="admin">Welcome Admin</span>
       </div>
     </nav>
+
     <!-- Default contents and also dashboard contents -->
     <div class="home-content" id="list-dash">
       <div class="overview-boxes">
@@ -236,14 +237,14 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-users fa-stack-1x fa-inverse"></i>
             </span>
-            <h4> Daftar Dokter</h4>
+            <h4> Data Dokter</h4>
             <script>
               function clickDiv(id) {
                 document.querySelector(id).click();
               }
             </script>
             <p class="links cl-effect-1">
-              <a href="#list-doc" onclick="clickDiv('#list-doc-list')">
+              <a href="datadokter.php">
                 Lihat Dokter
               </a>
             </p>
@@ -255,10 +256,10 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-users fa-stack-1x fa-inverse"></i>
             </span>
-            <h4>Daftar Pasien</h4>
+            <h4>Data Pasien</h4>
 
             <p class="cl-effect-1">
-              <a href="#app-hist" onclick="clickDiv('#list-pat-list')">
+              <a href="datapasien.php">
                 Lihat Pasien
               </a>
             </p>
@@ -273,7 +274,7 @@ mysqli_close($con);
             <h4>Detail Perjanjian</h4>
 
             <p class="cl-effect-1">
-              <a href="#app-hist" onclick="clickDiv('#list-app-list')">
+              <a href="detailperjanjian.php">
                 Lihat Perjanjian
               </a>
             </p>
@@ -289,10 +290,10 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-list-ul fa-stack-1x fa-inverse"></i>
             </span>
-            <h4>Daftar Resep Obat</h4>
+            <h4>Data Resep Obat</h4>
 
             <p>
-              <a href="#list-pres" onclick="clickDiv('#list-pres-list')">
+              <a href="dataresep.php">
                 Lihat Resep Obat
               </a>
             </p>
@@ -307,15 +308,15 @@ mysqli_close($con);
             <h4>Kelola Dokter</h4>
 
             <p>
-              <a href="#app-hist" onclick="clickDiv('#list-adoc-list')">Tambah Dokter</a>
-              &nbsp|<a href="#list-doc" onclick="clickDiv('#list-doc-list')">Delete & Edit Dokter</a>
+              <a href="tambahdokter.php">Tambah Dokter</a>
             </p>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Doctor List contents-->
-    <div class="home-content" id="list-doc">
+    <!-- <div class="home-content" id="list-doc">
       <div>
         <form class="form-group" action="doctor search.php" method="post">
           <!-- <div class="dsearch">
@@ -417,11 +418,11 @@ mysqli_close($con);
     outline: none;
 }
 </style>
-    </div>
+    </div> -->
     <!-- List patients section  -->
-    <div class="home-content" id="list-pat">
+    <!-- <div class="home-content" id="list-pat">
       <div>
-        <form class="form-group" action="patientsearch.php" method="post">
+        <!-- <form class="form-group" action="patientsearch.php" method="post">
           <div class="psearch">
             <div class="email-field">
               <input type="text" name="patient_contact" placeholder="Search" class="form-control">
@@ -430,12 +431,11 @@ mysqli_close($con);
               <input type="submit" name="patient_search_submit" class="btn btn-primary" value="Search">
             </div>
           </div>
-        </form>
+        </form> -->
       </div>
       <table class="patient">
         <thead>
           <tr>
-            <th scope="col">ID Pasien</th>
             <th scope="col">Nama Depan</th>
             <th scope="col">Nama Belakang</th>
             <th scope="col">Jenis Kelamin</th>
@@ -452,7 +452,6 @@ mysqli_close($con);
           $query = "select * from patient";
           $result = mysqli_query($con, $query);
           while ($row = mysqli_fetch_array($result)) {
-            $pid = $row['pid'];
             $fname = $row['fname'];
             $lname = $row['lname'];
             $gender = $row['gender'];
@@ -461,7 +460,6 @@ mysqli_close($con);
             $password = $row['password'];
 
             echo "<tr>
-            <td>$pid</td>
             <td>$fname</td>
             <td>$lname</td>
             <td>$gender</td>
@@ -474,8 +472,9 @@ mysqli_close($con);
         </tbody>
       </table>
       <br>
-    </div>
-    <!-- List Appointments section -->
+    </div> -->
+
+    <!-- List Appointments section
     <div class="home-content" id="list-app">
       <div>
         <!-- <form class="form-group" action="appsearch.php" method="post">
@@ -540,8 +539,9 @@ mysqli_close($con);
         </tbody>
       </table>
       <br>
-    </div>
-    <!-- prescription list contents-->
+    </div> -->
+
+    <!-- prescription list contents
     <div class="home-content" id="list-pres">
 
       <div>
@@ -596,8 +596,9 @@ mysqli_close($con);
         </table>
         <br>
       </div>
-    </div>
-    <!-- Add doctor section -->
+    </div> -->
+
+    <!-- Add doctor section
     <div class="home-content" id="list-settings">
       <div class="form-container">
         <form class="form-group" method="post" action="admin-panel.php" onsubmit="return validateDoctorForm();">
@@ -646,7 +647,7 @@ mysqli_close($con);
           </div>
         </form>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- <script>
   let sidebar = document.querySelector(".sidebar");

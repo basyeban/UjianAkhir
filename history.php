@@ -317,6 +317,7 @@ function isCancelled($id)
                     background-color: #f1f1f1;
                     border: 1px solid #ddd;
                     border-radius: 5px;
+                    margin-bottom: 50px;
                     transition: background-color 0.3s, color 0.3s;
                 }
     

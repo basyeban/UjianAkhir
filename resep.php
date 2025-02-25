@@ -211,148 +211,119 @@ function isCancelled($id)
 
     <!-- Prescription section -->
     <div class="home-content" id="list-pres">
-        <div>
-            <table class="pres-table">
-                <thead>
-                    <tr>
-                        <th scope="col">Nama Dokter</th>
-                        <th scope="col">ID Perjanjian</th>
-                        <th scope="col">Tanggal Perjanjian</th>
-                        <th scope="col">Waktu Perjanjian</th>
-                        <th scope="col">Penyakit</th>
-                        <th scope="col">Alergi</th>
-                        <th scope="col">Resep Obat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    // Connect to the database
-                    $con = mysqli_connect("localhost", "root", "", "hms");
-                    global $con;
-    
-                    // Define the number of records per page
-                    $limit = 8;
-    
-                    // Get the current page number from the URL (default to 1 if not set)
-                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                    $offset = ($page - 1) * $limit;
-    
-                    // Query to get the total number of records
-                    $countQuery = "SELECT COUNT(*) AS total FROM prescriptiontable WHERE pid='$pid'";
-                    $countResult = mysqli_query($con, $countQuery);
-                    $totalRecords = mysqli_fetch_array($countResult)['total'];
-    
-                    // Query to fetch the records for the current page
-                    $query = "SELECT doctor, AppID, appdate, apptime, disease, allergy, prescription 
-                              FROM prescriptiontable 
-                              WHERE pid='$pid' 
-                              LIMIT $offset, $limit";
-                    $result = mysqli_query($con, $query);
-                    if (!$result) {
-                        echo mysqli_error($con);
-                    }
-    
-                    // Display records
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                        <tr>
-                            <td><?php echo $row['doctor']; ?></td>
-                            <td><?php echo $row['AppID']; ?></td>
-                            <td><?php echo $row['appdate']; ?></td>
-                            <td><?php echo $row['apptime']; ?></td>
-                            <td><?php echo $row['disease']; ?></td>
-                            <td><?php echo $row['allergy']; ?></td>
-                            <td><?php echo $row['prescription']; ?></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-    
-            <div class="pagination">
+    <div>
+        <table class="pres-table">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Dokter</th>
+                    <th scope="col">Tanggal Perjanjian</th>
+                    <th scope="col">Penyakit</th>
+                    <th scope="col">Alergi</th>
+                    <th scope="col">Resep Obat</th>
+                </tr>
+            </thead>
+            <tbody>
                 <?php
-                // Ambil URL saat ini tanpa parameter 'page'
-                $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
-    
-                // Hitung total halaman
-                $totalPages = ceil($totalRecords / $limit);
-    
-                // Pastikan halaman saat ini lebih dari 1 sebelum menampilkan tombol "Previous"
-                if ($page > 1) {
-                    echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
+                // Koneksi ke database
+                $con = mysqli_connect("localhost", "root", "", "hms");
+                global $con;
+
+                // Jumlah data per halaman
+                $limit = 8;
+
+                // Ambil nomor halaman dari URL (default = 1)
+                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                $offset = ($page - 1) * $limit;
+
+                // Query untuk mendapatkan jumlah total data
+                $countQuery = "SELECT COUNT(*) AS total FROM prescriptiontable WHERE pid='$pid'";
+                $countResult = mysqli_query($con, $countQuery);
+                $totalRecords = mysqli_fetch_array($countResult)['total'];
+
+                // Query untuk mengambil data sesuai halaman
+                $query = "SELECT doctor, appdate, apptime, disease, allergy, prescription 
+                          FROM prescriptiontable 
+                          WHERE pid='$pid' 
+                          LIMIT $offset, $limit";
+                $result = mysqli_query($con, $query);
+                if (!$result) {
+                    echo mysqli_error($con);
                 }
-    
-                // Tampilkan nomor halaman dengan link yang benar
-                for ($i = 1; $i <= $totalPages; $i++) {
-                    echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
-                }
-    
-                // Pastikan masih ada halaman berikutnya sebelum menampilkan tombol "Next"
-                if ($page < $totalPages) {
-                    echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
+
+                // Nomor urut
+                $no = $offset + 1;
+
+                // Menampilkan data
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tr>
+                        <td>$no</td>
+                        <td>{$row['doctor']}</td>
+                        <td>{$row['appdate']}</td>
+                        <td>{$row['disease']}</td>
+                        <td>{$row['allergy']}</td>
+                        <td>{$row['prescription']}</td>
+                    </tr>";
+                    $no++;
                 }
                 ?>
-    
-            </div>
-            <style>
-                .pagination {
-                    margin-top: 20px;
-                    text-align: center;
-                }
-    
-                .pagination a {
-                    display: inline-block;
-                    padding: 10px 15px;
-                    margin: 5px;
-                    text-decoration: none;
-                    color: #333;    
-                    background-color: #f1f1f1;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    transition: background-color 0.3s, color 0.3s;
-                }
-    
-                .pagination a:hover {
-                    background-color: #007bff;
-                    color: white;
-                }
-    
-                .pagination a.active {
-                    background-color: #007bff;
-                    color: white;
-                    font-weight: bold;
-                    border-color: #0056b3;
-                }
-    
-                .pagination {
-                    margin-top: 20px;
-                    text-align: center;
-                }
-    
-                .pagination a {
-                    display: inline-block;
-                    padding: 10px 15px;
-                    margin: 5px;
-                    text-decoration: none;
-                    color: #333;
-                    background-color: #f1f1f1;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    transition: background-color 0.3s, color 0.3s;
-                }
-    
-                .pagination a:hover {
-                    background-color: #007bff;
-                    color: white;
-                }
-    
-                .pagination a.active {
-                    background-color: #007bff;
-                    color: white;
-                    font-weight: bold;
-                    border-color: #0056b3;
-                }
-            </style>
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <?php
+            // Ambil URL saat ini tanpa parameter 'page'
+            $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
+
+            // Hitung total halaman
+            $totalPages = ceil($totalRecords / $limit);
+
+            // Tombol "Previous"
+            if ($page > 1) {
+                echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
+            }
+
+            // Nomor halaman
+            for ($i = 1; $i <= $totalPages; $i++) {
+                echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+            }
+
+            // Tombol "Next"
+            if ($page < $totalPages) {
+                echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
+            }
+            ?>
         </div>
+
+        <style>
+            .pagination {
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .pagination a {
+                display: inline-block;
+                padding: 10px 15px;
+                margin: 5px;
+                text-decoration: none;
+                color: #333;
+                background-color: #f1f1f1;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin-bottom: 50px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .pagination a:hover,
+            .pagination a.active {
+                background-color: #007bff;
+                color: white;
+                font-weight: bold;
+                border-color: #0056b3;
+            }
+        </style>
     </div>
+</div>
+
 </body>
 </html>
