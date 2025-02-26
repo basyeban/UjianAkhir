@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 include('function1.php');
 $con = mysqli_connect("localhost", "root", "", "hms");
@@ -69,31 +70,18 @@ if (isset($_GET['prescribe'])) {
 ?>
 
 <html lang="en">
-
 <head>
-    <script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
     <link rel="stylesheet" href="style4.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <title>Halaman Dokter</title>
-    <script>
-        function validateForm() {
-            var contactInput = document.forms["searchForm"]["contact"].value;
-            var numbersOnly = /^\d+$/;
-            if (contactInput === "" || !contactInput.match(numbersOnly) || contactInput.length !== 10) {
-                alert("Please enter a valid 10-digit contact number.");
-                return false;
-            }
-        }
-    </script>
+    <title>Data Perjanjian</title>
 </head>
-
 <body>
-    <!-- dashboard -->
-    <div class="sidebar">
+<div class="sidebar">
         <div class="logo-details">
             <i class='bx bx-plus-medical'></i>
             <span class="logo_name">
@@ -137,16 +125,6 @@ if (isset($_GET['prescribe'])) {
                 <span class="admin"><?php echo $_SESSION['dname'] ?></span>
             </div>
             <div>
-                <!-- <form class="form-group" name="searchForm" onsubmit="return validateForm()" method="post" action="search.php">
-                    <div class="psearch">
-                        <div class="email-field">
-                            <input class="form-control" type="text" placeholder="Enter contact number" aria-label="Search" name="contact">
-                        </div>
-                        <div class="submit-btn">
-                            <input type="submit" class="btn btn-primary" id="inputbtn" name="search_submit" value="Search">
-                        </div>
-                    </div>
-                </form> -->
             </div>
         </nav>
 
@@ -215,45 +193,9 @@ if (isset($_GET['prescribe'])) {
     }
   </script>
 
-        <!-- Default contents and dashboard contents -->
-        <div class="home-content" id="list-dash">
-            <div class="overview-boxes">
-                <div class="box">
-                    <div class="right-side">
-                        <span class="fa-stack fa-2x">
-                            <i class="fa fa-square fa-stack-2x text-primary"></i>
-                            <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4>Perjanjian Pasien</h4>
-                        <p class="cl-effect-1">
-                            <a href="perjanjian.php">
-                                Lihat Perjanjian
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="right-side">
-                        <span class="fa-stack fa-2x">
-                            <i class="fa fa-square fa-stack-2x text-primary"></i>
-                            <i class="fa fa-list-ul fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4>Resep Obat</h4>
-
-                        <p>
-                            <a href="resepdokter.php">
-                                Lihat Daftar Resep Obat
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        Appointments view section
         <div class="home-content" id="list-app">
-            <table class="app-table">
-                 <thead>
+    <table class="app-table">
+        <thead>
             <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
@@ -264,7 +206,7 @@ if (isset($_GET['prescribe'])) {
                 <th scope="col">Action</th>
             </tr>
         </thead>
-                     <tbody>
+        <tbody>
             <?php
             $con = mysqli_connect("localhost", "root", "", "hms");
 
@@ -384,126 +326,5 @@ if (isset($_GET['prescribe'])) {
         }
     </style>
 </div>
-
-
-        <!-- Prescription section -->
-        <div class="home-content" id="list-pres">
-    <table class="pres-table">
-        <thead>
-            <tr>
-                <th scope="col">ID Pasien</th>
-                <th scope="col">Nama Depan</th>
-                <th scope="col">ID Perjanjian</th>
-                <th scope="col">Tanggal Perjanjian</th>
-                <th scope="col">Penyakit</th>
-                <th scope="col">Alergi</th>
-                <th scope="col">Resep Obat</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $con = mysqli_connect("localhost", "root", "", "hms");
-            if (!$con) {
-                die("Koneksi gagal: " . mysqli_connect_error());
-            }
-
-            // Jumlah data per halaman
-            $limit = 8;
-
-            // Ambil nomor halaman dari URL (default = 1)
-            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-            $offset = ($page - 1) * $limit;
-
-            // Pastikan variabel $doctor diambil dari session
-            // session_start();
-            $doctor = $_SESSION['dname'];
-
-            // Hitung total jumlah data untuk pagination
-            $totalQuery = "SELECT COUNT(*) as total FROM prescriptiontable WHERE doctor = '$doctor'";
-            $totalResult = mysqli_query($con, $totalQuery);
-            $totalRow = mysqli_fetch_assoc($totalResult);
-            $totalRecords = $totalRow['total'];
-
-            // Ambil data sesuai halaman dengan limit & offset
-            $query = "SELECT pid, fname, lname, AppID, appdate, apptime, disease, allergy, prescription 
-                      FROM prescriptiontable 
-                      WHERE doctor = '$doctor' 
-                      LIMIT $limit OFFSET $offset";
-            $result = mysqli_query($con, $query);
-            if (!$result) {
-                echo "<tr><td colspan='9'>" . mysqli_error($con) . "</td></tr>";
-            }
-
-            while ($row = mysqli_fetch_array($result)) {
-            ?>
-                <tr>
-                    <td><?php echo $row['pid']; ?></td>
-                    <td><?php echo $row['fname']; ?></td>
-                    <td><?php echo $row['AppID']; ?></td>
-                    <td><?php echo $row['appdate']; ?></td>
-                    <td><?php echo $row['disease']; ?></td>
-                    <td><?php echo $row['allergy']; ?></td>
-                    <td><?php echo $row['prescription']; ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-
-    <!-- Pagination -->
-    <div class="pagination">
-        <?php
-        $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
-
-        // Hitung total halaman
-        $totalPages = ceil($totalRecords / $limit);
-
-        // Tombol "Previous"
-        if ($page > 1) {
-            echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
-        }
-
-        // Nomor halaman
-        for ($i = 1; $i <= $totalPages; $i++) {
-            echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
-        }
-
-        // Tombol "Next"
-        if ($page < $totalPages) {
-            echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
-        }
-        ?>
-    </div>
-
-    <style>
-        .pagination {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .pagination a {
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 5px;
-            text-decoration: none;
-            color: #333;
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 50px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .pagination a:hover,
-        .pagination a.active {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            border-color: #0056b3;
-        }
-    </style>
-</div>
-
-    </div>
 </body>
-
 </html>

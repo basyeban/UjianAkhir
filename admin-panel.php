@@ -649,7 +649,7 @@ mysqli_close($con);
       </div>
     </div> -->
   </div>
-  <!-- <script>
+  <script>
   let sidebar = document.querySelector(".sidebar");
   let sidebarBtn = document.querySelector(".sidebarBtn");
   sidebarBtn.onclick = function() {
@@ -659,7 +659,7 @@ mysqli_close($con);
     } else
       sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
   }
-</script> -->
+</script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const sidebarBtn = document.querySelector(".sidebarBtn");

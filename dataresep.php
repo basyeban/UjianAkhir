@@ -225,6 +225,71 @@ mysqli_close($con);
       </div>
     </nav>
 
+    <script>
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function() {
+    sidebar.classList.toggle("active");
+    if (sidebar.classList.contains("active")) {
+      sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+    } else
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sidebarBtn = document.querySelector(".sidebarBtn");
+      const sidebar = document.querySelector(".sidebar");
+      const sections = document.querySelector("#sections");
+      const links = document.querySelectorAll(".nav-links li a");
+      // Show the dashboard section by default
+      document.getElementById("list-dash").style.display = "block";
+      document.getElementById("list-doc").style.display = "none";
+      document.querySelector(".nav-links li a.active").classList.remove("active");
+      document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+
+      // Hide other sections when the page loads
+      document.querySelectorAll(".home-content").forEach(function(section) {
+        if (section.id !== "list-dash") {
+          section.style.display = "none";
+        }
+      });
+
+      // Toggle sidebar
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else {
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+      };
+
+      // Handle click events for navigation links
+      links.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          const targetSection = document.querySelector(this.getAttribute("href"));
+          sections.querySelectorAll(".home-content").forEach(function(section) {
+            section.style.display = "none";
+          });
+          targetSection.style.display = "block";
+          document.querySelector(".nav-links li a.active").classList.remove("active");
+          this.classList.add("active");
+        });
+      });
+    });
+    // logout button code
+    function logout() {
+      event.preventDefault();
+      window.location.href = "logout.php"; // Redirect to logout.php
+    }
+    // default page contents js
+    function clickDiv(id) {
+      document.querySelector(id).click();
+    }
+  </script>
+
     <!-- prescription list contents-->
     <div class="home-content" id="list-pres">
     <div>

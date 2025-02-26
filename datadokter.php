@@ -225,6 +225,71 @@ mysqli_close($con);
       </div>
     </nav>
 
+    <script>
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function() {
+    sidebar.classList.toggle("active");
+    if (sidebar.classList.contains("active")) {
+      sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+    } else
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sidebarBtn = document.querySelector(".sidebarBtn");
+      const sidebar = document.querySelector(".sidebar");
+      const sections = document.querySelector("#sections");
+      const links = document.querySelectorAll(".nav-links li a");
+      // Show the dashboard section by default
+      document.getElementById("list-dash").style.display = "block";
+      document.getElementById("list-doc").style.display = "none";
+      document.querySelector(".nav-links li a.active").classList.remove("active");
+      document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+
+      // Hide other sections when the page loads
+      document.querySelectorAll(".home-content").forEach(function(section) {
+        if (section.id !== "list-dash") {
+          section.style.display = "none";
+        }
+      });
+
+      // Toggle sidebar
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else {
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+      };
+
+      // Handle click events for navigation links
+      links.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          const targetSection = document.querySelector(this.getAttribute("href"));
+          sections.querySelectorAll(".home-content").forEach(function(section) {
+            section.style.display = "none";
+          });
+          targetSection.style.display = "block";
+          document.querySelector(".nav-links li a.active").classList.remove("active");
+          this.classList.add("active");
+        });
+      });
+    });
+    // logout button code
+    function logout() {
+      event.preventDefault();
+      window.location.href = "logout.php"; // Redirect to logout.php
+    }
+    // default page contents js
+    function clickDiv(id) {
+      document.querySelector(id).click();
+    }
+  </script>
+
     <div class="home-content" id="list-doc">
       <div>
         <form class="form-group" action="doctor search.php" method="post">
@@ -238,7 +303,6 @@ mysqli_close($con);
           </div> -->
         </form>
       </div>
-      <table class="doctor-table">
       <label for="filter-spesialis">Filter Spesialis:</label>
         <select id="filter-spesialis" class="filter-dropdown">
             <option value="">Semua</option>
@@ -254,7 +318,46 @@ mysqli_close($con);
             <option value="Spesialis THT">Spesialis THT</option>
         </select>
     
-        <table class="doctor-table">
+        <?php
+$con = mysqli_connect("localhost", "root", "", "hms");
+if (!$con) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+
+// Jumlah data per halaman
+$limit = 5;
+
+// Ambil nomor halaman dari URL (default = 1)
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
+
+// Ambil filter spesialis dari URL
+$filterSpec = isset($_GET['filter']) ? $_GET['filter'] : "";
+
+// Hitung total data dengan filter
+$totalQuery = "SELECT COUNT(*) AS total FROM doctor";
+if (!empty($filterSpec)) {
+    $totalQuery .= " WHERE spec = '".mysqli_real_escape_string($con, $filterSpec)."'";
+}
+$totalResult = mysqli_query($con, $totalQuery);
+$totalRow = mysqli_fetch_assoc($totalResult);
+$totalRecords = $totalRow['total'];
+
+// Hitung total halaman
+$totalPages = ceil($totalRecords / $limit);
+
+// Ambil data dokter berdasarkan filter dan halaman
+$query = "SELECT * FROM doctor";
+if (!empty($filterSpec)) {
+    $query .= " WHERE spec = '".mysqli_real_escape_string($con, $filterSpec)."'";
+}
+$query .= " LIMIT $limit OFFSET $offset";
+
+$result = mysqli_query($con, $query);
+?>
+
+<!-- Tampilkan Data dalam Tabel -->
+<table class="doctor-table">
     <thead>
         <tr>
             <th scope="col">Nama Dokter</th>
@@ -267,31 +370,6 @@ mysqli_close($con);
     </thead>
     <tbody>
         <?php
-        $con = mysqli_connect("localhost", "root", "", "hms");
-        if (!$con) {
-            die("Koneksi gagal: " . mysqli_connect_error());
-        }
-
-        // Jumlah data per halaman
-        $limit = 5;
-
-        // Ambil nomor halaman dari URL (default = 1)
-        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $offset = ($page - 1) * $limit;
-
-        // Hitung total data
-        $totalQuery = "SELECT COUNT(*) AS total FROM doctor";
-        $totalResult = mysqli_query($con, $totalQuery);
-        $totalRow = mysqli_fetch_assoc($totalResult);
-        $totalRecords = $totalRow['total'];
-
-        // Hitung total halaman
-        $totalPages = ceil($totalRecords / $limit);
-
-        // Ambil data dengan batasan halaman
-        $query = "SELECT * FROM doctor LIMIT $limit OFFSET $offset";
-        $result = mysqli_query($con, $query);
-
         while ($row = mysqli_fetch_array($result)) {
             echo "
             <tr>
@@ -317,21 +395,22 @@ mysqli_close($con);
 <!-- Pagination -->
 <div class="pagination">
     <?php
-    $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
+    $currentURL = strtok($_SERVER["REQUEST_URI"], '?'); // Ambil URL tanpa parameter
+    $filterParam = !empty($filterSpec) ? "&filter=" . urlencode($filterSpec) : "";
 
     // Tombol "Previous"
     if ($page > 1) {
-        echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
+        echo '<a href="' . $currentURL . '?page=' . ($page - 1) . $filterParam . '">Previous</a>';
     }
 
     // Nomor halaman
     for ($i = 1; $i <= $totalPages; $i++) {
-        echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+        echo '<a href="' . $currentURL . '?page=' . $i . $filterParam . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
     }
 
     // Tombol "Next"
     if ($page < $totalPages) {
-        echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
+        echo '<a href="' . $currentURL . '?page=' . ($page + 1) . $filterParam . '">Next</a>';
     }
     ?>
 </div>
@@ -370,22 +449,14 @@ mysqli_close($con);
 <script>
     $(document).ready(function() {
         $('#filter-spesialis').on('change', function() {
-            var selectedSpec = $(this).val().toLowerCase();
-            var count = 0;
-            
-            $('table tbody tr').each(function() {
-                var rowSpec = $(this).find('td:nth-child(2)').text().toLowerCase();
-                
-                if ((selectedSpec === "" || rowSpec === selectedSpec) && count < 10) {
-                    $(this).show();
-                    count++;
-                } else {
-                    $(this).hide();
-                }
-            });
+            var selectedSpec = $(this).val();
+            var currentURL = window.location.href.split('?')[0]; // Ambil URL tanpa parameter
+            var newURL = currentURL + '?page=1&filter=' + encodeURIComponent(selectedSpec);
+            window.location.href = newURL;
         });
     });
 </script>
+
 
 <!-- Style untuk Dropdown Filter -->
 <style>
