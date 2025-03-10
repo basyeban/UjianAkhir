@@ -47,18 +47,18 @@ if (isset($_POST['app-submit'])) {
           $query = mysqli_query($con, "insert into appointment(pid,fname,lname,gender,email,contact,doctor,docFees,appdate,apptime,userStatus,doctorStatus) values($pid,'$fname','$lname','$gender','$email','$contact','$doctor','$docFees','$appdate','$apptime','1','1')");
 
           if ($query) {
-            echo "<script>alert('Perjanjianmu berhasil ditambahkan');</script>";
+            echo "<script>alert('Pelayananmu berhasil ditambahkan');</script>";
           } else {
             echo "<script>alert('Tidak dapat memproses permintaan Anda. Silakan coba lagi!');</script>";
           }
         } else {
-          echo "<script>alert('Dengan menyesal kami informasikan bahwa dokter tidak tersedia pada saat atau tanggal ini. Silakan pilih waktu atau tanggal lain!');</script>";
+          echo "<script>alert('Dengan menyesal kami informasikan bahwa dokter tidak tersedia pada waktu atau tanggal ini. Silakan pilih waktu atau tanggal lain!');</script>";
         }
       } else {
-        echo "<script>alert('Pilihlah Jam atau Tanggal perjanjian');</script>";
+        echo "<script>alert('Pilihlah Jam atau Tanggal pelayanan');</script>";
       }
     } else {
-      echo "<script>alert('Pilihlah Jam atau Tanggal perjanjian');</script>";
+      echo "<script>alert('Pilihlah Jam atau Tanggal pelayanan');</script>";
     }
   } else {
     echo "<script>alert('Pilih tanggal dalam satu bulan dari sekarang!');</script>";
@@ -69,7 +69,7 @@ if (isset($_POST['app-submit'])) {
 if (isset($_GET['cancel'])) {
   $query = mysqli_query($con, "update appointment set userStatus='0' where AppID = '" . $_GET['AppID'] . "'");
   if ($query) {
-    echo "<script>alert('Perjanjianmu Berhasil dibatalakn');</script>";
+    echo "<script>alert('Pelayananmu Berhasil dibatalakn');</script>";
   }
 }
 function get_specs()
@@ -128,7 +128,7 @@ function isCancelled($id)
     var apptime = document.getElementById('apptime').value;
 
     if (spec === "" || doctor === "" || docFees === "" || appdate === "" || apptime === "") {
-      alert("Silakan pilih semua bidang yang wajib diisi.");
+      alert("Silakan pilih, semua bidang yang wajib diisi.");
       return false;
     }
 
@@ -136,16 +136,18 @@ function isCancelled($id)
   }
 </script>
 <html lang="en">
+
 <head>
-<script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style4.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <title>Buat Pendaftaran</title>
+  <title>Buat Pendaftaran</title>
 </head>
+
 <body>
 
   <!-- dashboard -->
@@ -164,13 +166,13 @@ function isCancelled($id)
       <li>
         <a href="booking.php">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Daftar Perjanjian</span>
+          <span class="links_name">Daftar Pelayanan</span>
         </a>
       </li>
       <li>
-        <a href="history.php"tab" data-toggle="list" aria-controls="home">
+        <a href="history.php" tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">History Perjanjian</span>
+          <span class="links_name">History Pelayanan</span>
         </a>
       </li>
       <li>
@@ -209,10 +211,75 @@ function isCancelled($id)
       </div>
     </nav>
 
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sidebarBtn = document.querySelector(".sidebarBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const sections = document.querySelector("#sections");
+        const links = document.querySelectorAll(".nav-links li a");
+        // Show the dashboard section by default
+        document.getElementById("list-dash").style.display = "block";
+        document.getElementById("list-doc").style.display = "none";
+        document.querySelector(".nav-links li a.active").classList.remove("active");
+        document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+
+        // Hide other sections when the page loads
+        document.querySelectorAll(".home-content").forEach(function(section) {
+          if (section.id !== "list-dash") {
+            section.style.display = "none";
+          }
+        });
+
+        // Toggle sidebar
+        sidebarBtn.onclick = function() {
+          sidebar.classList.toggle("active");
+          if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+          } else {
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+          }
+        };
+
+        // Handle click events for navigation links
+        links.forEach(function(link) {
+          link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute("href"));
+            sections.querySelectorAll(".home-content").forEach(function(section) {
+              section.style.display = "none";
+            });
+            targetSection.style.display = "block";
+            document.querySelector(".nav-links li a.active").classList.remove("active");
+            this.classList.add("active");
+          });
+        });
+      });
+      // logout button code
+      function logout() {
+        event.preventDefault();
+        window.location.href = "logout.php"; // Redirect to logout.php
+      }
+      // default page contents js
+      function clickDiv(id) {
+        document.querySelector(id).click();
+      }
+    </script>
+
     <!-- Book Appointment section -->
     <div class="home-content" id="list-doc">
       <div class="hcontent">
-        <h4>Buat Perjanjian</h4>
+        <h4>Buat Pelayanan</h4>
         <form class="form-group" method="post" action="patient-panel.php" onsubmit="return validateAppointmentForm();">
           <div>
             <label for="spec">Spesialis:</label>
@@ -226,7 +293,7 @@ function isCancelled($id)
             </select>
           </div>
           <script>
-            document.getElementById('spec').onchange = function () {
+            document.getElementById('spec').onchange = function() {
               let spec = this.value;
               let docs = [...document.getElementById('doctor').options];
 
@@ -242,7 +309,7 @@ function isCancelled($id)
               document.getElementById('docFees').value = '';
             };
 
-            document.getElementById('doctor').onchange = function () {
+            document.getElementById('doctor').onchange = function() {
               var selection = document.querySelector(`[value="${this.value}"]`).getAttribute('data-value');
               document.getElementById('docFees').value = selection;
             };
@@ -273,31 +340,32 @@ function isCancelled($id)
             <input class="form-control" type="text" name="docFees" id="docFees" readonly="readonly" />
           </div>
           <div>
-            <label>Tanggal Perjanjian</label>
+            <label>Tanggal Pelayanan</label>
           </div>
           <div class="apdate">
             <input type="date" class="form-control datepicker" name="appdate">
           </div>
-          <!-- <div>
-            <label>Waktu Perjanjian</label>
+          <div>
+            <label>Waktu Pelayanan</label>
           </div>
           <div class="Stime">
             <select name="apptime" class="form-control" id="apptime">
-              <option value="" disabled selected>Pilih Waktu Perjanjian</option>
-              <option value="08:00:00">8:00 AM</option>
-              <option value="10:00:00">10:00 AM</option>
-              <option value="12:00:00">12:00 PM</option>
-              <option value="14:00:00">2:00 PM</option>
-              <option value="16:00:00">4:00 PM</option>
+              <option value="" disabled selected>Pilih Waktu Pelayanan</option>
+              <option value="08:00:00">8:00</option>
+              <option value="10:00:00">10:00</option>
+              <option value="12:00:00">12:00</option>
+              <option value="14:00:00">14:00</option>
+              <option value="16:00:00">16:00</option>
             </select>
-          </div><br> -->
+          </div><br>
           <center>
             <div class="btn">
-              <input type="submit" name="app-submit" value="Buat Perjanjian Baru" class="btn btn-primary" id="inputbtn">
+              <input type="submit" name="app-submit" value="Buat Pelayanan Baru" class="btn btn-primary" id="inputbtn">
             </div>
           </center>
         </form>
       </div>
     </div>
 </body>
+
 </html>

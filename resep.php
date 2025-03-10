@@ -136,16 +136,18 @@ function isCancelled($id)
   }
 </script>
 <html lang="en">
+
 <head>
-<script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="style.css">
   <!-- <link rel="stylesheet" href="style4.css"> -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <title>Resep Obat</title>
+  <title>Resep Obat</title>
 </head>
+
 <body>
 
   <!-- dashboard -->
@@ -164,13 +166,13 @@ function isCancelled($id)
       <li>
         <a href="booking.php">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Daftar Perjanjian</span>
+          <span class="links_name">Daftar Pelayanan</span>
         </a>
       </li>
       <li>
         <a href="history.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">History Perjanjian</span>
+          <span class="links_name">History Pelayanan</span>
         </a>
       </li>
       <li>
@@ -209,54 +211,119 @@ function isCancelled($id)
       </div>
     </nav>
 
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sidebarBtn = document.querySelector(".sidebarBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const sections = document.querySelector("#sections");
+        const links = document.querySelectorAll(".nav-links li a");
+        // Show the dashboard section by default
+        document.getElementById("list-dash").style.display = "block";
+        document.getElementById("list-doc").style.display = "none";
+        document.querySelector(".nav-links li a.active").classList.remove("active");
+        document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+
+        // Hide other sections when the page loads
+        document.querySelectorAll(".home-content").forEach(function(section) {
+          if (section.id !== "list-dash") {
+            section.style.display = "none";
+          }
+        });
+
+        // Toggle sidebar
+        sidebarBtn.onclick = function() {
+          sidebar.classList.toggle("active");
+          if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+          } else {
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+          }
+        };
+
+        // Handle click events for navigation links
+        links.forEach(function(link) {
+          link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute("href"));
+            sections.querySelectorAll(".home-content").forEach(function(section) {
+              section.style.display = "none";
+            });
+            targetSection.style.display = "block";
+            document.querySelector(".nav-links li a.active").classList.remove("active");
+            this.classList.add("active");
+          });
+        });
+      });
+      // logout button code
+      function logout() {
+        event.preventDefault();
+        window.location.href = "logout.php"; // Redirect to logout.php
+      }
+      // default page contents js
+      function clickDiv(id) {
+        document.querySelector(id).click();
+      }
+    </script>
+
     <!-- Prescription section -->
     <div class="home-content" id="list-pres">
-    <div>
+      <div>
         <table class="pres-table">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Dokter</th>
-                    <th scope="col">Tanggal Perjanjian</th>
-                    <th scope="col">Penyakit</th>
-                    <th scope="col">Alergi</th>
-                    <th scope="col">Resep Obat</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                // Koneksi ke database
-                $con = mysqli_connect("localhost", "root", "", "hms");
-                global $con;
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Nama Dokter</th>
+              <th scope="col">Tanggal Pelayanan</th>
+              <th scope="col">Penyakit</th>
+              <th scope="col">Alergi</th>
+              <th scope="col">Resep Obat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            // Koneksi ke database
+            $con = mysqli_connect("localhost", "root", "", "hms");
+            global $con;
 
-                // Jumlah data per halaman
-                $limit = 8;
+            // Jumlah data per halaman
+            $limit = 8;
 
-                // Ambil nomor halaman dari URL (default = 1)
-                $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                $offset = ($page - 1) * $limit;
+            // Ambil nomor halaman dari URL (default = 1)
+            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $offset = ($page - 1) * $limit;
 
-                // Query untuk mendapatkan jumlah total data
-                $countQuery = "SELECT COUNT(*) AS total FROM prescriptiontable WHERE pid='$pid'";
-                $countResult = mysqli_query($con, $countQuery);
-                $totalRecords = mysqli_fetch_array($countResult)['total'];
+            // Query untuk mendapatkan jumlah total data
+            $countQuery = "SELECT COUNT(*) AS total FROM prescriptiontable WHERE pid='$pid'";
+            $countResult = mysqli_query($con, $countQuery);
+            $totalRecords = mysqli_fetch_array($countResult)['total'];
 
-                // Query untuk mengambil data sesuai halaman
-                $query = "SELECT doctor, appdate, apptime, disease, allergy, prescription 
+            // Query untuk mengambil data sesuai halaman
+            $query = "SELECT doctor, appdate, apptime, disease, allergy, prescription 
                           FROM prescriptiontable 
                           WHERE pid='$pid' 
                           LIMIT $offset, $limit";
-                $result = mysqli_query($con, $query);
-                if (!$result) {
-                    echo mysqli_error($con);
-                }
+            $result = mysqli_query($con, $query);
+            if (!$result) {
+              echo mysqli_error($con);
+            }
 
-                // Nomor urut
-                $no = $offset + 1;
+            // Nomor urut
+            $no = $offset + 1;
 
-                // Menampilkan data
-                while ($row = mysqli_fetch_array($result)) {
-                    echo "<tr>
+            // Menampilkan data
+            while ($row = mysqli_fetch_array($result)) {
+              echo "<tr>
                         <td>$no</td>
                         <td>{$row['doctor']}</td>
                         <td>{$row['appdate']}</td>
@@ -264,66 +331,67 @@ function isCancelled($id)
                         <td>{$row['allergy']}</td>
                         <td>{$row['prescription']}</td>
                     </tr>";
-                    $no++;
-                }
-                ?>
-            </tbody>
+              $no++;
+            }
+            ?>
+          </tbody>
         </table>
 
         <div class="pagination">
-            <?php
-            // Ambil URL saat ini tanpa parameter 'page'
-            $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
+          <?php
+          // Ambil URL saat ini tanpa parameter 'page'
+          $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
 
-            // Hitung total halaman
-            $totalPages = ceil($totalRecords / $limit);
+          // Hitung total halaman
+          $totalPages = ceil($totalRecords / $limit);
 
-            // Tombol "Previous"
-            if ($page > 1) {
-                echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
-            }
+          // Tombol "Previous"
+          if ($page > 1) {
+            echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
+          }
 
-            // Nomor halaman
-            for ($i = 1; $i <= $totalPages; $i++) {
-                echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
-            }
+          // Nomor halaman
+          for ($i = 1; $i <= $totalPages; $i++) {
+            echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+          }
 
-            // Tombol "Next"
-            if ($page < $totalPages) {
-                echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
-            }
-            ?>
+          // Tombol "Next"
+          if ($page < $totalPages) {
+            echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
+          }
+          ?>
         </div>
 
         <style>
-            .pagination {
-                margin-top: 20px;
-                text-align: center;
-            }
+          .pagination {
+            margin-top: 20px;
+            text-align: center;
+          }
 
-            .pagination a {
-                display: inline-block;
-                padding: 10px 15px;
-                margin: 5px;
-                text-decoration: none;
-                color: #333;
-                background-color: #f1f1f1;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                margin-bottom: 50px;
-                transition: background-color 0.3s, color 0.3s;
-            }
+          .pagination a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 50px;
+            transition: background-color 0.3s, color 0.3s;
+          }
 
-            .pagination a:hover,
-            .pagination a.active {
-                background-color: #007bff;
-                color: white;
-                font-weight: bold;
-                border-color: #0056b3;
-            }
+          .pagination a:hover,
+          .pagination a.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border-color: #0056b3;
+          }
         </style>
+      </div>
     </div>
-</div>
 
 </body>
+
 </html>

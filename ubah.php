@@ -136,16 +136,18 @@ function isCancelled($id)
   }
 </script>
 <html lang="en">
+
 <head>
-<script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style4.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <title>Ubah Password</title>
+  <title>Ubah Password</title>
 </head>
+
 <body>
 
   <!-- dashboard -->
@@ -164,13 +166,13 @@ function isCancelled($id)
       <li>
         <a href="booking.php">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Daftar Perjanjian</span>
+          <span class="links_name">Daftar Pelayanan</span>
         </a>
       </li>
       <li>
         <a href="history.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">History Perjanjian</span>
+          <span class="links_name">History Pelayanan</span>
         </a>
       </li>
       <li>
@@ -209,8 +211,73 @@ function isCancelled($id)
       </div>
     </nav>
 
-<!-- Change Password section -->
-<div class="home-content" id="list-change-password">
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sidebarBtn = document.querySelector(".sidebarBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const sections = document.querySelector("#sections");
+        const links = document.querySelectorAll(".nav-links li a");
+        // Show the dashboard section by default
+        document.getElementById("list-dash").style.display = "block";
+        document.getElementById("list-doc").style.display = "none";
+        document.querySelector(".nav-links li a.active").classList.remove("active");
+        document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+
+        // Hide other sections when the page loads
+        document.querySelectorAll(".home-content").forEach(function(section) {
+          if (section.id !== "list-dash") {
+            section.style.display = "none";
+          }
+        });
+
+        // Toggle sidebar
+        sidebarBtn.onclick = function() {
+          sidebar.classList.toggle("active");
+          if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+          } else {
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+          }
+        };
+
+        // Handle click events for navigation links
+        links.forEach(function(link) {
+          link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute("href"));
+            sections.querySelectorAll(".home-content").forEach(function(section) {
+              section.style.display = "none";
+            });
+            targetSection.style.display = "block";
+            document.querySelector(".nav-links li a.active").classList.remove("active");
+            this.classList.add("active");
+          });
+        });
+      });
+      // logout button code
+      function logout() {
+        event.preventDefault();
+        window.location.href = "logout.php"; // Redirect to logout.php
+      }
+      // default page contents js
+      function clickDiv(id) {
+        document.querySelector(id).click();
+      }
+    </script>
+
+    <!-- Change Password section -->
+    <div class="home-content" id="list-change-password">
       <div class="change-password-form">
 
         <center>
@@ -236,4 +303,5 @@ function isCancelled($id)
       </div>
     </div>
 </body>
+
 </html>

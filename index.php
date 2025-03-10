@@ -293,7 +293,7 @@
 
           <div class="about-content">
 
-            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">Sakitmu Rezekiku</p>
+            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">Ikhtiar</p>
 
             <h2 class="headline-md" data-reveal="left">Dedikasi Kesehatan Anda</h2>
 
@@ -374,6 +374,8 @@
                     <th>No</th>
                     <th>Nama Dokter</th>
                     <th>Spesialis</th>
+                    <th>Hari Praktek</th>
+                    <th>Jam Praktek</th>
                     <th>Biaya</th>
                     <th>Email</th>
                 </tr>
@@ -389,6 +391,8 @@
                             <td>$no</td>
                             <td>$tampil[username]</td>
                             <td>$tampil[spec]</td>
+                            <td>$tampil[day]</td>
+                            <td>$tampil[time]</td>
                             <td>IDR " . number_format($tampil['docFees'], 0, ',', '.') . "</td>
                             <td>$tampil[email]</td>
                         </tr>";

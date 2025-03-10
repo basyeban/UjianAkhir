@@ -2,7 +2,7 @@
 <?php
 include('function1.php');
 $con = mysqli_connect("localhost", "root", "", "hms");
-$doctor = $_SESSION['dname'];   
+$doctor = $_SESSION['dname'];
 
 // Function to check if the appointment is prescribed
 function isPrescribed($id)
@@ -151,69 +151,69 @@ if (isset($_GET['prescribe'])) {
         </nav>
 
         <script>
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".sidebarBtn");
-  sidebarBtn.onclick = function() {
-    sidebar.classList.toggle("active");
-    if (sidebar.classList.contains("active")) {
-      sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-    } else
-      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-  }
-</script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const sidebarBtn = document.querySelector(".sidebarBtn");
-      const sidebar = document.querySelector(".sidebar");
-      const sections = document.querySelector("#sections");
-      const links = document.querySelectorAll(".nav-links li a");
-      // Show the dashboard section by default
-      document.getElementById("list-dash").style.display = "block";
-      document.getElementById("list-doc").style.display = "none";
-      document.querySelector(".nav-links li a.active").classList.remove("active");
-      document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarBtn = document.querySelector(".sidebarBtn");
+            sidebarBtn.onclick = function() {
+                sidebar.classList.toggle("active");
+                if (sidebar.classList.contains("active")) {
+                    sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+                } else
+                    sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            }
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const sidebarBtn = document.querySelector(".sidebarBtn");
+                const sidebar = document.querySelector(".sidebar");
+                const sections = document.querySelector("#sections");
+                const links = document.querySelectorAll(".nav-links li a");
+                // Show the dashboard section by default
+                document.getElementById("list-dash").style.display = "block";
+                document.getElementById("list-doc").style.display = "none";
+                document.querySelector(".nav-links li a.active").classList.remove("active");
+                document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
 
-      // Hide other sections when the page loads
-      document.querySelectorAll(".home-content").forEach(function(section) {
-        if (section.id !== "list-dash") {
-          section.style.display = "none";
-        }
-      });
+                // Hide other sections when the page loads
+                document.querySelectorAll(".home-content").forEach(function(section) {
+                    if (section.id !== "list-dash") {
+                        section.style.display = "none";
+                    }
+                });
 
-      // Toggle sidebar
-      sidebarBtn.onclick = function() {
-        sidebar.classList.toggle("active");
-        if (sidebar.classList.contains("active")) {
-          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-        } else {
-          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-        }
-      };
+                // Toggle sidebar
+                sidebarBtn.onclick = function() {
+                    sidebar.classList.toggle("active");
+                    if (sidebar.classList.contains("active")) {
+                        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+                    } else {
+                        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+                    }
+                };
 
-      // Handle click events for navigation links
-      links.forEach(function(link) {
-        link.addEventListener("click", function(event) {
-          event.preventDefault();
-          const targetSection = document.querySelector(this.getAttribute("href"));
-          sections.querySelectorAll(".home-content").forEach(function(section) {
-            section.style.display = "none";
-          });
-          targetSection.style.display = "block";
-          document.querySelector(".nav-links li a.active").classList.remove("active");
-          this.classList.add("active");
-        });
-      });
-    });
-    // logout button code
-    function logout() {
-      event.preventDefault();
-      window.location.href = "logout.php"; // Redirect to logout.php
-    }
-    // default page contents js
-    function clickDiv(id) {
-      document.querySelector(id).click();
-    }
-  </script>
+                // Handle click events for navigation links
+                links.forEach(function(link) {
+                    link.addEventListener("click", function(event) {
+                        event.preventDefault();
+                        const targetSection = document.querySelector(this.getAttribute("href"));
+                        sections.querySelectorAll(".home-content").forEach(function(section) {
+                            section.style.display = "none";
+                        });
+                        targetSection.style.display = "block";
+                        document.querySelector(".nav-links li a.active").classList.remove("active");
+                        this.classList.add("active");
+                    });
+                });
+            });
+            // logout button code
+            function logout() {
+                event.preventDefault();
+                window.location.href = "logout.php"; // Redirect to logout.php
+            }
+            // default page contents js
+            function clickDiv(id) {
+                document.querySelector(id).click();
+            }
+        </script>
 
         <!-- Default contents and dashboard contents -->
         <div class="home-content" id="list-dash">
@@ -253,255 +253,255 @@ if (isset($_GET['prescribe'])) {
         Appointments view section
         <div class="home-content" id="list-app">
             <table class="app-table">
-                 <thead>
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Jenis Kelamin</th>
-                <th scope="col">Kontak</th>
-                <th scope="col">Tanggal Perjanjian</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-                     <tbody>
-            <?php
-            $con = mysqli_connect("localhost", "root", "", "hms");
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Kontak</th>
+                        <th scope="col">Tanggal Perjanjian</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $con = mysqli_connect("localhost", "root", "", "hms");
 
-            // Jumlah data per halaman
-            $limit = 8;
+                    // Jumlah data per halaman
+                    $limit = 8;
 
-            // Ambil nomor halaman dari URL (default = 1)
-            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-            $offset = ($page - 1) * $limit;
+                    // Ambil nomor halaman dari URL (default = 1)
+                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                    $offset = ($page - 1) * $limit;
 
-            // Ambil total jumlah data untuk pagination
-            $dname = $_SESSION['dname'];
-            $totalQuery = "SELECT COUNT(*) as total FROM appointment WHERE doctor = '$dname'";
-            $totalResult = mysqli_query($con, $totalQuery);
-            $totalRow = mysqli_fetch_assoc($totalResult);
-            $totalRecords = $totalRow['total'];
+                    // Ambil total jumlah data untuk pagination
+                    $dname = $_SESSION['dname'];
+                    $totalQuery = "SELECT COUNT(*) as total FROM appointment WHERE doctor = '$dname'";
+                    $totalResult = mysqli_query($con, $totalQuery);
+                    $totalRow = mysqli_fetch_assoc($totalResult);
+                    $totalRecords = $totalRow['total'];
 
-            // Ambil data appointment dengan batasan halaman
-            $query = "SELECT pid, AppID, fname, lname, gender, email, contact, appdate, apptime, userStatus, doctorStatus 
+                    // Ambil data appointment dengan batasan halaman
+                    $query = "SELECT pid, AppID, fname, lname, gender, email, contact, appdate, apptime, userStatus, doctorStatus 
                       FROM appointment 
                       WHERE doctor = '$dname' 
                       LIMIT $limit OFFSET $offset";
-            $result = mysqli_query($con, $query);
-            $no = $offset + 1;
+                    $result = mysqli_query($con, $query);
+                    $no = $offset + 1;
 
-            while ($row = mysqli_fetch_array($result)) {
-                $id = $row['AppID'];
-                $accepted = isAccepted($id);
-                $cancelled = isCancelled($id);
-                $prescribed = isPrescribed($id);
+                    while ($row = mysqli_fetch_array($result)) {
+                        $id = $row['AppID'];
+                        $accepted = isAccepted($id);
+                        $cancelled = isCancelled($id);
+                        $prescribed = isPrescribed($id);
 
-                $showCancelAcceptButtons = !$cancelled && !$accepted && !$prescribed;
-                $showPrescribeButton = $accepted && !$prescribed && !$cancelled;
-            ?>
-                <tr>
-                    <td><?php echo $no++; ?></td>
-                    <td><?php echo $row['fname']; ?></td>
-                    <td><?php echo $row['gender']; ?></td>
-                    <td><?php echo $row['contact']; ?></td>
-                    <td><?php echo $row['appdate']; ?></td>
-                    <td>
-                        <?php
-                        if ($cancelled) {
-                            echo "Cancelled";
-                        } elseif ($accepted) {
-                            echo "Accepted";
-                        } else {
-                            echo "Active";
-                        }
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                        if ($showCancelAcceptButtons) {
-                            echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&cancel=update" onClick="return confirm(\'Kamu Yakin akan membatalkan perjanjian ini?\')" title="Cancel Appointment"><button class="btn btn-primary">Cancel</button></a>';
-                            echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&accept=update" onClick="return confirm(\'Kamu Yakin akan memproses perjanjian ini?\')" title="Accept Appointment"><button class="btn btn-primary">Accept</button></a>';
-                        } elseif ($showPrescribeButton) {
-                            echo '<a href="prescribe.php?pid=' . $row['pid'] . '&AppID=' . $row['AppID'] . '&fname=' . $row['fname'] . '&lname=' . $row['lname'] . '&appdate=' . $row['appdate'] . '&apptime=' . $row['apptime'] . '&disease=&allergy=&prescription=" title="Resep"><button class="btn btn-primary">Prescribe</button></a>';
-                        }
-                        ?>
-                    </td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+                        $showCancelAcceptButtons = !$cancelled && !$accepted && !$prescribed;
+                        $showPrescribeButton = $accepted && !$prescribed && !$cancelled;
+                    ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $row['fname']; ?></td>
+                            <td><?php echo $row['gender']; ?></td>
+                            <td><?php echo $row['contact']; ?></td>
+                            <td><?php echo $row['appdate']; ?></td>
+                            <td>
+                                <?php
+                                if ($cancelled) {
+                                    echo "Cancelled";
+                                } elseif ($accepted) {
+                                    echo "Accepted";
+                                } else {
+                                    echo "Active";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                if ($showCancelAcceptButtons) {
+                                    echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&cancel=update" onClick="return confirm(\'Kamu Yakin akan membatalkan perjanjian ini?\')" title="Cancel Appointment"><button class="btn btn-primary">Cancel</button></a>';
+                                    echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&accept=update" onClick="return confirm(\'Kamu Yakin akan memproses perjanjian ini?\')" title="Accept Appointment"><button class="btn btn-primary">Accept</button></a>';
+                                } elseif ($showPrescribeButton) {
+                                    echo '<a href="prescribe.php?pid=' . $row['pid'] . '&AppID=' . $row['AppID'] . '&fname=' . $row['fname'] . '&lname=' . $row['lname'] . '&appdate=' . $row['appdate'] . '&apptime=' . $row['apptime'] . '&disease=&allergy=&prescription=" title="Resep"><button class="btn btn-primary">Prescribe</button></a>';
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
 
-    <!-- Pagination -->
-    <div class="pagination">
-        <?php
-        $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
+            <!-- Pagination -->
+            <div class="pagination">
+                <?php
+                $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
 
-        // Hitung total halaman
-        $totalPages = ceil($totalRecords / $limit);
+                // Hitung total halaman
+                $totalPages = ceil($totalRecords / $limit);
 
-        // Tombol "Previous"
-        if ($page > 1) {
-            echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
-        }
+                // Tombol "Previous"
+                if ($page > 1) {
+                    echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
+                }
 
-        // Nomor halaman
-        for ($i = 1; $i <= $totalPages; $i++) {
-            echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
-        }
+                // Nomor halaman
+                for ($i = 1; $i <= $totalPages; $i++) {
+                    echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+                }
 
-        // Tombol "Next"
-        if ($page < $totalPages) {
-            echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
-        }
-        ?>
-    </div>
+                // Tombol "Next"
+                if ($page < $totalPages) {
+                    echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
+                }
+                ?>
+            </div>
 
-    <style>
-        .pagination {
-            margin-top: 20px;
-            text-align: center;
-        }
+            <style>
+                .pagination {
+                    margin-top: 20px;
+                    text-align: center;
+                }
 
-        .pagination a {
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 5px;
-            text-decoration: none;
-            color: #333;
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 50px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+                .pagination a {
+                    display: inline-block;
+                    padding: 10px 15px;
+                    margin: 5px;
+                    text-decoration: none;
+                    color: #333;
+                    background-color: #f1f1f1;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-bottom: 50px;
+                    transition: background-color 0.3s, color 0.3s;
+                }
 
-        .pagination a:hover,
-        .pagination a.active {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            border-color: #0056b3;
-        }
-    </style>
-</div>
+                .pagination a:hover,
+                .pagination a.active {
+                    background-color: #007bff;
+                    color: white;
+                    font-weight: bold;
+                    border-color: #0056b3;
+                }
+            </style>
+        </div>
 
 
         <!-- Prescription section -->
         <div class="home-content" id="list-pres">
-    <table class="pres-table">
-        <thead>
-            <tr>
-                <th scope="col">ID Pasien</th>
-                <th scope="col">Nama Depan</th>
-                <th scope="col">ID Perjanjian</th>
-                <th scope="col">Tanggal Perjanjian</th>
-                <th scope="col">Penyakit</th>
-                <th scope="col">Alergi</th>
-                <th scope="col">Resep Obat</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $con = mysqli_connect("localhost", "root", "", "hms");
-            if (!$con) {
-                die("Koneksi gagal: " . mysqli_connect_error());
-            }
+            <table class="pres-table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID Pasien</th>
+                        <th scope="col">Nama Depan</th>
+                        <th scope="col">ID Perjanjian</th>
+                        <th scope="col">Tanggal Perjanjian</th>
+                        <th scope="col">Penyakit</th>
+                        <th scope="col">Alergi</th>
+                        <th scope="col">Resep Obat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $con = mysqli_connect("localhost", "root", "", "hms");
+                    if (!$con) {
+                        die("Koneksi gagal: " . mysqli_connect_error());
+                    }
 
-            // Jumlah data per halaman
-            $limit = 8;
+                    // Jumlah data per halaman
+                    $limit = 8;
 
-            // Ambil nomor halaman dari URL (default = 1)
-            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-            $offset = ($page - 1) * $limit;
+                    // Ambil nomor halaman dari URL (default = 1)
+                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                    $offset = ($page - 1) * $limit;
 
-            // Pastikan variabel $doctor diambil dari session
-            // session_start();
-            $doctor = $_SESSION['dname'];
+                    // Pastikan variabel $doctor diambil dari session
+                    // session_start();
+                    $doctor = $_SESSION['dname'];
 
-            // Hitung total jumlah data untuk pagination
-            $totalQuery = "SELECT COUNT(*) as total FROM prescriptiontable WHERE doctor = '$doctor'";
-            $totalResult = mysqli_query($con, $totalQuery);
-            $totalRow = mysqli_fetch_assoc($totalResult);
-            $totalRecords = $totalRow['total'];
+                    // Hitung total jumlah data untuk pagination
+                    $totalQuery = "SELECT COUNT(*) as total FROM prescriptiontable WHERE doctor = '$doctor'";
+                    $totalResult = mysqli_query($con, $totalQuery);
+                    $totalRow = mysqli_fetch_assoc($totalResult);
+                    $totalRecords = $totalRow['total'];
 
-            // Ambil data sesuai halaman dengan limit & offset
-            $query = "SELECT pid, fname, lname, AppID, appdate, apptime, disease, allergy, prescription 
+                    // Ambil data sesuai halaman dengan limit & offset
+                    $query = "SELECT pid, fname, lname, AppID, appdate, apptime, disease, allergy, prescription 
                       FROM prescriptiontable 
                       WHERE doctor = '$doctor' 
                       LIMIT $limit OFFSET $offset";
-            $result = mysqli_query($con, $query);
-            if (!$result) {
-                echo "<tr><td colspan='9'>" . mysqli_error($con) . "</td></tr>";
-            }
+                    $result = mysqli_query($con, $query);
+                    if (!$result) {
+                        echo "<tr><td colspan='9'>" . mysqli_error($con) . "</td></tr>";
+                    }
 
-            while ($row = mysqli_fetch_array($result)) {
-            ?>
-                <tr>
-                    <td><?php echo $row['pid']; ?></td>
-                    <td><?php echo $row['fname']; ?></td>
-                    <td><?php echo $row['AppID']; ?></td>
-                    <td><?php echo $row['appdate']; ?></td>
-                    <td><?php echo $row['disease']; ?></td>
-                    <td><?php echo $row['allergy']; ?></td>
-                    <td><?php echo $row['prescription']; ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $row['pid']; ?></td>
+                            <td><?php echo $row['fname']; ?></td>
+                            <td><?php echo $row['AppID']; ?></td>
+                            <td><?php echo $row['appdate']; ?></td>
+                            <td><?php echo $row['disease']; ?></td>
+                            <td><?php echo $row['allergy']; ?></td>
+                            <td><?php echo $row['prescription']; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
 
-    <!-- Pagination -->
-    <div class="pagination">
-        <?php
-        $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
+            <!-- Pagination -->
+            <div class="pagination">
+                <?php
+                $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
 
-        // Hitung total halaman
-        $totalPages = ceil($totalRecords / $limit);
+                // Hitung total halaman
+                $totalPages = ceil($totalRecords / $limit);
 
-        // Tombol "Previous"
-        if ($page > 1) {
-            echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
-        }
+                // Tombol "Previous"
+                if ($page > 1) {
+                    echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
+                }
 
-        // Nomor halaman
-        for ($i = 1; $i <= $totalPages; $i++) {
-            echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
-        }
+                // Nomor halaman
+                for ($i = 1; $i <= $totalPages; $i++) {
+                    echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+                }
 
-        // Tombol "Next"
-        if ($page < $totalPages) {
-            echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
-        }
-        ?>
-    </div>
+                // Tombol "Next"
+                if ($page < $totalPages) {
+                    echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
+                }
+                ?>
+            </div>
 
-    <style>
-        .pagination {
-            margin-top: 20px;
-            text-align: center;
-        }
+            <style>
+                .pagination {
+                    margin-top: 20px;
+                    text-align: center;
+                }
 
-        .pagination a {
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 5px;
-            text-decoration: none;
-            color: #333;
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 50px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+                .pagination a {
+                    display: inline-block;
+                    padding: 10px 15px;
+                    margin: 5px;
+                    text-decoration: none;
+                    color: #333;
+                    background-color: #f1f1f1;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    margin-bottom: 50px;
+                    transition: background-color 0.3s, color 0.3s;
+                }
 
-        .pagination a:hover,
-        .pagination a.active {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            border-color: #0056b3;
-        }
-    </style>
-</div>
+                .pagination a:hover,
+                .pagination a.active {
+                    background-color: #007bff;
+                    color: white;
+                    font-weight: bold;
+                    border-color: #0056b3;
+                }
+            </style>
+        </div>
 
     </div>
 </body>

@@ -276,7 +276,7 @@ mysqli_close($con);
           targetSection.style.display = "block";
           document.querySelector(".nav-links li a.active").classList.remove("active");
           this.classList.add("active");
-        });
+        }); 
       });
     });
     // logout button code
@@ -380,7 +380,7 @@ $result = mysqli_query($con, $query);
                 <td>{$row['docFees']}</td>
                 <td>
                     <a href='update-doctor.php?un={$row['username']}&sp={$row['spec']}&em={$row['email']}&pw={$row['password']}&df={$row['docFees']}'>
-                        <input type='submit' value='UPDATE' class='btn btn-primary'>
+                        <input type='submit' value='UPDATE' class='btn btn-primary' style:'margin-left: 10px; background-color:yellow;'>
                     </a>
                     <a href='delete-doctor.php?email={$row['email']}' onclick='return confirm(\"Yakin ingin menghapus dokter ini?\")'>
                         <input type='submit' value='DELETE' class='btn btn-primary'>

@@ -136,16 +136,18 @@ function isCancelled($id)
   }
 </script>
 <html lang="en">
+
 <head>
-<script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/2323653b3c.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="./assets/images/LOGO-BARU-24.png" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style4.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <title>History Perjanjian</title>
+  <title>History Pelayanan</title>
 </head>
+
 <body>
 
   <!-- dashboard -->
@@ -164,13 +166,13 @@ function isCancelled($id)
       <li>
         <a href="booking.php">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Daftar Perjanjian</span>
+          <span class="links_name">Daftar Pelayanan</span>
         </a>
       </li>
       <li>
         <a href="history.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">History Perjanjian</span>
+          <span class="links_name">History Pelayanan</span>
         </a>
       </li>
       <li>
@@ -209,131 +211,202 @@ function isCancelled($id)
       </div>
     </nav>
 
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sidebarBtn = document.querySelector(".sidebarBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const sections = document.querySelector("#sections");
+        const links = document.querySelectorAll(".nav-links li a");
+        // Show the dashboard section by default
+        document.getElementById("list-dash").style.display = "block";
+        document.getElementById("list-doc").style.display = "none";
+        document.querySelector(".nav-links li a.active").classList.remove("active");
+        document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+
+        // Hide other sections when the page loads
+        document.querySelectorAll(".home-content").forEach(function(section) {
+          if (section.id !== "list-dash") {
+            section.style.display = "none";
+          }
+        });
+
+        // Toggle sidebar
+        sidebarBtn.onclick = function() {
+          sidebar.classList.toggle("active");
+          if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+          } else {
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+          }
+        };
+
+        // Handle click events for navigation links
+        links.forEach(function(link) {
+          link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute("href"));
+            sections.querySelectorAll(".home-content").forEach(function(section) {
+              section.style.display = "none";
+            });
+            targetSection.style.display = "block";
+            document.querySelector(".nav-links li a.active").classList.remove("active");
+            this.classList.add("active");
+          });
+        });
+      });
+      // logout button code
+      function logout() {
+        event.preventDefault();
+        window.location.href = "logout.php"; // Redirect to logout.php
+      }
+      // default page contents js
+      function clickDiv(id) {
+        document.querySelector(id).click();
+      }
+    </script>
+
     <!-- Appointment history section -->
     <div class="home-content" id="list-app">
-        <div>
-            <table class="app-table">
-                <thead>
-                    <tr>
-                        <th scope="col">Nama Dokter </th>
-                        <th scope="col">Biaya Konsultasi</th>
-                        <th scope="col">Tanggal Perjanjian</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $con = mysqli_connect("localhost", "root", "", "hms");
-                    global $con;
-    
-                    $limit = 8; // Jumlah data per halaman
-    
-                    // Ambil halaman saat ini dari parameter URL, default = 1
-                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                    $offset = ($page - 1) * $limit;
-    
-                    // Hitung total data
-                    $countQuery = "SELECT COUNT(*) AS total FROM appointment WHERE fname ='$fname' AND lname='$lname'";
-                    $countResult = mysqli_query($con, $countQuery);
-                    $totalRecords = mysqli_fetch_array($countResult)['total'];
-                    $totalPages = ceil($totalRecords / $limit);
-    
-                    // Query untuk mengambil data dengan limit
-                    $query = "SELECT AppID, doctor, docFees, appdate, apptime, userStatus, doctorStatus 
-              FROM appointment 
-              WHERE fname ='$fname' AND lname='$lname' 
-              LIMIT $offset, $limit";
-                    $result = mysqli_query($con, $query);
-    
-                    while ($row = mysqli_fetch_array($result)) {
-                        $doctor = $row['doctor'];
-                        $docFees = $row['docFees'];
-                        $appdate = $row['appdate'];
-                        $userStatus = $row['userStatus'];
-                        $doctorStatus = $row['doctorStatus'];
-                        $AppID = $row['AppID'];
-    
-                        // Cek status appointment
-                        $accepted = isAccepted($AppID);
-                        $cancelled = isCancelled($AppID);
-                    ?>
-                        <tr>
-                            <th scope="row"><?php echo $doctor; ?></th>
-                            <td><?php echo $docFees; ?></td>
-                            <td><?php echo $appdate; ?></td>
-                            <td>
-                                <?php
-                                if ($cancelled) {
-                                    echo "Cancelled";
-                                } elseif ($accepted) {
-                                    echo "Accepted";
-                                } else {
-                                    echo "Active";
-                                }
-                                ?>
-                            </td>
-                            <td>
-                                <?php if (!$cancelled && !$accepted) { ?>
-                                    <a href="patient-panel.php?AppID=<?php echo $row['AppID'] ?>&cancel=update"
-                                        onClick="return confirm('Anda yakin ingin membatalkan perjanjian?')"
-                                        title="Cancel Appointment">
-                                        <button class="btn btn-primary">Batalkan</button> 
-                                    </a>
-                                <?php } ?>
-                            </td>
-                        </tr>
-                    <?php } ?>
-    
-                </tbody>
-            </table>
-            <div class="pagination">
-                <?php
-                if ($page > 1) {
-                    echo '<a href="?page=' . ($page - 1) . '">Previous</a>';
-                }
-    
-                for ($i = 1; $i <= $totalPages; $i++) {
-                    echo '<a href="?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
-                }
-    
-                if ($page < $totalPages) {
-                    echo '<a href="?page=' . ($page + 1) . '">Next</a>';
-                }
-                ?>
-            </div>
-            <style>
-                .pagination {
-                    margin-top: 20px;
-                    text-align: center;
-                }
-    
-                .pagination a {
-                    display: inline-block;
-                    padding: 10px 15px;
-                    margin: 5px;
-                    text-decoration: none;
-                    color: #333;
-                    background-color: #f1f1f1;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    margin-bottom: 50px;
-                    transition: background-color 0.3s, color 0.3s;
-                }
-    
-                .pagination a:hover {
-                    background-color: #007bff;
-                    color: white;
-                }
-    
-                .pagination a.active {
-                    background-color: #007bff;
-                    color: white;
-                    font-weight: bold;
-                    border-color: #0056b3;
-                }
-            </style>
+      <div>
+        <table class="app-table">
+          <thead>
+            <tr>
+              <th scope="col">Nama Dokter </th>
+              <th scope="col">Biaya Konsultasi</th>
+              <th scope="col">Tanggal Perjanjian</th>
+              <th scope="col">Jam Perjanjian</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $con = mysqli_connect("localhost", "root", "", "hms");
+            global $con;
+
+            $limit = 8; // Jumlah data per halaman
+
+            // Ambil halaman saat ini dari parameter URL, default = 1
+            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $offset = ($page - 1) * $limit;
+
+            // Hitung total data
+            $countQuery = "SELECT COUNT(*) AS total FROM appointment WHERE fname ='$fname' AND lname='$lname'";
+            $countResult = mysqli_query($con, $countQuery);
+            $totalRecords = mysqli_fetch_array($countResult)['total'];
+            $totalPages = ceil($totalRecords / $limit);
+
+            // Query untuk mengambil data dengan limit
+            $query = "SELECT AppID, doctor, docFees, appdate, apptime, userStatus, doctorStatus 
+          FROM appointment 
+          WHERE fname ='$fname' AND lname='$lname' 
+          ORDER BY appdate DESC, apptime DESC 
+          LIMIT $offset, $limit";
+
+            $result = mysqli_query($con, $query);
+
+            while ($row = mysqli_fetch_array($result)) {
+              $doctor = $row['doctor'];
+              $docFees = $row['docFees'];
+              $userStatus = $row['userStatus'];
+              $apptime = $row['apptime'];
+              $appdate = $row['appdate'];
+              $doctorStatus = $row['doctorStatus'];
+              $AppID = $row['AppID'];
+
+              // Cek status appointment
+              $accepted = isAccepted($AppID);
+              $cancelled = isCancelled($AppID);
+            ?>
+              <tr>
+                <th scope="row"><?php echo $doctor; ?></th>
+                <td><?php echo $docFees; ?></td>
+                <td><?php echo $appdate; ?></td>
+                <td><?php echo $apptime; ?></td>
+                <td>
+                  <?php
+                  if ($cancelled) {
+                    echo "Cancelled";
+                  } elseif ($accepted) {
+                    echo "Accepted";
+                  } else {
+                    echo "Active";
+                  }
+                  ?>
+                </td>
+                <td>
+                  <?php if (!$cancelled && !$accepted) { ?>
+                    <a href="patient-panel.php?AppID=<?php echo $row['AppID'] ?>&cancel=update"
+                      onClick="return confirm('Anda yakin ingin membatalkan perjanjian?')"
+                      title="Cancel Appointment">
+                      <button class="btn btn-primary">Batalkan</button>
+                    </a>
+                  <?php } ?>
+                </td>
+              </tr>
+            <?php } ?>
+
+          </tbody>
+        </table>
+        <div class="pagination">
+          <?php
+          if ($page > 1) {
+            echo '<a href="?page=' . ($page - 1) . '">Previous</a>';
+          }
+
+          for ($i = 1; $i <= $totalPages; $i++) {
+            echo '<a href="?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+          }
+
+          if ($page < $totalPages) {
+            echo '<a href="?page=' . ($page + 1) . '">Next</a>';
+          }
+          ?>
         </div>
+        <style>
+          .pagination {
+            margin-top: 20px;
+            text-align: center;
+          }
+
+          .pagination a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 50px;
+            transition: background-color 0.3s, color 0.3s;
+          }
+
+          .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+          }
+
+          .pagination a.active {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border-color: #0056b3;
+          }
+        </style>
+      </div>
     </div>
 </body>
+
 </html>

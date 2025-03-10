@@ -177,13 +177,13 @@ function isCancelled($id)
       <li>
         <a href="booking.php">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">Daftar Perjanjian</span>
+          <span class="links_name">Daftar Pelayanan</span>
         </a>
       </li>
       <li>
         <a href="history.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-list-ul'></i>
-          <span class="links_name">History Perjanjian</span>
+          <span class="links_name">History Pelayanan</span>
         </a>
       </li>
       <li>
@@ -221,46 +221,112 @@ function isCancelled($id)
         </span>
       </div>
     </nav>
+
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sidebarBtn = document.querySelector(".sidebarBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const sections = document.querySelector("#sections");
+        const links = document.querySelectorAll(".nav-links li a");
+        // Show the dashboard section by default
+        document.getElementById("list-dash").style.display = "block";
+        document.getElementById("list-doc").style.display = "none";
+        document.querySelector(".nav-links li a.active").classList.remove("active");
+        document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
+
+        // Hide other sections when the page loads
+        document.querySelectorAll(".home-content").forEach(function(section) {
+          if (section.id !== "list-dash") {
+            section.style.display = "none";
+          }
+        });
+
+        // Toggle sidebar
+        sidebarBtn.onclick = function() {
+          sidebar.classList.toggle("active");
+          if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+          } else {
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+          }
+        };
+
+        // Handle click events for navigation links
+        links.forEach(function(link) {
+          link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute("href"));
+            sections.querySelectorAll(".home-content").forEach(function(section) {
+              section.style.display = "none";
+            });
+            targetSection.style.display = "block";
+            document.querySelector(".nav-links li a.active").classList.remove("active");
+            this.classList.add("active");
+          });
+        });
+      });
+      // logout button code
+      function logout() {
+        event.preventDefault();
+        window.location.href = "logout.php"; // Redirect to logout.php
+      }
+      // default page contents js
+      function clickDiv(id) {
+        document.querySelector(id).click();
+      }
+    </script>
+
     <!-- Default contents and dashboard contents -->
     <div class="section-container">
-  <div class="home-content" id="list-dash">
-    <div class="overview-boxes">
-      <div class="box">
-        <div class="right-side">
-          <i class="fa fa-users fa-2x"></i>
-          <h4>Daftar Perjanjian Saya</h4>
-          <p>
-            <a href="booking.php">
-              Daftar perjanjian
-            </a>
-          </p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="right-side">
-          <i class="fa fa-paperclip fa-2x"></i>
-          <h4>My Appointments</h4>
-          <p>
-            <a href="history.php">
-              lihat history perjanjian
-            </a>
-          </p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="right-side">
-          <i class="fa fa-list-ul fa-2x"></i>
-          <h4>Resep Obat</h4>
-          <p>
-            <a href="resep.php">
-              Lihat list resep list
-            </a>
-          </p>
+      <div class="home-content" id="list-dash">
+        <div class="overview-boxes">
+          <div class="box">
+            <div class="right-side">
+              <i class="fa fa-users fa-2x"></i>
+              <h4>Buat Pelayanan</h4>
+              <p>
+                <a href="booking.php">
+                  Pendaftaran
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <i class="fa fa-paperclip fa-2x"></i>
+              <h4>Pelayanan Saya</h4>
+              <p>
+                <a href="history.php">
+                  lihat history Pelayanan
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <i class="fa fa-list-ul fa-2x"></i>
+              <h4>Resep Obat</h4>
+              <p>
+                <a href="resep.php">
+                  Lihat list resep list
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- Book Appointment section
     <div class="home-content" id="list-doc">
@@ -371,38 +437,38 @@ function isCancelled($id)
                     <?php
                     $con = mysqli_connect("localhost", "root", "", "hms");
                     global $con;
-    
+
                     $limit = 5; // Jumlah data per halaman
-    
+
                     // Ambil halaman saat ini dari parameter URL, default = 1
                     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
                     $offset = ($page - 1) * $limit;
-    
+
                     // Hitung total data
                     $countQuery = "SELECT COUNT(*) AS total FROM appointment WHERE fname ='$fname' AND lname='$lname'";
                     $countResult = mysqli_query($con, $countQuery);
                     $totalRecords = mysqli_fetch_array($countResult)['total'];
                     $totalPages = ceil($totalRecords / $limit);
-    
+
                     // Query untuk mengambil data dengan limit
                     $query = "SELECT AppID, doctor, docFees, appdate, apptime, userStatus, doctorStatus 
               FROM appointment 
               WHERE fname ='$fname' AND lname='$lname' 
               LIMIT $offset, $limit";
                     $result = mysqli_query($con, $query);
-    
+
                     while ($row = mysqli_fetch_array($result)) {
-                        $doctor = $row['doctor'];
-                        $docFees = $row['docFees'];
-                        $appdate = $row['appdate'];
-                        $apptime = $row['apptime'];
-                        $userStatus = $row['userStatus'];
-                        $doctorStatus = $row['doctorStatus'];
-                        $AppID = $row['AppID'];
-    
-                        // Cek status appointment
-                        $accepted = isAccepted($AppID);
-                        $cancelled = isCancelled($AppID);
+                      $doctor = $row['doctor'];
+                      $docFees = $row['docFees'];
+                      $appdate = $row['appdate'];
+                      $apptime = $row['apptime'];
+                      $userStatus = $row['userStatus'];
+                      $doctorStatus = $row['doctorStatus'];
+                      $AppID = $row['AppID'];
+
+                      // Cek status appointment
+                      $accepted = isAccepted($AppID);
+                      $cancelled = isCancelled($AppID);
                     ?>
                         <tr>
                             <th scope="row"><?php echo $doctor; ?></th>
@@ -412,11 +478,11 @@ function isCancelled($id)
                             <td>
                                 <?php
                                 if ($cancelled) {
-                                    echo "Cancelled";
+                                  echo "Cancelled";
                                 } elseif ($accepted) {
-                                    echo "Accepted";
+                                  echo "Accepted";
                                 } else {
-                                    echo "Active";
+                                  echo "Active";
                                 }
                                 ?>
                             </td>
@@ -437,15 +503,15 @@ function isCancelled($id)
             <div class="pagination">
                 <?php
                 if ($page > 1) {
-                    echo '<a href="?page=' . ($page - 1) . '">Previous</a>';
+                  echo '<a href="?page=' . ($page - 1) . '">Previous</a>';
                 }
-    
+
                 for ($i = 1; $i <= $totalPages; $i++) {
-                    echo '<a href="?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+                  echo '<a href="?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
                 }
-    
+
                 if ($page < $totalPages) {
-                    echo '<a href="?page=' . ($page + 1) . '">Next</a>';
+                  echo '<a href="?page=' . ($page + 1) . '">Next</a>';
                 }
                 ?>
             </div>
@@ -502,19 +568,19 @@ function isCancelled($id)
                     // Connect to the database
                     $con = mysqli_connect("localhost", "root", "", "hms");
                     global $con;
-    
+
                     // Define the number of records per page
                     $limit = 5;
-    
+
                     // Get the current page number from the URL (default to 1 if not set)
                     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
                     $offset = ($page - 1) * $limit;
-    
+
                     // Query to get the total number of records
                     $countQuery = "SELECT COUNT(*) AS total FROM prescriptiontable WHERE pid='$pid'";
                     $countResult = mysqli_query($con, $countQuery);
                     $totalRecords = mysqli_fetch_array($countResult)['total'];
-    
+
                     // Query to fetch the records for the current page
                     $query = "SELECT doctor, AppID, appdate, apptime, disease, allergy, prescription 
                               FROM prescriptiontable 
@@ -522,9 +588,9 @@ function isCancelled($id)
                               LIMIT $offset, $limit";
                     $result = mysqli_query($con, $query);
                     if (!$result) {
-                        echo mysqli_error($con);
+                      echo mysqli_error($con);
                     }
-    
+
                     // Display records
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
@@ -545,23 +611,23 @@ function isCancelled($id)
                 <?php
                 // Ambil URL saat ini tanpa parameter 'page'
                 $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
-    
+
                 // Hitung total halaman
                 $totalPages = ceil($totalRecords / $limit);
-    
+
                 // Pastikan halaman saat ini lebih dari 1 sebelum menampilkan tombol "Previous"
                 if ($page > 1) {
-                    echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
+                  echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
                 }
-    
+
                 // Tampilkan nomor halaman dengan link yang benar
                 for ($i = 1; $i <= $totalPages; $i++) {
-                    echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
+                  echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
                 }
-    
+
                 // Pastikan masih ada halaman berikutnya sebelum menampilkan tombol "Next"
                 if ($page < $totalPages) {
-                    echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
+                  echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
                 }
                 ?>
     
@@ -654,61 +720,8 @@ function isCancelled($id)
         </form>
       </div>
     </div> -->
-    
+
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const sidebarBtn = document.querySelector(".sidebarBtn");
-      const sidebar = document.querySelector(".sidebar");
-      const sections = document.querySelector("#sections");
-      const links = document.querySelectorAll(".nav-links li a");
-      // Show the dashboard section by default
-      document.getElementById("list-dash").style.display = "block";
-      document.getElementById("list-doc").style.display = "none";
-      document.querySelector(".nav-links li a.active").classList.remove("active");
-      document.querySelector(".nav-links li a[href='#list-dash']").classList.add("active");
-
-      // Hide other sections when the page loads
-      document.querySelectorAll(".home-content").forEach(function (section) {
-        if (section.id !== "list-dash") {
-          section.style.display = "none";
-        }
-      });
-
-      // Toggle sidebar
-      sidebarBtn.onclick = function () {
-        sidebar.classList.toggle("active");
-        if (sidebar.classList.contains("active")) {
-          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-        } else {
-          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-        }
-      };
-
-      // Handle click events for navigation links
-      links.forEach(function (link) {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          const targetSection = document.querySelector(this.getAttribute("href"));
-          sections.querySelectorAll(".home-content").forEach(function (section) {
-            section.style.display = "none";
-          });
-          targetSection.style.display = "block";
-          document.querySelector(".nav-links li a.active").classList.remove("active");
-          this.classList.add("active");
-        });
-      });
-    });
-    // logout button code
-    function logout() {
-      event.preventDefault();
-      window.location.href = "logout.php"; // Redirect to logout.php
-    }
-    // default page contents js
-    function clickDiv(id) {
-      document.querySelector(id).click();
-    }
-  </script>
 </body>
 
 </html>
