@@ -374,8 +374,6 @@
                     <th>No</th>
                     <th>Nama Dokter</th>
                     <th>Spesialis</th>
-                    <th>Hari Praktek</th>
-                    <th>Jam Praktek</th>
                     <th>Biaya</th>
                     <th>Email</th>
                 </tr>
@@ -391,8 +389,6 @@
                             <td>$no</td>
                             <td>$tampil[username]</td>
                             <td>$tampil[spec]</td>
-                            <td>$tampil[day]</td>
-                            <td>$tampil[time]</td>
                             <td>IDR " . number_format($tampil['docFees'], 0, ',', '.') . "</td>
                             <td>$tampil[email]</td>
                         </tr>";

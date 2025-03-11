@@ -111,7 +111,7 @@ if (isset($_GET['prescribe'])) {
             <li>
                 <a href="perjanjian.php" role="tab" data-toggle="list" aria-controls="home">
                     <i class='bx bx-list-ul'></i>
-                    <span class="links_name">Perjanjian</span>
+                    <span class="links_name">Pelayanan</span>
                 </a>
             </li>
             <li>
@@ -224,10 +224,10 @@ if (isset($_GET['prescribe'])) {
                             <i class="fa fa-square fa-stack-2x text-primary"></i>
                             <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4>Perjanjian Pasien</h4>
+                        <h4>Pelayanan Pasien</h4>
                         <p class="cl-effect-1">
                             <a href="perjanjian.php">
-                                Lihat Perjanjian
+                                Lihat Pelayanan
                             </a>
                         </p>
                     </div>
@@ -259,7 +259,7 @@ if (isset($_GET['prescribe'])) {
                         <th scope="col">Nama</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Kontak</th>
-                        <th scope="col">Tanggal Perjanjian</th>
+                        <th scope="col">Tanggal Pelayanan</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -319,8 +319,8 @@ if (isset($_GET['prescribe'])) {
                             <td>
                                 <?php
                                 if ($showCancelAcceptButtons) {
-                                    echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&cancel=update" onClick="return confirm(\'Kamu Yakin akan membatalkan perjanjian ini?\')" title="Cancel Appointment"><button class="btn btn-primary">Cancel</button></a>';
-                                    echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&accept=update" onClick="return confirm(\'Kamu Yakin akan memproses perjanjian ini?\')" title="Accept Appointment"><button class="btn btn-primary">Accept</button></a>';
+                                    echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&cancel=update" onClick="return confirm(\'Kamu Yakin akan membatalkan pelayanan ini?\')" title="Cancel Appointment"><button class="btn btn-primary">Cancel</button></a>';
+                                    echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&accept=update" onClick="return confirm(\'Kamu Yakin akan memproses pelayanan ini?\')" title="Accept Appointment"><button class="btn btn-primary">Accept</button></a>';
                                 } elseif ($showPrescribeButton) {
                                     echo '<a href="prescribe.php?pid=' . $row['pid'] . '&AppID=' . $row['AppID'] . '&fname=' . $row['fname'] . '&lname=' . $row['lname'] . '&appdate=' . $row['appdate'] . '&apptime=' . $row['apptime'] . '&disease=&allergy=&prescription=" title="Resep"><button class="btn btn-primary">Prescribe</button></a>';
                                 }
@@ -393,8 +393,8 @@ if (isset($_GET['prescribe'])) {
                     <tr>
                         <th scope="col">ID Pasien</th>
                         <th scope="col">Nama Depan</th>
-                        <th scope="col">ID Perjanjian</th>
-                        <th scope="col">Tanggal Perjanjian</th>
+                        <th scope="col">ID Pelayanan</th>
+                        <th scope="col">Tanggal Pelayanan</th>
                         <th scope="col">Penyakit</th>
                         <th scope="col">Alergi</th>
                         <th scope="col">Resep Obat</th>
