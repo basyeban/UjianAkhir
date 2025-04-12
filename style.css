@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -368,7 +369,7 @@ nav .sidebar-button i{
   }
   .home-content .sales-boxes .box{
     width: 100%;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     margin-bottom: 30px;
   }
   .home-content .sales-boxes .top-sales{
@@ -967,7 +968,7 @@ nav .sidebar-button i{
   justify-content: center;
   height: 100vh;
   background-color: #f9fafb; /* Light background */
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 /* Queries search button and then table */
 #list-mes .qtable {

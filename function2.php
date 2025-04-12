@@ -22,7 +22,7 @@ if (isset($_POST['patsub1'])) {
     }
 
     if ($password !== $cpassword) {
-        $errors[] = "Passwords do not match";
+        $errors[] = "Password tidak sama";
     }
 
     // Check if the patient with the same email or contact already exists
@@ -30,7 +30,7 @@ if (isset($_POST['patsub1'])) {
     $checkResult = mysqli_query($con, $checkQuery);
 
     if (mysqli_num_rows($checkResult) > 0) {
-        $errors[] = "A patient with the same email or contact already exists";
+        $errors[] = "Email dan nomor pasien sudah ready";
     }
 
     if (count($errors) === 0) {
@@ -54,7 +54,7 @@ if (isset($_POST['patsub1'])) {
             }
 
             // header("Location: patient-login");
-            echo" <script>alert('Patient registred successfully');window.location.href = 'patient-login.php';</script>";
+            echo" <script>alert('Pasien berhasil registrasi');window.location.href = 'patient-login.php';</script>";
             exit();
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($con);

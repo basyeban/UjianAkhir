@@ -25,7 +25,7 @@ if (isset($_POST['patsub'])) {
             header("Location: patient-panel.php");
         } else {
             echo ("<script>alert('Invalid Email or Password. Try Again!');
-                  window.location.href = 'patient-login';</script>");
+                  window.location.href = 'patient-login.php';</script>");
         }
     }
 }

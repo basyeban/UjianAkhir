@@ -417,6 +417,8 @@ mysqli_close($con);
     border-color: #008080;
     outline: none;
 }
+
+
 </style>
     </div> -->
     <!-- List patients section  -->

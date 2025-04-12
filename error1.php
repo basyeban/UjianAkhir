@@ -54,7 +54,7 @@ session_destroy();
 </head>
 
 <body>
-  <h3>Username atau Password Salah!</h3>
+  <h3>Email atau Password Salah!</h3>
   <a href="patient-login.php" class="btn">Kembali ke halaman login</a>
 </body>
 

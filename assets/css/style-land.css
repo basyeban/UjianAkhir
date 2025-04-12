@@ -224,7 +224,7 @@ body.nav-active {
 
 .has-before,
 .has-after {
-  position: relative;
+  /* position: relative; */
   z-index: 1;
 }
 

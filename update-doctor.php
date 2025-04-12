@@ -62,7 +62,7 @@ $pw = $_GET['pw'];
                     <input type="text" value="<?php echo "$df" ?>" class="form-control" name="docFees" id="docFees">
                 </div>
                 <div class="form-group1">
-                    <button type="docsub" name="submit" class="btn btn-primary">Update</button>
+                    <button type="docsub" name="submit" class="btn btn-primary" style="background-color: #FFD700; color:#000;">Update</button>
                 </div>
             </form>
         </div>
@@ -83,7 +83,7 @@ if (isset($_GET['submit'])) {
     $data = mysqli_query($con, $query);
 
     if ($data) {
-        echo "<script>alert('Details updated successfully');window.location.href = 'admin-panel.php#list-settings1';</script>";
+        echo "<script>alert('Data Dokter Berhasil Diperbarui');window.location.href = 'admin-panel.php#list-settings1';</script>";
     } else {
         echo "Failed to update details: " . mysqli_error($con);
     }

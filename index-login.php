@@ -225,7 +225,7 @@
 
             // Check if all fields are filled
             if (firstName === "" || lastName === "" || email === "" || contact === "") {
-                alert("Please fill in all fields.");
+                alert("Mohon isikan semua data.");
                 return false;
             }
 
@@ -233,7 +233,7 @@
             if (email !== "") {
                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
-                    alert("Please enter a valid email address.");
+                    alert("Mohon masukkan email ada yang benar.");
                     return false;
                 }
             }
@@ -242,7 +242,7 @@
             if (contact !== "") {
                 var contactRegex = /^\d{10}$/;
                 if (!contactRegex.test(contact)) {
-                    alert("Please enter a 10-digit contact number.");
+                    alert("Mohon masukkan nomor telepon anda minimal 10-digit.");
                     return false;
                 }
             }
@@ -250,7 +250,7 @@
             function checklen() {
                 var pass1 = document.getElementById("password");
                 if (pass1.value.length < 6) {
-                    alert("Password must be at least 6 characters long. Try again!");
+                    alert("Password minimal 6 karakter, silahkan coba lagi");
                     return false;
                 }
             }
@@ -263,7 +263,7 @@
             var password = document.getElementsByName("password3")[0].value;
 
             if (username === "" || password === "") {
-                alert("Please fill in all fields.");
+                alert("Mohon isikan semua data");
                 return false;
             }
 
@@ -275,7 +275,7 @@
             var password = document.getElementsByName("password2")[0].value;
 
             if (username === "" || password === "") {
-                alert("Please fill in all fields.");
+                alert("Mohon isikan semua data");
                 return false;
             }
 

@@ -69,7 +69,7 @@ if (isset($_POST['app-submit'])) {
 if (isset($_GET['cancel'])) {
   $query = mysqli_query($con, "update appointment set userStatus='0' where AppID = '" . $_GET['AppID'] . "'");
   if ($query) {
-    echo "<script>alert('Pelayananmu Berhasil dibatalakn');</script>";
+    echo "<script>alert('Pelayananmu Berhasil dibatalakan');</script>";
   }
 }
 function get_specs()
@@ -145,7 +145,7 @@ function isCancelled($id)
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style4.css">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <title>Buat Pendaftaran</title>
+  <title>Buat Pelayanan</title>
 </head>
 
 <body>
