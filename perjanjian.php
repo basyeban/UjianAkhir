@@ -61,9 +61,9 @@ if (isset($_GET['prescribe'])) {
     $prescription = $_GET['prescription'];
     $query = mysqli_query($con, "INSERT INTO prescriptiontable(doctor, AppID, appdate, apptime, disease, allergy, prescription) VALUES ('$doctor', '$AppID', '$appdate', '$apptime', '$disease', '$allergy', '$prescription');");
     if ($query) {
-        echo "<script>alert('Prescribed successfully!');</script>";
+        echo "<script>alert('Resep obat berhasil ditambahkan');</script>";
     } else {
-        echo "<script>alert('Unable to process your request. Try again!');</script>";
+        echo "<script>alert('Tidak dapat memproses,coba lagi!');</script>";
     }
 }
 
@@ -264,7 +264,7 @@ if (isset($_GET['prescribe'])) {
                             echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&cancel=update" onClick="return confirm(\'Kamu Yakin akan membatalkan pelayanan ini?\')" title="Cancel Appointment"><button class="btn btn-primary">Cancel</button></a>';
                             echo '<a href="doctor-panel.php?AppID=' . $row['AppID'] . '&accept=update" onClick="return confirm(\'Kamu Yakin akan memproses pelayanan ini?\')" title="Accept Appointment"><button class="btn btn-primary">Accept</button></a>';
                         } elseif ($showPrescribeButton) {
-                            echo '<a href="prescribe.php?pid=' . $row['pid'] . '&AppID=' . $row['AppID'] . '&fname=' . $row['fname'] . '&lname=' . $row['lname'] . '&appdate=' . $row['appdate'] . '&apptime=' . $row['apptime'] . '&disease=&allergy=&prescription=" title="Resep"><button class="btn btn-primary">Prescribe</button></a>';
+                            echo '<a href="prescribe.php?pid=' . $row['pid'] . '&AppID=' . $row['AppID'] . '&fname=' . $row['fname'] . '&lname=' . $row['lname'] . '&appdate=' . $row['appdate'] . '&apptime=' . $row['apptime'] . '&disease=&allergy=&prescription=" title="Resep"><button class="btn btn-primary">Tulis Resep</button></a>';
                         }
                         ?>
                     </td>

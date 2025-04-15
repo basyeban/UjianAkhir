@@ -32,7 +32,7 @@ if (isset($_GET['accept'])) {
     $AppID = $_GET['AppID'];
     $sql = mysqli_query($con, "UPDATE appointment SET doctorStatus= 0 WHERE AppID = '$AppID'");
     if ($sql) {
-        echo "<script>alert('Your appointment was successfully accepted.');</script>";
+        echo "<script>alert('Pelayanan Berhasil diproses');</script>";
     }
 }
 
@@ -40,7 +40,7 @@ if (isset($_GET['cancel'])) {
     $AppID = $_GET['AppID'];
     $query = mysqli_query($con, "UPDATE appointment SET userStatus = 0 WHERE AppID = '$AppID'");
     if ($query) {
-        echo "<script>alert('Your appointment was successfully cancelled.');</script>";
+        echo "<script>alert('Pelayananmu berhasil di batalkan');</script>";
     }
 }
 // if (isset($_GET['accept'])) {
@@ -60,9 +60,9 @@ if (isset($_GET['prescribe'])) {
     $prescription = $_GET['prescription'];
     $query = mysqli_query($con, "INSERT INTO prescriptiontable(doctor, AppID, appdate, apptime, disease, allergy, prescription) VALUES ('$doctor', '$AppID', '$appdate', '$apptime', '$disease', '$allergy', '$prescription');");
     if ($query) {
-        echo "<script>alert('Prescribed successfully!');</script>";
+        echo "<script>alert('Resep Obat berhasil ditambahkan');</script>";
     } else {
-        echo "<script>alert('Unable to process your request. Try again!');</script>";
+        echo "<script>alert('Tidak dapat,coba lagi!');</script>";
     }
 }
 
@@ -250,7 +250,7 @@ if (isset($_GET['prescribe'])) {
             </div>
         </div>
 
-        Appointments view section
+        <!-- Appointments view section -->
         <div class="home-content" id="list-app">
             <table class="app-table">
                 <thead>
@@ -326,124 +326,6 @@ if (isset($_GET['prescribe'])) {
                                 }
                                 ?>
                             </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-
-            <!-- Pagination -->
-            <div class="pagination">
-                <?php
-                $currentURL = strtok($_SERVER["REQUEST_URI"], '?');
-
-                // Hitung total halaman
-                $totalPages = ceil($totalRecords / $limit);
-
-                // Tombol "Previous"
-                if ($page > 1) {
-                    echo '<a href="' . $currentURL . '?page=' . ($page - 1) . '">Previous</a>';
-                }
-
-                // Nomor halaman
-                for ($i = 1; $i <= $totalPages; $i++) {
-                    echo '<a href="' . $currentURL . '?page=' . $i . '" ' . ($i == $page ? 'class="active"' : '') . '>' . $i . '</a>';
-                }
-
-                // Tombol "Next"
-                if ($page < $totalPages) {
-                    echo '<a href="' . $currentURL . '?page=' . ($page + 1) . '">Next</a>';
-                }
-                ?>
-            </div>
-
-            <style>
-                .pagination {
-                    margin-top: 20px;
-                    text-align: center;
-                }
-
-                .pagination a {
-                    display: inline-block;
-                    padding: 10px 15px;
-                    margin: 5px;
-                    text-decoration: none;
-                    color: #333;
-                    background-color: #f1f1f1;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    margin-bottom: 50px;
-                    transition: background-color 0.3s, color 0.3s;
-                }
-
-                .pagination a:hover,
-                .pagination a.active {
-                    background-color: #007bff;
-                    color: white;
-                    font-weight: bold;
-                    border-color: #0056b3;
-                }
-            </style>
-        </div>
-
-
-        <!-- Prescription section -->
-        <div class="home-content" id="list-pres">
-            <table class="pres-table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID Pasien</th>
-                        <th scope="col">Nama Depan</th>
-                        <th scope="col">ID Pelayanan</th>
-                        <th scope="col">Tanggal Pelayanan</th>
-                        <th scope="col">Penyakit</th>
-                        <th scope="col">Alergi</th>
-                        <th scope="col">Resep Obat</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $con = mysqli_connect("localhost", "root", "", "hms");
-                    if (!$con) {
-                        die("Koneksi gagal: " . mysqli_connect_error());
-                    }
-
-                    // Jumlah data per halaman
-                    $limit = 8;
-
-                    // Ambil nomor halaman dari URL (default = 1)
-                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                    $offset = ($page - 1) * $limit;
-
-                    // Pastikan variabel $doctor diambil dari session
-                    // session_start();
-                    $doctor = $_SESSION['dname'];
-
-                    // Hitung total jumlah data untuk pagination
-                    $totalQuery = "SELECT COUNT(*) as total FROM prescriptiontable WHERE doctor = '$doctor'";
-                    $totalResult = mysqli_query($con, $totalQuery);
-                    $totalRow = mysqli_fetch_assoc($totalResult);
-                    $totalRecords = $totalRow['total'];
-
-                    // Ambil data sesuai halaman dengan limit & offset
-                    $query = "SELECT pid, fname, lname, AppID, appdate, apptime, disease, allergy, prescription 
-                      FROM prescriptiontable 
-                      WHERE doctor = '$doctor' 
-                      LIMIT $limit OFFSET $offset";
-                    $result = mysqli_query($con, $query);
-                    if (!$result) {
-                        echo "<tr><td colspan='9'>" . mysqli_error($con) . "</td></tr>";
-                    }
-
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                        <tr>
-                            <td><?php echo $row['pid']; ?></td>
-                            <td><?php echo $row['fname']; ?></td>
-                            <td><?php echo $row['AppID']; ?></td>
-                            <td><?php echo $row['appdate']; ?></td>
-                            <td><?php echo $row['disease']; ?></td>
-                            <td><?php echo $row['allergy']; ?></td>
-                            <td><?php echo $row['prescription']; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

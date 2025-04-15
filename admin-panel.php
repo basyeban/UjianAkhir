@@ -195,7 +195,7 @@ mysqli_close($con);
       <li>
         <a href="detailperjanjian.php" role="tab" data-toggle="list" aria-controls="home">
           <i class='bx bx-detail'></i>
-          <span class="links_name">Detail Perjanjian</span>
+          <span class="links_name">Detail Pelayanan</span>
         </a>
       </li>
       <li>
@@ -271,11 +271,11 @@ mysqli_close($con);
               <i class="fa fa-square fa-stack-2x text-primary"></i>
               <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
             </span>
-            <h4>Detail Perjanjian</h4>
+            <h4>Detail Pelayanan</h4>
 
             <p class="cl-effect-1">
               <a href="detailperjanjian.php">
-                Lihat Perjanjian
+                Lihat Pelayanan
               </a>
             </p>
           </div>
@@ -499,8 +499,8 @@ mysqli_close($con);
             <th scope="col">Kontak</th>
             <th scope="col">Nama Dokter</th>
             <th scope="col">Biaya Konsultasi</th>
-            <th scope="col">Tanggal Perjanjian</th>
-            <th scope="col">Status Perjanjian</th>
+            <th scope="col">Tanggal Pelayanan</th>
+            <th scope="col">Status Pelayanan</th>
           </tr>
         </thead>
         <tbody>

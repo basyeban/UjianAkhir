@@ -6,9 +6,9 @@ $query= "DELETE FROM doctor WHERE email='$email'";
 
 $data=mysqli_query($con, $query);
 if($data){
-    echo" <script>alert('Doctor Deleted Successfully');window.location.href = 'admin-panel.php#list-settings1';</script>";
+    echo" <script>alert('Dokter Berhasil dihapus');window.location.href = 'datadokter.php';</script>";
 }
 else{
-    echo"<script> alert('Unable to delete doctor');window.location.href = 'admin-panel.php#list-settings1';</script>";
+    echo"<script> alert('Tidak dapat menghapus dokter');window.location.href = 'datadokter.php';</script>";
 }
 ?>

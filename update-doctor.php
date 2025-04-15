@@ -23,7 +23,7 @@ $pw = $_GET['pw'];
 
 <body>
     <div class="home-content" id="list-settings">
-        <div class="form-container">
+        <div class="form-container" style="margin-left: 30px; margin-top: 30px; margin-right:50px;">
             <form class="form-group" method="GET" action="update-doctor.php">
                 <div class="form-row">
                     <div class="form-group1">
@@ -83,7 +83,7 @@ if (isset($_GET['submit'])) {
     $data = mysqli_query($con, $query);
 
     if ($data) {
-        echo "<script>alert('Data Dokter Berhasil Diperbarui');window.location.href = 'admin-panel.php#list-settings1';</script>";
+        echo "<script>alert('Data Dokter Berhasil Diperbarui');window.location.href = 'datadokter.php#list-settings1';</script>";
     } else {
         echo "Failed to update details: " . mysqli_error($con);
     }

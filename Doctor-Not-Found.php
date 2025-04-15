@@ -35,6 +35,6 @@
 </head>
 <body>
     <h3>Doctor Not Found!<br>Please check your username and password.</h3>
-    <a href="index-login.php" class="btn">Try Again</a>
+    <a href="doctor-login.php" class="btn">Try Again</a>
 </body>
 </html>

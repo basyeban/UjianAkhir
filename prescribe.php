@@ -204,12 +204,12 @@ if(isset($_POST['prescribe']) && isset($_POST['pid']) && isset($_POST['AppID']) 
         <input type="hidden" name="AppID" value="<?php echo $AppID ?>" />
         <br>
         <div class="submit-btn">
-        <input type="submit" name="prescribe" value="buat resep" class="btn btn-primary" style="margin-left: 12pc;">
+        <input type="submit" name="prescribe" value="buat resep" class="btn btn-primary" style="width: 100%; height: 100%; max-width: 300px; max-height: 60px; margin-left:85px">
         </div>
       </form>
       <div class="submit-btn">
-        <a href="doctor-panel.php" style="text-decoration: none;margin-left: 12pc;">
-        <button class="btn btn-primary" style="width:90px;">Back</button></a>
+        <a href="doctor-panel.php" style="text-decoration: none;margin-left: 12px;">
+        <button class="btn btn-primary" style="width: 100%; max-width: 300px; height: 100%; max-height: 60px; margin-left:75px;">Kembali</button>
         </div>
     </div>
   </div>
